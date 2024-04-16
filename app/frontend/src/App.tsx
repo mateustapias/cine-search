@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import './App.css'
+import './App.css';
 
 function App() {
   return (
@@ -12,23 +12,6 @@ function App() {
 }
 
 export default App;
-
-// import React from 'react';
-
-// function App() {
-//   return (
-//     <h1>
-//       oi
-//     </h1>
-//   );
-// }
-
-// export default App;
-
-
-
-
-
 
 // import React, { useEffect, useState } from 'react';
 // import axios from 'axios';

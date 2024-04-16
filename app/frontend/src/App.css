@@ -1,5 +1,16 @@
 body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  /* overflow: hidden; */
+  word-wrap: break-word;
   background-color: #403d39;
   font-family: "Helvetica Neue", Arial, sans-serif;
   color: #fffcf2;
 }
+
+/* li {
+  max-width: 100px;
+  text-overflow: ellipsis;
+} */
