@@ -1,0 +1,34 @@
+.popularMoviesContainer {
+  /* Estilos do container principal */
+  background-color: #e4ecf7;
+}
+
+.movieGroup {
+  display: flex;
+  overflow: hidden;
+  /* background-color: #e4ecf7; */
+  padding: 10px 0;
+  list-style-type: none;
+}
+
+.movieCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.movieCard p {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.moviePoster {
+  max-height: 300px; /* Altura máxima da imagem */
+  width: auto; /* Largura se ajustará automaticamente para manter a proporção */
+  margin-right: 10px; /* Espaçamento entre a imagem e o título */
+}
+
+.movieTitle {
+  /* Estilos do título */
+}
