@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
-import { Movie } from '../../../types';
+import '../styles/components/MoviesCarousel.css';
+import { Movie } from '../../types';
 
 type MoviesCarouselProps = {
   moviesData: Movie[],
@@ -23,14 +24,14 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
   };
 
   return (
-    <Carousel wrap={false} interval={null}>
+    <Carousel wrap={false} interval={null} className='moviesCarousel'>
       {chunkArray(moviesData, chunkSize, maxGroups).map((group, index) => (
         <Carousel.Item key={index}>
           <div className='movieGroup'>
             {group.map(movie => (
               <div key={movie.id} className='movieCard'>
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                <p>{movie.title}</p>
+                <img className='moviePoster' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                <span className='movieTitle'>{movie.title}</span>
               </div>
             ))}
           </div>

@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import './PopularMovies.css';
+import '../styles/components/PopularMovies.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Movie } from '../../../types';
-import MoviesCarousel from '../MoviesCarousel/MoviesCarousel';
+import { Movie } from '../../types';
+import MoviesCarousel from './MoviesCarousel';
 
 const PopularMovies = () => {
   const [popularMoviesData, setPopularMoviesData] = useState<Movie[]>();

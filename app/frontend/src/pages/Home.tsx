@@ -1,5 +1,5 @@
-import PopularMovies from '../components/PopularMovies/PopularMovies';
-import TopRatedMovies from '../components/TopRatedMovies/TopRatedMovies';
+import PopularMovies from '../components/PopularMovies';
+import TopRatedMovies from '../components/TopRatedMovies';
 
 const Home = () => {
 

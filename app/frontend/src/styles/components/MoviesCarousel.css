@@ -1,0 +1,25 @@
+.moviesCarousel {
+  background-color: blueviolet;
+}
+
+.movieCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.movieCard p {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.moviePoster {
+  max-height: 300px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.movieTitle {
+  /* Estilos do título */
+}
