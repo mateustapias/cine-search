@@ -1,12 +1,9 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import './PopularMovies.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import { Movie } from '../../../types';
 import MoviesCarousel from '../MoviesCarousel/MoviesCarousel';
 
-const PopularMovies = () => {
-  const [popularMoviesData, setPopularMoviesData] = useState<Movie[]>();
+const TopRatedMovies = () => {
+  const [topRatedMovies, setTopRatedMovies] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,8 +19,8 @@ const PopularMovies = () => {
             page: 1
           }
         };
-        const response = await axios.get('https://api.themoviedb.org/3/movie/popular', config);
-        setPopularMoviesData(response.data.results);
+        const response = await axios.get('https://api.themoviedb.org/3/movie/top_rated', config);
+        setTopRatedMovies(response.data.results);
       } catch (error) {
         console.error('Error fetching movie data:', error);
       }
@@ -38,10 +35,10 @@ const PopularMovies = () => {
   }, []);
 
   return (
-    <div className='popularMoviesContainer'>
-      <h1>Populares</h1>
-      {popularMoviesData ? (
-        <MoviesCarousel moviesData={popularMoviesData} chunkSize={4} maxGroups={5} />
+    <div>
+      <h1>Mais bem avaliados</h1>
+      { topRatedMovies ? (
+        <MoviesCarousel moviesData={topRatedMovies} chunkSize={4} maxGroups={5} />
       ) : (
         <p>Loading...</p>
       )}
@@ -49,4 +46,4 @@ const PopularMovies = () => {
   );
 };
 
-export default PopularMovies;
+export default TopRatedMovies;
