@@ -1,5 +1,31 @@
 .moviesCarousel {
-  background-color: blueviolet;
+  background-color: rgb(24, 24, 24);
+  /* border-radius: 2% 2% 2% 2%; */
+  border-radius: 10px;
+  display: flex;
+  /* flex-direction: column; */
+}
+
+/* .carousel-inner {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+  max-height: 100%;
+} */
+
+.carousel-item.active {
+  display: flex;
+}
+
+.carousel-item {
+  /* display: flex; */
+}
+
+.movieGroup {
+  /* display: flex; */
+  align-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .movieCard {
@@ -12,12 +38,13 @@
 .movieCard p {
   font-size: x-large;
   font-weight: bold;
+  display: flex;
 }
 
 .moviePoster {
   max-height: 300px;
-  width: auto;
-  margin-right: 10px;
+  width: 95%;
+  margin: 10px;
 }
 
 .movieTitle {

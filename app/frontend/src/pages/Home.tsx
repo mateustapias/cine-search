@@ -1,10 +1,11 @@
 import PopularMovies from '../components/PopularMovies';
 import TopRatedMovies from '../components/TopRatedMovies';
+import '../styles/pages/Home.css';
 
 const Home = () => {
 
   return (
-    <div>
+    <div className='homeContainer'>
       <PopularMovies />
       <TopRatedMovies />
     </div>

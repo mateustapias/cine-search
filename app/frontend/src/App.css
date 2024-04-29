@@ -5,9 +5,11 @@ body {
   margin: 0;
   /* overflow: hidden; */
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #0c0c0c;
+  color: #ebeed5;
+  /* background-color: #fff; */
+  /* color: #1b1b1b; */
   font-family: "Public Sans Web", Arial, sans-serif;
-  color: #1b1b1b;
 }
 /* cor para botões ou detalhes: */
 /* #f64137 */
