@@ -1,52 +1,61 @@
 .moviesCarousel {
   background-color: rgb(24, 24, 24);
-  /* border-radius: 2% 2% 2% 2%; */
   border-radius: 10px;
-  display: flex;
-  /* flex-direction: column; */
+  /* height: 400px; */
+  /* object-fit: contain; */
+  /* overflow: hidden; */
 }
 
-/* .carousel-inner {
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: space-between;
-  max-height: 100%;
-} */
-
-.carousel-item.active {
-  display: flex;
+.carousel-inner {
+  /* flex: 1; */
+  height: 100%;
+  object-fit: contain;
 }
 
 .carousel-item {
-  /* display: flex; */
+  height: 100%;
+  flex: 1;
+  block-size: fit-content;
+  
 }
 
 .movieGroup {
-  /* display: flex; */
+  display: flex;
+  /* height: 100%; */
+  /* flex: 1; */
   align-content: space-evenly;
   justify-content: space-evenly;
+  /* background-color: rgb(16, 16, 16); */
+  background-color: red;
+  padding: 10px;
+  margin: 2%;
 }
 
 .movieCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.movieCard p {
-  font-size: x-large;
-  font-weight: bold;
-  display: flex;
+  /* display: flex; */
+  height: 100%;
+  flex: 1;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* margin-bottom: 20px; */
+  /* background-color: rgb(16, 16, 16); */
+  /* background-color: red; */
+  /* margin: 2px; */
 }
 
 .moviePoster {
-  max-height: 300px;
   width: 95%;
+  height: auto;
+  /* max-width: 50%; */
   margin: 10px;
 }
+.movieCard span {
+  padding: 0 5%;
+  font-size: large;
+  font-weight: bold;
+  overflow: hidden;
+}
 
-.movieTitle {
-  /* Estilos do título */
+.carousel-indicators {
+  margin: 0;
 }

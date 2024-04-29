@@ -26,15 +26,15 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
   return (
     <Carousel wrap={false} interval={null} className='moviesCarousel'>
       {chunkArray(moviesData, chunkSize, maxGroups).map((group, index) => (
-        <Carousel.Item key={index} className='movieGroup'>
-          {/* <div className='movieGroup'> */}
-          {group.map(movie => (
-            <div key={movie.id} className='movieCard'>
-              <img className='moviePoster' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-              <span className='movieTitle'>{movie.title}</span>
-            </div>
-          ))}
-          {/* </div> */}
+        <Carousel.Item key={index}>
+          <div className='movieGroup'>
+            {group.map(movie => (
+              <div key={movie.id} className='movieCard'>
+                <img className='moviePoster' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                <span className='movieTitle'>{movie.title}</span>
+              </div>
+            ))}
+          </div>
         </Carousel.Item>
       ))}
     </Carousel>
