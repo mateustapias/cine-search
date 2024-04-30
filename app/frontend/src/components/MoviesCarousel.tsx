@@ -30,8 +30,12 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
           <div className='movieGroup'>
             {group.map(movie => (
               <div key={movie.id} className='movieCard'>
-                <img className='moviePoster' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                <span className='movieTitle'>{movie.title}</span>
+                <div className='moviePosterContainer'>
+                  <img className='moviePoster' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                </div>
+                <div className='movieTitleContainer'>
+                  <span className='movieTitle'>{movie.title}</span>
+                </div>
               </div>
             ))}
           </div>
