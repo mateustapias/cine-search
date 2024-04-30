@@ -41,7 +41,7 @@ const PopularMovies = () => {
     <div className='popularMoviesContainer'>
       <h1>Populares</h1>
       {popularMoviesData ? (
-        <MoviesCarousel moviesData={popularMoviesData} chunkSize={4} maxGroups={5} />
+        <MoviesCarousel moviesData={popularMoviesData} chunkSize={5} maxGroups={5} />
       ) : (
         <p>Loading...</p>
       )}

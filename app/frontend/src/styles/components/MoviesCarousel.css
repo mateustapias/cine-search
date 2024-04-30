@@ -2,63 +2,71 @@
   background-color: rgb(24, 24, 24);
   border-radius: 10px;
   height: 360px;
+  /* margin: 0 10% 0 0; */
+  /* align-self: flex-start; */
 }
 
 .carousel-inner {
   height: 100%;
+  box-sizing: border-box;
 }
 
 .carousel-item {
-  /* height: 200px; */
   height: 100%;
-  box-sizing: border-box;
 }
 
 .movieGroup {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   height: 90%;
   /* background-color: rgb(16, 16, 16); */
-  background-color: red;
-  padding: 10px;
-  margin: 2%;
+  /* background-color: red; */
+  /* padding: 10px; */
+  margin: 0 5%;
 }
 
 .movieCard {
-  height: 90%;
+  height: 100%;
+  margin: 10px 10px 0 0;
+  box-sizing: border-box;
   flex: 1;
-  background-color: green;
-  /* display: flex; */
-  /* flex-direction: column; */
+  /* background-color: green; */
+  background-color: rgb(16, 16, 16);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
   /* align-content: center; */
-  /* justify-content: space-evenly; */
+  /* justify-content: center; */
 }
 
 .moviePosterContainer {
   height: 80%;
-  /* width: 100%; */
   display: flex;
   justify-content: center;
+  flex: 1;
+  /* align-items: center; */
 }
 
 .moviePoster {
-  height: 100%;
-  /* width: 100%; */
-  /* height: auto; */
-  /* margin: 10px; */
+  /* flex: 1; */
+  /* height: 100%; */
 }
 
 .movieTitleContainer {
-  text-align: center;
-  height: 20%;
+  /* height: 20%; */
+  flex: 1;
+  margin: 0 0 0 10%;
+  width: 70%;
+  /* text-align: initial; */
+  /* display: flex; */
 }
 
 .movieTitle {
-  padding: 0 5%;
-  font-size: large;
-  font-weight: bold;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-weight: bold;
 }
 
 .carousel-indicators {
