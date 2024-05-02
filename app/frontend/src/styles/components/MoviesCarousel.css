@@ -48,11 +48,6 @@
   /* align-items: center; */
 }
 
-.moviePoster {
-  /* flex: 1; */
-  /* height: 100%; */
-}
-
 .movieTitleContainer {
   /* height: 20%; */
   flex: 1;

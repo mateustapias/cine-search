@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <div className='headerContainer'>
       <img src={popcornBox} alt="Logo" className="headerImage" />
-      <p>oi</p>
+      <div className='logoNameContainer'>
+        <span>CineSearch</span>
+      </div>
     </div>
   );
 };
