@@ -2,7 +2,7 @@
   margin: 0 10%;
 }
 
-h1 {
+.topRatedMoviesContainer h1 {
   color: rgb(243, 192, 25, 0.9);
   font-weight: bold;
 }

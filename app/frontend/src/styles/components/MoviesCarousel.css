@@ -1,7 +1,8 @@
 .moviesCarousel {
   background-color: rgb(24, 24, 24);
   border-radius: 10px;
-  height: 360px;
+  height: 30vh;
+  /* height: 360px; */
   /* margin: 0 10% 0 0; */
   /* align-self: flex-start; */
 }

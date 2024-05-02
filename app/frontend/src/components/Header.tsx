@@ -1,11 +1,14 @@
-function Header() {
+import '../styles/components/Header.css';
+
+const Header = () => {
   return (
     <>
-      <div className='header'>
+      <div className='headerContainer'>
         <p>oi</p>
       </ div>
     </>
   );
-}
+};
+
 
 export default Header;
