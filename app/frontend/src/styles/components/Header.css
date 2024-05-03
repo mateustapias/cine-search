@@ -1,23 +1,21 @@
 .headerContainer {
-  /* align-items: center; */
-  background-color: rgb(10, 80, 40);
-  box-shadow: 0 2px 4px black;
+  background-color: rgb(24, 24, 24);
+  box-shadow: 0 1px 1px rgba(12, 12, 12, 0.2);
   display: flex;
-  /* justify-content: right; */
   height: 5.5vh;
-  /* position: ab; */
-  /* top: 0; */
-  /* left: 0; */
   width: 100vw;
-  padding: 0 20px;
-  /* font-size: larger; */
+  padding: 0 10%;
+  justify-content: space-between;
+  /* padding: 0 20px; */
+}
+
+.logoContainer {
+  display: flex;
 }
 
 .headerImage {
-  /* margin: 5px 0 0 0; */
   align-self: center;
   height: 90%;
-  /* object-fit: contain; */
 }
 
 .logoNameContainer {
@@ -25,11 +23,13 @@
 }
 
 .logoNameContainer span {
-  /* align-self: center; */
-  font-size: 42px;
+  font-size: 2.6em;
   font-weight: 900;
   position: relative;
   top: -1px;
-  left: -2px;
-  color: rgb(255, 196, 0);
+  color: rgb(255, 210, 0);
+}
+
+.searchContainer {
+  display: flex;
 }

@@ -1,15 +1,7 @@
 body {
-  /* width: 100%; */
-  /* height: 100%; */
-  /* padding: 0; */
-  /* margin: 0; */
-  /* overflow: hidden; */
   word-wrap: break-word;
-  background-color: #0c0c0c;
+  background-color: rgb(8, 8, 8);
+  /* background-color: #0c0c0c; */
   color: #ebeed5;
-  /* background-color: #fff; */
-  /* color: #1b1b1b; */
   font-family: "Public Sans Web", Arial, sans-serif;
 }
-/* cor para botões ou detalhes: */
-/* #f64137 */

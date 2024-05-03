@@ -1,0 +1,20 @@
+/* .searchBarContainer {
+  height: 100%;
+} */
+
+.mb-3 {
+  height: 100%;
+}
+
+#button-addon2 {
+  height: 100%;
+  padding: 0;
+  border: 0;
+}
+
+img {
+  border-radius: 0 10px 10px 0;
+  padding: 10px;
+  height: 100%;
+  background-color: white;
+}
