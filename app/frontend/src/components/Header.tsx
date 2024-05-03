@@ -11,9 +11,9 @@ const Header = () => {
           <span>CineSearch</span>
         </div>
       </div>
-      <div className='searchContainer'>
-        <SearchBar />
-      </div>
+      {/* <div className='searchContainer'> */}
+      <SearchBar />
+      {/* </div> */}
     </div>
   );
 };

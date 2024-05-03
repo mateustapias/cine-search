@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../styles/components/SearchBar.css';
 import { Movie } from '../../types';
 import searchIcon from '../assets/images/searchIcon.png';
+import SearchAutocompleteCard from './SearchAutocompleteCard';
 
 const SearchBar = () => {
   const FORM_INITIAL_STATE = {
@@ -39,12 +40,12 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
+    <div className='searchContainer'>
       <div className='searchBarContainer'>
         <input
           id='searchBar'
           type="text"
-          placeholder="Search..."
+          placeholder="Pesquisar..."
           name="searchValue"
           value={searchValue}
           onChange={handleChange}
@@ -56,14 +57,21 @@ const SearchBar = () => {
           />
         </button>
       </div>
-      <div className='searchRecommendations'>
+      <div id='searchAutocomplete'>
         {searchResults &&
+          searchResults.map((movie) => (
+            <SearchAutocompleteCard key={movie.id} movie={movie} />
+          ))
+        }
+        {/* {searchResults &&
           <ul>
             {searchResults.map((movie) => (
-              <li key={movie.id}>{movie.title}</li>
+              <div key={movie.id} className='searchAutocompleteCard'>
+                <li key={movie.id}>{movie.title}</li>
+              </div>
             ))}
           </ul>
-        }
+        } */}
       </div>
     </div>
   );

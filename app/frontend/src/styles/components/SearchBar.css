@@ -1,3 +1,10 @@
+.searchContainer {
+  height: 100%;
+  width: 35%;
+  /* display: flex; */
+  padding: 0.6%;
+}
+
 .searchBarContainer {
   height: 100%;
   display: flex;
@@ -13,6 +20,7 @@
 
 #searchBar {
   height: 100%;
+  width: 100%;
   border: 0;
   background-color: transparent;
   border-right: 0;
@@ -36,4 +44,14 @@
   border-radius: 0 8px 8px 0;
   padding: 7px;
   height: 100%;
+}
+
+#searchAutocomplete {
+  width: 100%;
+  color: black;
+  position: relative;
+  z-index: 1;
+  max-height: 25em;
+  flex: 1;
+  overflow-y: scroll;
 }
