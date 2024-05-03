@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from 'react';
 import axios from 'axios';
 import '../styles/components/SearchBar.css';
+import { Movie } from '../../types';
+import searchIcon from '../assets/images/searchIcon.png';
 
 const SearchBar = () => {
   const FORM_INITIAL_STATE = {
@@ -9,7 +11,7 @@ const SearchBar = () => {
 
   const [formData, setFormData] = useState(FORM_INITIAL_STATE);
   const { searchValue } = formData;
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<Movie[]>([]);
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value: targetValue } } = event;
@@ -39,20 +41,25 @@ const SearchBar = () => {
   return (
     <div className='searchBarContainer'>
       <input
+        id='searchBar'
         type="text"
-        placeholder="Digite sua busca aqui..."
-        data-testid="search-input"
+        placeholder="Search..."
         name="searchValue"
         value={searchValue}
         onChange={handleChange}
       />
+      <button id='searchButton'>
+        <img
+          id='searchIcon'
+          src={searchIcon}
+        />
+      </button>
 
-      {/* Mostrar sugestões de filmes enquanto digita */}
-      <ul>
+      {/* <ul>
         {searchResults.map((movie) => (
           <li key={movie.id}>{movie.title}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };

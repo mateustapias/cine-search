@@ -1,20 +1,37 @@
-/* .searchBarContainer {
-  height: 100%;
-} */
-
-.mb-3 {
-  height: 100%;
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  background-color: white ;
 }
 
-#button-addon2 {
+.searchBarContainer:focus-within {
+  outline: 3px solid blue;
+}
+
+#searchBar {
+  height: 100%;
+  border: 0;
+  background-color: transparent;
+  border-right: 0;
+}
+
+#searchBar:focus {
+    outline: none;
+}
+
+#searchButton {
   height: 100%;
   padding: 0;
   border: 0;
+  border-left: 0;
+  box-sizing: border-box;
+  background-color: transparent;
 }
 
-img {
-  border-radius: 0 10px 10px 0;
-  padding: 10px;
+
+#searchIcon {
+  border-radius: 0 8px 8px 0;
+  padding: 7px;
   height: 100%;
-  background-color: white;
 }
