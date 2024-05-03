@@ -1,12 +1,14 @@
 .searchBarContainer {
+  height: 100%;
   display: flex;
   align-items: center;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: white ;
 }
 
 .searchBarContainer:focus-within {
-  outline: 3px solid blue;
+  outline: 2px solid rgb(255, 210, 0);
+  outline-offset: -1px;
 }
 
 #searchBar {

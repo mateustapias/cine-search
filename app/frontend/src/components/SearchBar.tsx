@@ -39,27 +39,32 @@ const SearchBar = () => {
   };
 
   return (
-    <div className='searchBarContainer'>
-      <input
-        id='searchBar'
-        type="text"
-        placeholder="Search..."
-        name="searchValue"
-        value={searchValue}
-        onChange={handleChange}
-      />
-      <button id='searchButton'>
-        <img
-          id='searchIcon'
-          src={searchIcon}
+    <div>
+      <div className='searchBarContainer'>
+        <input
+          id='searchBar'
+          type="text"
+          placeholder="Search..."
+          name="searchValue"
+          value={searchValue}
+          onChange={handleChange}
         />
-      </button>
-
-      {/* <ul>
-        {searchResults.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul> */}
+        <button id='searchButton'>
+          <img
+            id='searchIcon'
+            src={searchIcon}
+          />
+        </button>
+      </div>
+      <div className='searchRecommendations'>
+        {searchResults &&
+          <ul>
+            {searchResults.map((movie) => (
+              <li key={movie.id}>{movie.title}</li>
+            ))}
+          </ul>
+        }
+      </div>
     </div>
   );
 };
