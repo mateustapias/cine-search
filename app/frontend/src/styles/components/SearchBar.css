@@ -17,11 +17,11 @@
   outline-offset: -1px;
 }
 
-.withAutocompleteResults {
+.withSuggestion {
   border-radius: 4px 4px 0 0;
 }
 
-.withAutocompleteResults:focus-within {
+.withSuggestion:focus-within {
   outline: none;
 }
 
@@ -53,7 +53,7 @@
   height: 100%;
 }
 
-#searchAutocomplete {
+#searchSuggestion {
   width: 100%;
   color: black;
   position: relative;

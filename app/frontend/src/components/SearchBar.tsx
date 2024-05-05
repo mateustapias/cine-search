@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../styles/components/SearchBar.css';
 import { Movie } from '../../types';
 import searchIcon from '../assets/images/searchIcon.png';
-import SearchAutocompleteCard from './SearchAutocompleteCard';
+import SearchSuggestionCard from './SearchSuggestionCard';
 
 const SearchBar = () => {
   const FORM_INITIAL_STATE = {
@@ -43,7 +43,7 @@ const SearchBar = () => {
   return (
     <div className='searchContainer'>
       <div
-        className={'searchBarContainer' + (searchResults.length && showSuggestions ? ' withAutocompleteResults' : '')}
+        className={'searchBarContainer' + (searchResults.length && showSuggestions ? ' withSuggestion' : '')}
         onFocus={() => setShowSuggestions(true)}
         onBlur={() => setShowSuggestions(false)}
       >
@@ -63,10 +63,10 @@ const SearchBar = () => {
         </button>
       </div>
       {showSuggestions &&
-        <div id='searchAutocomplete'>
+        <div id='searchSuggestion'>
           {searchResults &&
             searchResults.map((movie) => (
-              <SearchAutocompleteCard key={movie.id} movie={movie} />
+              <SearchSuggestionCard key={movie.id} movie={movie} />
             ))
           }
         </div>

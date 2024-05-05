@@ -1,4 +1,4 @@
-.searchAutocompleteCard {
+.searchSuggestionCard {
   display: flex;
   height: 6em;
   background-color: white;
@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-.autocompletePosterContainer {
+.searchSuggestionPosterContainer {
   display: flex;
   max-height: 100%;
   /* object-fit: contain; */
@@ -16,7 +16,7 @@
   /* width: 10%;  */
 }
 
-.autocompleteTitleContainer {
+.searchSuggestionTitleContainer {
   align-self: center;
   /* text-align: center; */
 }
