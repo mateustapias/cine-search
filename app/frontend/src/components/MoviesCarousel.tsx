@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import '../styles/components/MoviesCarousel.css';
 import { Movie } from '../../types';
+import { Link } from 'react-router-dom';
 
 type MoviesCarouselProps = {
   moviesData: Movie[],
@@ -29,14 +30,14 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
         <Carousel.Item key={index}>
           <div className='movieGroup'>
             {group.map(movie => (
-              <div key={movie.id} className='movieCard'>
+              <Link to={`/${movie.id}`} key={movie.id} className='movieCard'>
                 <div className='moviePosterContainer'>
                   <img className='moviePoster' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                 </div>
                 <div className='movieTitleContainer'>
                   <span className='movieTitle'>{movie.title}</span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </Carousel.Item>

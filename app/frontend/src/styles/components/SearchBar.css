@@ -1,5 +1,7 @@
 .searchContainer {
-  height: 100%;
+  /* display: flex; */
+  z-index: 999;
+  max-height: 500px;
   width: 35%;
   padding: 0.6%;
 }

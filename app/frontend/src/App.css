@@ -5,3 +5,7 @@ body {
   color: #ebeed5;
   font-family: "Public Sans Web", Arial, sans-serif;
 }
+
+a {
+  text-decoration: none;
+}

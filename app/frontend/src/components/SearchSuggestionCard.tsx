@@ -1,5 +1,5 @@
+// import { Link } from 'react-router-dom';
 import { Movie } from '../../types';
-// import { useNavigate } from 'react-router-dom';
 import '../styles/components/SearchSuggestionCard.css';
 
 type SearchSuggestionCardProps = {
@@ -7,15 +7,17 @@ type SearchSuggestionCardProps = {
 }
 
 const SearchSuggestionCard = ({ movie }: SearchSuggestionCardProps) => {
+  // const navigate = useNavigate();
+
   return (
-    <div className='searchSuggestionCard' >
+    <a className='searchSuggestionCard' href={`/${movie.id}`}>
       <div className='searchSuggestionPosterContainer'>
         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
       </div>
       <div className='searchSuggestionTitleContainer'>
         {movie.title}
       </div>
-    </div>
+    </a>
   );
 };
 

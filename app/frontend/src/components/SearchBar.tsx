@@ -41,11 +41,13 @@ const SearchBar = () => {
   };
 
   return (
-    <div className='searchContainer'>
+    <div
+      className='searchContainer'
+      onFocus={() => setShowSuggestions(true)}
+      // onBlur={() => setShowSuggestions(false)}
+    >
       <div
         className={'searchBarContainer' + (searchResults.length && showSuggestions ? ' withSuggestion' : '')}
-        onFocus={() => setShowSuggestions(true)}
-        onBlur={() => setShowSuggestions(false)}
       >
         <input
           id='searchBar'
