@@ -13,6 +13,7 @@ const SearchBar = () => {
   const [formData, setFormData] = useState(FORM_INITIAL_STATE);
   const { searchValue } = formData;
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value: targetValue } } = event;
@@ -41,7 +42,11 @@ const SearchBar = () => {
 
   return (
     <div className='searchContainer'>
-      <div className='searchBarContainer'>
+      <div
+        className={'searchBarContainer' + (searchResults.length && showSuggestions ? ' withAutocompleteResults' : '')}
+        onFocus={() => setShowSuggestions(true)}
+        onBlur={() => setShowSuggestions(false)}
+      >
         <input
           id='searchBar'
           type="text"
@@ -57,23 +62,16 @@ const SearchBar = () => {
           />
         </button>
       </div>
-      <div id='searchAutocomplete'>
-        {searchResults &&
-          searchResults.map((movie) => (
-            <SearchAutocompleteCard key={movie.id} movie={movie} />
-          ))
-        }
-        {/* {searchResults &&
-          <ul>
-            {searchResults.map((movie) => (
-              <div key={movie.id} className='searchAutocompleteCard'>
-                <li key={movie.id}>{movie.title}</li>
-              </div>
-            ))}
-          </ul>
-        } */}
-      </div>
-    </div>
+      {showSuggestions &&
+        <div id='searchAutocomplete'>
+          {searchResults &&
+            searchResults.map((movie) => (
+              <SearchAutocompleteCard key={movie.id} movie={movie} />
+            ))
+          }
+        </div>
+      }
+    </div >
   );
 };
 

@@ -1,7 +1,6 @@
 .searchContainer {
   height: 100%;
   width: 35%;
-  /* display: flex; */
   padding: 0.6%;
 }
 
@@ -10,12 +9,20 @@
   display: flex;
   align-items: center;
   border-radius: 4px;
-  background-color: white ;
+  background-color: white;
 }
 
 .searchBarContainer:focus-within {
   outline: 2px solid rgb(255, 210, 0);
   outline-offset: -1px;
+}
+
+.withAutocompleteResults {
+  border-radius: 4px 4px 0 0;
+}
+
+.withAutocompleteResults:focus-within {
+  outline: none;
 }
 
 #searchBar {
@@ -27,7 +34,7 @@
 }
 
 #searchBar:focus {
-    outline: none;
+  outline: none;
 }
 
 #searchButton {
@@ -50,8 +57,31 @@
   width: 100%;
   color: black;
   position: relative;
-  z-index: 1;
+  z-index: 999;
   max-height: 25em;
   flex: 1;
   overflow-y: scroll;
+  /* border-radius: 0 0 10px 10px; */
+}
+
+/* Width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  cursor: pointer;
 }
