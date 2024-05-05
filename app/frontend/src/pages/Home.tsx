@@ -1,15 +1,16 @@
 import PopularMovies from '../components/PopularMovies';
 import TopRatedMovies from '../components/TopRatedMovies';
 import '../styles/pages/Home.css';
-import Layout from './Layout';
+// import Layout from './Layout';
 
 const Home = () => {
-
   return (
-    <Layout>
+    // <Layout>
+    <div>
       <PopularMovies />
       <TopRatedMovies />
-    </Layout>
+    </div>
+    // </Layout>
   );
 };
 
