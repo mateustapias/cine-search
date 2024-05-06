@@ -1,12 +1,12 @@
 .headerContainer {
+  display: flex;
   background-color: rgb(24, 24, 24);
   box-shadow: 0 1px 1px rgba(12, 12, 12, 0.2);
-  display: flex;
   height: 5.5vh;
   width: 100vw;
   padding: 0 10%;
-  justify-content: space-between;
 }
+.ai
 
 .logoContainer {
   display: flex;
@@ -14,17 +14,22 @@
 
 .headerImage {
   align-self: center;
-  height: 90%;
+  height: 95%;
 }
 
 .logoNameContainer {
+  display: flex;
   height: 100%;
+  align-items: first baseline;
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: rgb(255, 210, 0);
 }
 
 .logoNameContainer span {
-  font-size: 2.6em;
-  font-weight: 900;
+  display: flex;
+  align-self: center;
   position: relative;
-  top: -1px;
-  color: rgb(255, 210, 0);
+  font-size: 3.6rem;
+  color: rgb(255, 50, 50);
 }

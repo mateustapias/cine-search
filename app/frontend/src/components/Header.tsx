@@ -1,18 +1,23 @@
 import '../styles/components/Header.css';
-import popcornBox from '../assets/images/popcornBox.png';
+import popcornBoxIcon from '../assets/images/popcornBoxIcon.png';
 import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
+import LogInBox from './LogInBox';
+import SignUpBox from './SignUpBox';
 
 const Header = () => {
   return (
     <div className='headerContainer'>
       <Link to="/" className='logoContainer'>
-        <img src={popcornBox} alt="Logo" className="headerImage" />
+        <img src={popcornBoxIcon} alt="Logo" className="headerImage" />
         <div className='logoNameContainer'>
-          <span>CineSearch</span>
+          <span>C</span>ine<span>S</span>earch
         </div>
       </Link>
       <SearchBar />
+      <LogInBox />
+      <SignUpBox />
+      <div className='aiaee'></div>
     </div>
   );
 };
