@@ -12,9 +12,7 @@ const Header = () => {
           <span>CineSearch</span>
         </div>
       </Link>
-      {/* <div className='searchContainer'> */}
       <SearchBar />
-      {/* </div> */}
     </div>
   );
 };

@@ -1,7 +1,5 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import '../styles/components/PopularMovies.css';
-import 'bootstrap/dist/css/bootstrap.css';
 import { Movie } from '../../types';
 import MoviesCarousel from './MoviesCarousel';
 
@@ -38,7 +36,7 @@ const PopularMovies = () => {
   }, []);
 
   return (
-    <div className='popularMoviesContainer'>
+    <div className='moviesContainer popularMoviesContainer'>
       <h1>Populares</h1>
       {popularMoviesData ? (
         <MoviesCarousel moviesData={popularMoviesData} chunkSize={5} maxGroups={5} />

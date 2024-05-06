@@ -40,15 +40,20 @@ const SearchBar = () => {
     }
   };
 
+
+  const handleBlur = (event: React.FocusEvent<HTMLDivElement, Element>) => {
+    if (event.relatedTarget && event.relatedTarget.className == 'searchSuggestionCard') {
+      return;
+    }
+    setShowSuggestions(false);
+  };
+
   return (
-    <div
-      className='searchContainer'
+    <div className='searchContainer'
       onFocus={() => setShowSuggestions(true)}
-      // onBlur={() => setShowSuggestions(false)}
+      onBlur={handleBlur}
     >
-      <div
-        className={'searchBarContainer' + (searchResults.length && showSuggestions ? ' withSuggestion' : '')}
-      >
+      <div className={'searchBarContainer' + (searchResults.length && showSuggestions ? ' withSuggestion' : '')}>
         <input
           id='searchBar'
           type="text"
@@ -58,10 +63,7 @@ const SearchBar = () => {
           onChange={handleChange}
         />
         <button id='searchButton'>
-          <img
-            id='searchIcon'
-            src={searchIcon}
-          />
+          <img id='searchIcon' src={searchIcon} />
         </button>
       </div>
       {showSuggestions &&
@@ -73,7 +75,7 @@ const SearchBar = () => {
           }
         </div>
       }
-    </div >
+    </div>
   );
 };
 

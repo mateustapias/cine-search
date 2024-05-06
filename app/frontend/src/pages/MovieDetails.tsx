@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Movie } from '../../types';
-// import Layout from './Layout';
+import '../styles/pages/MovieDetails.css';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -34,14 +34,31 @@ const MovieDetails = () => {
   });
 
   return (
-    <div>
-      {/* <Layout> */}
-      <div>
-        {movieData &&
+    <div className='movieDetailsContainer'>
+      {movieData &&
+        <div className='movieDataContainer'>
           <img src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} />
-        }
-      </div>
-      {/* </Layout> */}
+          <div className='movieDataDetailsContainer'>
+            <div className='movieTitleContainer'>
+              {movieData.title}
+            </div>
+            <div className='movieRatingContainer'>
+              <span>
+                {`${movieData.vote_average.toFixed(1)} / 10`}
+              </span>
+            </div>
+            <div className='movieRuntimeContainer'>
+              {`${movieData.runtime} min`}
+            </div>
+            <div className='movieReleaseDateContainer'>
+              {movieData.release_date}
+            </div>
+            <div className='movieOverviewContainer'>
+              {movieData.overview}
+            </div>
+          </div>
+        </div>
+      }
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import MoviesCarousel from './MoviesCarousel';
-import '../styles/components/TopRatedMovies.css';
 
 const TopRatedMovies = () => {
   const [topRatedMovies, setTopRatedMovies] = useState();
@@ -36,7 +35,7 @@ const TopRatedMovies = () => {
   }, []);
 
   return (
-    <div className='topRatedMoviesContainer'>
+    <div className='moviesContainer topRatedMoviesContainer'>
       <h1>Mais bem avaliados</h1>
       { topRatedMovies ? (
         <MoviesCarousel moviesData={topRatedMovies} chunkSize={5} maxGroups={5} />
