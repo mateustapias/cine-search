@@ -1,12 +1,62 @@
-.generalPrompt {
-  background-color: red;
+.background {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 3;
+}
+
+.generalPromptOuterContainer {
+  background-color: rgb(20, 20, 20);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 300px;
-  width: 300px;
-  z-index: 999;
+  height: 28rem;
+  width: 32rem;
+  z-index: 4;
   display: flex;
   flex-direction: column;
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+.generalPromptInnerContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(16, 16, 16);
+  border-radius: inherit;
+}
+
+.selectionContainer {
+  /* background-color: yellow; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+}
+
+.selectionContainer button {
+  font-size: larger;
+  height: 50px;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  background-color: rgb(255, 255, 255, 0.3);
+}
+
+.log-in-btn {
+  border-top-left-radius: inherit;
+}
+
+.sign-up-btn {
+  border-top-right-radius: inherit;
+}
+
+.selectionContainer .active {
+  background-color: buttonface;
 }

@@ -9,7 +9,7 @@ type AppProviderProps = {
 
 const AppProvider = ({ children }: AppProviderProps) => {
   const INITIAL_SHOW_LOG_IN_OR_SIGN_UP_STATE: ShowLogInOrSignUp = {
-    show: false,
+    show: true,
     type: 'signUp'
   };
 

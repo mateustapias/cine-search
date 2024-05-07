@@ -1,9 +1,23 @@
 const SignUpPrompt = () => {
   return (
     <div className='signUpPrompt'>
-      SignUpPrompt
-      <input type='email' placeholder='Email' autoFocus />
-      <input type='password' placeholder='Senha' />
+      <div className='signUpMessage'>Crie uma conta para desfrutar 100% do site</div>
+      <input
+        autoFocus
+        type='email'
+        placeholder='Email'
+        className='emailInput'
+      />
+      <input
+        type='text'
+        placeholder='Nome de usuário'
+        className='emailInput'
+      />
+      <input
+        type='password'
+        placeholder='senha'
+        className='passwordInput'
+      />
       <button type='submit'>Entrar</button>
     </div>
   );

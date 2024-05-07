@@ -1,20 +1,30 @@
 import '../../styles/components/LogInOrSignUp/LogInPrompt.css';
-import useAppContext from '../../utils/useAppContext';
-import { FocusEvent } from 'react';
 
 const LogInPrompt = () => {
-  const { setShowLogInOrSignUp } = useAppContext();
-
-
 
   return (
-    <div className='logInPrompt'
+    <form className='log-in-prompt'
     >
-      SignUp
-      <input type='email' placeholder='Email' autoFocus />
-      <input type='password' placeholder='Senha' />
-      <button type='submit'>Entrar</button>
-    </div>
+      <div className='c-log-in-message'>Bem-vindo de volta!</div>
+      <div className='c-email'>
+        <input
+          autoFocus
+          type='email'
+          placeholder='email'
+          className='email-input'
+        />
+      </div>
+      <div className='c-password'>
+        <input
+          type='password'
+          placeholder='senha'
+          className='password-input'
+        />
+      </div>
+      <div className='c-submit-btn'>
+        <button type='submit'>Entrar</button>
+      </div>
+    </form>
   );
 };
 
