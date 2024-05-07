@@ -17,7 +17,6 @@ const Header = () => {
       <SearchBar />
       <LogInBox />
       <SignUpBox />
-      <div className='aiaee'></div>
     </div>
   );
 };
