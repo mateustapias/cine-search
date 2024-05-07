@@ -7,3 +7,8 @@ export type Movie = {
   runtime: number,
   vote_average: number,
 }
+
+export type ShowLogInOrSignUp = {
+  show: boolean,
+  type: 'logIn' | 'signUp'
+}

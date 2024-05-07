@@ -1,5 +1,11 @@
-import { createContext } from 'react';
+import { createContext, Dispatch, SetStateAction } from 'react';
+import { ShowLogInOrSignUp } from '../../types';
 
-const AppContext = createContext({});
+export type AppContextType = {
+  showLogInOrSignUp: ShowLogInOrSignUp
+  setShowLogInOrSignUp: Dispatch<SetStateAction<ShowLogInOrSignUp>>
+}
+
+const AppContext = createContext({} as AppContextType);
 
 export default AppContext;
