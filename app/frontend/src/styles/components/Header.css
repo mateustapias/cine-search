@@ -9,6 +9,11 @@
 
 .c-logo {
   display: flex;
+  transition: filter 0.2s ease-out;
+}
+
+.c-logo:hover {
+  filter: brightness(1.2);
 }
 
 .img-header {

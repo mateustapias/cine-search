@@ -85,21 +85,31 @@
   width: 100%;
 }
 
-.c-inner-general-prompt .c-log-in-message {
+/* CONTAINER DE LOGIN OU CADASTRO */
+.c-prompt {
+  background-color: rgb(16, 16, 16);
+  border-radius: inherit;
+  padding: 30px 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-prompt .c-message {
   text-align: center;
   font-size: x-large;
   margin-bottom: 30px;
 }
 
-.c-inner-general-prompt .c-email {
+.c-prompt .c-email {
   margin-bottom: 20px;
 }
 
-.c-inner-general-prompt .c-username {
+.c-prompt .c-username {
   margin-bottom: 20px;
 }
 
-.c-inner-general-prompt .c-password {
+.c-prompt .c-password {
   margin-bottom: 50px;
 }
 

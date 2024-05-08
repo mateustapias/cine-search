@@ -1,10 +1,9 @@
-import '../../styles/components/LogInPrompt.css';
 
 const LogInPrompt = () => {
   return (
-    <div className='c-log-in-prompt'
+    <div className='c-prompt c-log-in-prompt'
     >
-      <div className='c-log-in-message'>Bem-vindo de volta!</div>
+      <div className='c-message'>Bem-vindo de volta!</div>
       <form className='form-log-in'>
         <div className='c-email'>
           <label htmlFor='email' className='label-email'>Email</label>

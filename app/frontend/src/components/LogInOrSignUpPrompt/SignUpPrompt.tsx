@@ -1,9 +1,8 @@
-import '../../styles/components/SignUpPrompt.css';
 
 const SignUpPrompt = () => {
   return (
-    <div className='c-sign-up-prompt'>
-      <div className='c-sign-up-message'>Crie uma conta para desfrutar 100% do site</div>
+    <div className='c-prompt'>
+      <div className='c-message c-sign-up-prompt'>Crie uma conta para desfrutar 100% do site</div>
       <form className='sign-up-form'>
         <div className='c-email'>
           <label htmlFor='email' className='label-email'>Email</label>
