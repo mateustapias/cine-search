@@ -4,7 +4,7 @@ import '../styles/pages/Home.css';
 
 const Home = () => {
   return (
-    <div className='homeContainer'>
+    <div className='c-home'>
       <PopularMovies />
       <TopRatedMovies />
     </div>

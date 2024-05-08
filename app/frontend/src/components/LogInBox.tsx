@@ -11,7 +11,7 @@ const LogInBox = () => {
     });
   }
   return (
-    <button className='logInBoxContainer' onClick={handleClick}>
+    <button className='btn-log-in-box' onClick={handleClick}>
       {/* <img src={defaultUserIcon} /> */}
       <span>Log in</span>
     </button>

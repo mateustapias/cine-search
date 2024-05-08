@@ -34,26 +34,26 @@ const MovieDetails = () => {
   });
 
   return (
-    <div className='movieDetailsContainer'>
+    <div className='c-movie-details'>
       {movieData &&
-        <div className='movieDataContainer'>
+        <div className='c-movie-data'>
           <img src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} />
-          <div className='movieDataDetailsContainer'>
-            <div className='movieTitleContainer'>
+          <div className='c-movie-data-details'>
+            <div className='c-movie-title'>
               {movieData.title}
             </div>
-            <div className='movieRatingContainer'>
+            <div className='c-movie-rating'>
               <span>
                 {`${movieData.vote_average.toFixed(1)} / 10`}
               </span>
             </div>
-            <div className='movieRuntimeContainer'>
+            <div className='c-movie-runtime'>
               {`${movieData.runtime} min`}
             </div>
-            <div className='movieReleaseDateContainer'>
+            <div className='c-movie-release-date'>
               {movieData.release_date}
             </div>
-            <div className='movieOverviewContainer'>
+            <div className='c-movie-overview'>
               {movieData.overview}
             </div>
           </div>

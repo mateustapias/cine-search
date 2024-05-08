@@ -36,7 +36,7 @@ const PopularMovies = () => {
   }, []);
 
   return (
-    <div className='moviesContainer popularMoviesContainer'>
+    <div className='c-movies c-popular-movies'>
       <h1>Populares</h1>
       {popularMoviesData ? (
         <MoviesCarousel moviesData={popularMoviesData} chunkSize={5} maxGroups={5} />

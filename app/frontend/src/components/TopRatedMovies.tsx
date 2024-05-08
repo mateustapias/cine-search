@@ -35,7 +35,7 @@ const TopRatedMovies = () => {
   }, []);
 
   return (
-    <div className='moviesContainer topRatedMoviesContainer'>
+    <div className='c-movies c-top-rated-movies'>
       <h1>Mais bem avaliados</h1>
       { topRatedMovies ? (
         <MoviesCarousel moviesData={topRatedMovies} chunkSize={5} maxGroups={5} />

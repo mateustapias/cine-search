@@ -1,9 +1,9 @@
-.moviesContainer h1 {
+.c-movies h1 {
   color: rgb(255, 210, 0);
   font-weight: bold;
 }
 
-.moviesContainer h1::first-letter {
+.c-movies h1::first-letter {
   /* color: rgb(255, 50, 50); */
   font-size: larger;
 }

@@ -7,10 +7,10 @@ import SignUpBox from './SignUpBox';
 
 const Header = () => {
   return (
-    <div className='headerContainer'>
-      <Link to="/" className='logoContainer'>
-        <img src={popcornBoxIcon} alt="Logo" className="headerImage" />
-        <div className='logoNameContainer'>
+    <div className='c-header'>
+      <Link to="/" className='c-logo'>
+        <img src={popcornBoxIcon} alt="Logo" className="img-header" />
+        <div className='c-logo-name'>
           <span>C</span>ine<span>S</span>earch
         </div>
       </Link>

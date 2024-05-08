@@ -1,4 +1,4 @@
-import '../../styles/components/LogInOrSignUp/SignUpPrompt.css';
+import '../../styles/components/SignUpPrompt.css';
 
 const SignUpPrompt = () => {
   return (
@@ -6,33 +6,31 @@ const SignUpPrompt = () => {
       <div className='c-sign-up-message'>Crie uma conta para desfrutar 100% do site</div>
       <form className='sign-up-form'>
         <div className='c-email'>
-          <label htmlFor='email' className='email-label'>Email</label>
+          <label htmlFor='email' className='label-email'>Email</label>
           <input
             autoFocus
             type='email'
             id='email'
-            // placeholder='email'
-            className='email-input'
+            className='input-email'
           />
         </div>
         <div className='c-username'>
-          <label htmlFor='username' className='username-label'>Usuário</label>
+          <label htmlFor='username' className='label-username'>Usuário</label>
           <input
             type='text'
-            // placeholder='Nome de usuário'
-            className='emailInput'
+            id='username'
+            className='input-username'
           />
         </div>
         <div className='c-password'>
-          <label htmlFor='password' className='password-label'>Senha</label>
+          <label htmlFor='password' className='label-password'>Senha</label>
           <input
             type='password'
             id='password'
-            // placeholder='senha'
-            className='password-input'
+            className='input-password'
           />
         </div>
-        <div className='c-submit-btn'>
+        <div className='c-submit'>
           <button type='submit'>Entrar</button>
         </div>
       </form>

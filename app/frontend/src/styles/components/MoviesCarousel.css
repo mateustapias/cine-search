@@ -1,4 +1,4 @@
-.moviesCarousel {
+.c-movies-carousel {
   background-color: rgb(24, 24, 24);
   border-radius: 10px;
   height: 30vh;
@@ -13,14 +13,14 @@
   height: 100%;
 }
 
-.movieGroup {
+.c-movie-group {
   display: flex;
   align-items: center;
   height: 90%;
   margin: 0 5%;
 }
 
-.movieCard {
+.movie-card {
   height: 100%;
   margin: 10px 10px 0 0;
   box-sizing: border-box;
@@ -33,20 +33,20 @@
   color: #ebeed5;
 }
 
-.moviePosterContainer {
+.c-movie-poster {
   height: 80%;
   display: flex;
   justify-content: center;
   flex: 1;
 }
 
-.movieCard .movieTitleContainer {
+.movie-card .c-movie-title {
   flex: 1;
   margin: 0 0 0 10%;
   width: 70%;
 }
 
-.movieTitle {
+.movie-title {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;

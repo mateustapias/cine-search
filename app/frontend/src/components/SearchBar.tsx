@@ -42,32 +42,32 @@ const SearchBar = () => {
 
 
   const handleBlur = (event: React.FocusEvent<HTMLDivElement, Element>) => {
-    if (event.relatedTarget && event.relatedTarget.className == 'searchSuggestionCard') {
+    if (event.relatedTarget && event.relatedTarget.className == 'search-suggestion-card') {
       return;
     }
     setShowSuggestions(false);
   };
 
   return (
-    <div className='searchContainer'
+    <div className='c-search'
       onFocus={() => setShowSuggestions(true)}
       onBlur={handleBlur}
     >
-      <div className={'searchBarContainer' + (searchResults.length && showSuggestions ? ' withSuggestion' : '')}>
+      <div className={'c-search-bar' + (searchResults.length && showSuggestions ? ' with-suggestion' : '')}>
         <input
-          id='searchBar'
+          id='input-search-bar'
           type="text"
           placeholder="Pesquisar..."
           name="searchValue"
           value={searchValue}
           onChange={handleChange}
         />
-        <button id='searchButton'>
-          <img id='searchIcon' src={searchIcon} />
+        <button id='btn-search'>
+          <img id='search-icon' src={searchIcon} />
         </button>
       </div>
       {showSuggestions &&
-        <div id='searchSuggestion'>
+        <div id='c-search-suggestion'>
           {searchResults &&
             searchResults.map((movie) => (
               <SearchSuggestionCard key={movie.id} movie={movie} />

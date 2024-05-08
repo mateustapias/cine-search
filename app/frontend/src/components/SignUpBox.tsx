@@ -10,7 +10,7 @@ const SignUpBox = () => {
     });
   };
   return (
-    <button className='signUpBoxContainer' onClick={handleClick}>
+    <button className='btn-sign-up-box' onClick={handleClick}>
       <span>Sign up</span>
     </button>
   );

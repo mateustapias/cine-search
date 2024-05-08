@@ -1,4 +1,4 @@
-.searchSuggestionCard {
+.search-suggestion-card {
   display: flex;
   height: 6em;
   background-color: white;
@@ -8,11 +8,11 @@
   width: 100%;
 }
 
-.searchSuggestionPosterContainer {
+.c-search-suggestion-poster {
   display: flex;
   max-height: 100%;
 }
 
-.searchSuggestionTitleContainer {
+.c-search-suggestion-title {
   align-self: center;
 }

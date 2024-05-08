@@ -1,4 +1,4 @@
-.searchContainer {
+.c-search {
   width: 30%;
   padding: 7px 0;
   /* background-color: red; */
@@ -7,7 +7,7 @@
   /* margin-right: auto; */
 }
 
-.searchBarContainer {
+.c-search-bar {
   height: 100%;
   display: flex;
   align-items: center;
@@ -15,20 +15,20 @@
   background-color: white;
 }
 
-.searchBarContainer:focus-within {
+.c-search-bar:focus-within {
   outline: 2px solid rgb(255, 210, 0);
   outline-offset: -1px;
 }
 
-.withSuggestion {
+.with-suggestion {
   border-radius: 4px 4px 0 0;
 }
 
-.withSuggestion:focus-within {
+.with-suggestion:focus-within {
   outline: none;
 }
 
-#searchBar {
+#input-search-bar {
   height: 100%;
   width: 100%;
   border: 0;
@@ -36,11 +36,11 @@
   border-right: 0;
 }
 
-#searchBar:focus {
+#input-search-bar:focus {
   outline: none;
 }
 
-#searchButton {
+#btn-search {
   height: 100%;
   padding: 0;
   border: 0;
@@ -50,13 +50,13 @@
 }
 
 
-#searchIcon {
+#search-icon {
   border-radius: 0 8px 8px 0;
   padding: 7px;
   height: 100%;
 }
 
-#searchSuggestion {
+#c-search-suggestion {
   width: 100%;
   color: black;
   position: relative;

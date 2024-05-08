@@ -1,4 +1,4 @@
-.logInBoxContainer {
+.btn-log-in-box {
   /* display: flex;
   align-items: center; */
   margin: 7px 0;
@@ -12,7 +12,7 @@
 }
 
 /* 
-.logInBoxContainer img {
+.btn-log-in-box img {
   height: 100%;
   filter: invert(100%);
   margin-right: 2px;

@@ -1,21 +1,21 @@
-.movieDataContainer {
+.c-movie-data {
   display: flex;
   height: 30rem;
   border-radius: 10px;
   background-color: red;
 }
 
-.movieDataContainer img {
+.c-movie-data img {
   border-top-left-radius: inherit;
   border-bottom-left-radius: inherit;
 }
 
-.movieDataContainer .movieDataDetailsContainer {
+.c-movie-data .c-movie-data-details {
   display: flex;
   flex-direction: column;
 }
 
-.movieDataDetailsContainer .movieTitleContainer {
+.c-movie-data-details .c-movie-title {
   font-size: xx-large;
   font-weight: bolder;
 }

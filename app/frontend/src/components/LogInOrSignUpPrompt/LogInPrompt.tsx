@@ -1,31 +1,31 @@
-import '../../styles/components/LogInOrSignUp/LogInPrompt.css';
+import '../../styles/components/LogInPrompt.css';
 
 const LogInPrompt = () => {
   return (
     <div className='c-log-in-prompt'
     >
       <div className='c-log-in-message'>Bem-vindo de volta!</div>
-      <form className='log-in-form'>
+      <form className='form-log-in'>
         <div className='c-email'>
-          <label htmlFor='email' className='email-label'>Email</label>
+          <label htmlFor='email' className='label-email'>Email</label>
           <input
             autoFocus
             type='email'
             id='email'
             // placeholder='email'
-            className='email-input'
+            className='input-email'
           />
         </div>
         <div className='c-password'>
-          <label htmlFor='password' className='password-label'>Senha</label>
+          <label htmlFor='password' className='label-password'>Senha</label>
           <input
             type='password'
             id='password'
             // placeholder='senha'
-            className='password-input'
+            className='input-password'
           />
         </div>
-        <div className='c-submit-btn'>
+        <div className='c-submit'>
           <button type='submit'>Entrar</button>
         </div>
       </form>

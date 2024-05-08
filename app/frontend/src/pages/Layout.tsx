@@ -8,9 +8,9 @@ const Layout = () => {
   const { showLogInOrSignUp } = useAppContext();
 
   return (
-    <div className='layoutContainer'>
+    <div className='c-layout'>
       <Header />
-      <div className='outletContainer'>
+      <div className='c-outlet'>
         <Outlet />
       </div>
       {showLogInOrSignUp.show && <GeneralPrompt />}
