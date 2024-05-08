@@ -1,5 +1,28 @@
-.signUpPrompt {
-  background-color: green;
+.c-sign-up-prompt {
+  background-color: rgb(16, 16, 16);
+  border-radius: inherit;
+  padding: 30px 40px;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  /* object-fit: contain; */
+}
+
+.c-sign-up-message {
+  text-align: center;
+  font-size: x-large;
+  /* margin-top: 20px; */
+  margin-bottom: 30px;
+}
+
+.c-username {
+  margin-bottom: 30px;
+}
+
+.c-password {
+  margin-bottom: 50px;
+}
+
+.c-submit-btn {
+  /* margin-top: auto; */
 }
