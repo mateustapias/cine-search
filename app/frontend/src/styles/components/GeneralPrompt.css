@@ -14,7 +14,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* min-height: 28rem; */
   width: 32rem;
   z-index: 4;
   display: flex;
@@ -46,7 +45,7 @@
   border: 0;
   padding: 0;
   width: 100%;
-  background-color: rgb(255, 255, 255, 0.3);
+  background-color: rgb(66, 66, 66);
 }
 
 .btn-log-in {
@@ -84,6 +83,24 @@
   border-radius: 6px;
   padding: 0;
   width: 100%;
+}
+
+.c-inner-general-prompt .c-log-in-message {
+  text-align: center;
+  font-size: x-large;
+  margin-bottom: 30px;
+}
+
+.c-inner-general-prompt .c-email {
+  margin-bottom: 20px;
+}
+
+.c-inner-general-prompt .c-username {
+  margin-bottom: 20px;
+}
+
+.c-inner-general-prompt .c-password {
+  margin-bottom: 50px;
 }
 
 /* .c-inner-general-prompt {

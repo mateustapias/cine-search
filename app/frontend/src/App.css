@@ -9,3 +9,11 @@ body {
 a {
   text-decoration: none;
 }
+
+button {
+  transition: filter 0.2s ease-out;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}

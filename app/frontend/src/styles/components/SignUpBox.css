@@ -6,8 +6,8 @@
   border: 0;
   padding: 7px 12px;
   border-radius: 10px;
-  color: #ebeed5;
-  background-color: black;
-  filter: invert(100%);
+  color: rgb(12, 12, 12);
+  background-color: buttonface;
+  /* filter: invert(100%); */
   font-weight: bold;
 }
