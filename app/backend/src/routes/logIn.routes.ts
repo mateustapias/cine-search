@@ -6,8 +6,8 @@ const userController = new UserController();
 
 const logInRouter = Router();
 
-logInRouter.get('/', (req, res) => res.status(200).json({ status: 'FOI!!!!!!'})
-)
+// logInRouter.get('/', (req: Req, res) => {return res.status(200).json({ status: 'FOI!!!!!!'}})
+// )
 
 logInRouter.post(
   '/',

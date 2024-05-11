@@ -98,19 +98,29 @@
 .c-prompt .c-message {
   text-align: center;
   font-size: x-large;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
 .c-prompt .c-email {
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 .c-prompt .c-username {
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 .c-prompt .c-password {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
+}
+
+.c-prompt .c-log-in-failed-message {
+  margin-top: 10px;
+  /* font-size: larger; */
+  color: red;
+}
+
+.c-prompt .c-submit-btn {
+  margin-top: 2.5rem;
 }
 
 /* .c-inner-general-prompt {

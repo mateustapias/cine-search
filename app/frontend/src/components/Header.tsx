@@ -4,8 +4,11 @@ import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
 import LogInBox from './LogInBox';
 import SignUpBox from './SignUpBox';
+import useAppContext from '../utils/useAppContext';
 
 const Header = () => {
+  const { isLogged } = useAppContext();
+
   return (
     <div className='c-header'>
       <Link to="/" className='c-logo' title='CineSearch'>
@@ -15,8 +18,12 @@ const Header = () => {
         </div>
       </Link>
       <SearchBar />
-      <LogInBox />
-      <SignUpBox />
+      {!isLogged &&
+        <>
+          <LogInBox />
+          <SignUpBox />
+        </>
+      }
     </div>
   );
 };

@@ -2,8 +2,8 @@
 const SignUpPrompt = () => {
   return (
     <div className='c-prompt'>
-      <div className='c-message c-sign-up-prompt'>Crie uma conta para desfrutar 100% do site</div>
-      <form className='sign-up-form'>
+      <div className='c-message'>Crie uma conta para desfrutar 100% do site</div>
+      <form className='form-sign-up'>
         <div className='c-email'>
           <label htmlFor='email' className='label-email'>Email</label>
           <input
@@ -29,7 +29,7 @@ const SignUpPrompt = () => {
             className='input-password'
           />
         </div>
-        <div className='c-submit'>
+        <div className='c-submit-btn'>
           <button type='submit'>Entrar</button>
         </div>
       </form>

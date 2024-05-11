@@ -1,9 +1,13 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
-import { requestLogin, setToken } from '../../services/requests';
-import { Login } from '../../../../backend/src/types/Login';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { requestLogIn, setToken } from '../../services/requests';
+import { LogIn } from '../../../../backend/src/types/Login';
+import useAppContext from '../../utils/useAppContext';
+// import { Navigate } from 'react-router-dom';
 
 const LogInPrompt = () => {
-  const [logInData, setLogInData] = useState<Login>({} as Login);
+  const { showLogInOrSignUp, setShowLogInOrSignUp, setIsLogged } = useAppContext();
+  const [logInData, setLogInData] = useState<LogIn>({} as LogIn);
+  const [failedLogInTry, setFailedLogInTry] = useState<boolean>(false);
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value: targetValue } } = event;
@@ -14,21 +18,20 @@ const LogInPrompt = () => {
     event.preventDefault();
 
     try {
-      const { token } = await requestLogin('/login', logInData);
+      const { token } = await requestLogIn('/logIn', logInData);
 
       setToken(token);
-
-      // localStorage.setItem('token', token);
-
-      // setIsLogged(true);
+      setIsLogged(true);
+      setShowLogInOrSignUp({ ...showLogInOrSignUp, show: false });
       console.log(token);
     } catch (error) {
-      // setFailedTryLogin(true);
-      // setIsLogged(false);
-      console.log('ERRO!');
-      console.log(error);
+      setFailedLogInTry(true);
     }
   };
+
+  useEffect(() => {
+    setFailedLogInTry(false);
+  }, [logInData.email, logInData.password]);
 
   return (
     <div className='c-prompt c-log-in-prompt'
@@ -57,7 +60,10 @@ const LogInPrompt = () => {
             onChange={handleChange}
           />
         </div>
-        <div className='c-submit'>
+        {failedLogInTry &&
+          <div className='c-log-in-failed-message'>Email e/ou senha inválidos</div>
+        }
+        <div className='c-submit-btn'>
           <button type='submit'>Entrar</button>
         </div>
       </form>

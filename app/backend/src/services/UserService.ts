@@ -11,11 +11,11 @@ export default class UserService {
     private userModel: IUserModel = new UserModel(),
   ) { }
 
-  async logIn(loginData: Login) {
+  async logIn(logInData: Login) {
     let serviceResponse: ServiceResponse<Token>;
-    const foundUser = await this.userModel.findOne(loginData.email);
+    const foundUser = await this.userModel.findOne(logInData.email);
 
-    if (!foundUser || !compareSync(loginData.password, foundUser.password)) {
+    if (!foundUser || !compareSync(logInData.password, foundUser.password)) {
       serviceResponse = {
         status: 'UNAUTHORIZED', data: { message: 'Invalid email or password' },
       };

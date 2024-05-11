@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Token } from '../../../backend/src/types/Token';
-import { Login } from '../../../backend/src/types/Login';
+import { LogIn } from '../../../backend/src/types/Login';
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',
@@ -16,7 +16,7 @@ export const requestData = async (endpoint: string) => {
   return data;
 };
 
-export const requestLogin = async (endpoint: string, body: Login) => {
+export const requestLogIn = async (endpoint: string, body: LogIn) => {
   const { data } = await api.post(endpoint, body);
   return data;
 };

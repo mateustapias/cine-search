@@ -13,10 +13,13 @@ const AppProvider = ({ children }: AppProviderProps) => {
     type: 'logIn'
   };
 
-  const [showLogInOrSignUp, setShowLogInOrSignUp] = useState(INITIAL_SHOW_LOG_IN_OR_SIGN_UP_STATE);
+  const [showLogInOrSignUp, setShowLogInOrSignUp] = useState<ShowLogInOrSignUp>(INITIAL_SHOW_LOG_IN_OR_SIGN_UP_STATE);
+  const [isLogged, setIsLogged] = useState<boolean>(false);
   const INITIAL_APP_CONTEXT: AppContextType = {
     showLogInOrSignUp,
-    setShowLogInOrSignUp
+    setShowLogInOrSignUp,
+    isLogged,
+    setIsLogged
   };
 
   return (
