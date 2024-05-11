@@ -5,20 +5,27 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "install:front": "cd ./app/frontend && npm install",
+    "install:back": "cd ./app/backend && npm install",
+    "install:apps": "npm run install:front && npm run install:back",
     "test": "echo \"Error: no test specified\" && exit 1",
     "compose:up": "cd app && docker-compose up -d --build",
-    "compose:down": "cd app && docker-compose down --remove-orphans"
+    "compose:down": "cd app && docker-compose down --remove-orphans",
+    "logs": "cd app && docker-compose logs -f"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.8",
     "react": "^18.2.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "typescript": "^5.4.5"
   },
   "devDependencies": {
     "@types/request": "^2.48.12",
-    "typescript": "^5.3.3",
+    "axios": "^1.6.8",
+    "mysql2": "^3.9.7",
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2",
     "vite": "^5.1.5"
   }
 }

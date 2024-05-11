@@ -14,15 +14,9 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "paths": {
-      "*": [
-        "node_modules/*"
-      ]
+      "*": ["node_modules/*"]
     }
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/tests"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["src/tests", "node_modules"]
 }
