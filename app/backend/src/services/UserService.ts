@@ -40,7 +40,7 @@ export default class UserService {
   async signUp(signUpData: SignUp) {
     let serviceResponse: ServiceResponse<logInResponse>;
 
-    const userExists = await this.userModel.findOne(signUpData.email, signUpData.username);
+    const userExists = await this.userModel.findOne(signUpData.email);
     if (userExists) {
       serviceResponse = {
         status: 'CONFLICT', data: { message: 'Email or username already in use' },

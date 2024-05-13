@@ -6,9 +6,9 @@ import { SignUp } from '../types/SignUp';
 export default class UserModel implements IUserModel {
   private model = SequelizeUser;
 
-  async findOne(email: string, username?: string): Promise<IUser | null> {
+  async findOne(email: string): Promise<IUser | null> {
     const dbData = await this.model.findOne({
-      where: { email, username },
+      where: { email },
     });
     if (dbData === null) return null;
 
