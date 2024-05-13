@@ -23,15 +23,15 @@ const GeneralPrompt = () => {
         <div className='c-inner-general-prompt'>
           <div className='c-selection'>
             <button
-              className={`btn-log-in ${(userSelection == 'logIn') && ' active'}`}
+              className={`btn-log-in ${(userSelection === 'logIn') && ' active'}`}
               onClick={() => setUserSelection('logIn')}
             >Log in</button>
             <button
-              className={`btn-sign-up ${(userSelection == 'signUp') && ' active'}`}
+              className={`btn-sign-up ${(userSelection === 'signUp') && ' active'}`}
               onClick={() => setUserSelection('signUp')}
             >Sign up</button>
           </div>
-          {(userSelection == 'logIn')
+          {(userSelection === 'logIn')
             ? <LogInPrompt />
             : <SignUpPrompt />
           }

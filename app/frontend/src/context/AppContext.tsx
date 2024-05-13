@@ -6,7 +6,7 @@ export type AppContextType = {
   setShowLogInOrSignUp: Dispatch<SetStateAction<ShowLogInOrSignUp>>
   isLogged: boolean,
   setIsLogged: Dispatch<SetStateAction<boolean>>
-}
+};
 
 const AppContext = createContext({} as AppContextType);
 

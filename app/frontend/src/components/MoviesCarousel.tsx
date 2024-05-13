@@ -8,16 +8,16 @@ type MoviesCarouselProps = {
   moviesData: Movie[],
   chunkSize: number,
   maxGroups: number,
-}
+};
 
 const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCarouselProps) => {
   // Função para dividir o array {maxGroups} vezes de filmes em grupos de {chunkSize}
-  const chunkArray = (arr: Movie[], chunkSize: number, maxGroups: number): Movie[][] => {
+  const chunkArray = (arr: Movie[], chunkSizee: number, maxGroupss: number): Movie[][] => {
     const chunkedArray = [];
     let groupsCount = 0;
-    if (groupsCount <= maxGroups) {
-      for (let i = 0; i < arr.length; i += chunkSize) {
-        chunkedArray.push(arr.slice(i, i + chunkSize));
+    if (groupsCount <= maxGroupss) {
+      for (let i = 0; i < arr.length; i += chunkSizee) {
+        chunkedArray.push(arr.slice(i, i + chunkSizee));
         groupsCount += 1;
       }
     }

@@ -42,7 +42,7 @@ const SearchBar = () => {
   };
 
   const handleBlur = (event: React.FocusEvent<HTMLDivElement, Element>) => {
-    if (event.relatedTarget && event.relatedTarget.className == 'search-suggestion-card') {
+    if (event.relatedTarget && event.relatedTarget.className === 'search-suggestion-card') {
       return;
     }
     setShowSuggestions(false);

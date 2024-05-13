@@ -3,7 +3,7 @@ import '../../styles/components/SearchSuggestionCard.css';
 
 type SearchSuggestionCardProps = {
   movie: Movie
-}
+};
 
 const SearchSuggestionCard = ({ movie }: SearchSuggestionCardProps) => (
   <a className='search-suggestion-card' tabIndex={0} href={`/${movie.id}`}>
