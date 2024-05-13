@@ -12,5 +12,10 @@ userRouter.post(
   (req: Request, res: Response) => userController.logIn(req, res),
 );
 
+userRouter.post(
+  '/signUp',
+  Validations.validateSignUp,
+  (req: Request, res: Response) => userController.signUp(req, res),
+);
 
 export default userRouter;

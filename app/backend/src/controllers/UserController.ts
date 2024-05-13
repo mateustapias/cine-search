@@ -18,7 +18,7 @@ export default class UserController {
   async signUp(req: Request, res: Response) {
     const signUpData = req.body;
 
-    const { status, data } = await this.userService.logIn(signUpData);
+    const { status, data } = await this.userService.signUp(signUpData);
 
     return res.status(mapStatusHTTP(status)).json(data);
   }

@@ -3,7 +3,6 @@ import { SignUp } from '../../../../backend/src/types/SignUp';
 import useAppContext from '../../utils/useAppContext';
 import { requestSignUp, setToken } from '../../services/requests';
 
-
 const SignUpPrompt = () => {
   const { showLogInOrSignUp, setShowLogInOrSignUp, setIsLogged } = useAppContext();
   const [signUpData, setSignUpData] = useState({} as SignUp);
@@ -66,6 +65,8 @@ const SignUpPrompt = () => {
             onChange={handleChange}
           />
         </div>
+        {failedSignUpTry
+          && <div className='c-sign-up-failed-message'>Falhou</div>}
         <div className='c-submit-btn'>
           <button type='submit'>Entrar</button>
         </div>
