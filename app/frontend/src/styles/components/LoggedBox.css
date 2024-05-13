@@ -1,0 +1,66 @@
+.c-logged-box {
+  padding: 7px 0;
+  margin-left: 1rem;
+  width: 8rem;
+}
+
+.c-btn-user {
+  /* width: 8rem; */
+  height: 100%;
+  width: inherit;
+  border-radius: 10px;
+  padding: 0.1rem 0.2rem;
+  background-color: rgb(12, 12, 12);
+  border: 2px solid rgb(255, 210, 0, 0.8);
+  display: flex;
+}
+
+.c-img-user {
+  display: inline-block;
+  width: 2rem;
+  height: inherit;
+  background-color: rgb(24, 24, 24);
+  border: 1px solid rgb(16, 16, 16);
+  align-self: start;
+  border-radius: 50%;
+}
+
+.c-img-user img {
+  height: 80%;
+  filter: invert(90%);
+}
+
+.c-username {
+  display: inline-block;
+  flex: 1;
+  text-align: start;
+  align-self: center;
+  font-size: larger;
+  font-weight: 500;
+  margin-left: 0.2rem;
+  overflow: hidden;
+  color: #ebeed5;
+}
+
+.c-img-down {
+  border: 1px solid rgb(16, 16, 16);
+  border-radius: 50%;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-img-down img {
+  width: 1.1rem;
+  filter: invert(90%);
+}
+
+.c-user-options {
+  width: 100%;
+  flex: 1;
+}
+
+.c-user-options button {
+  width: 100%;
+}

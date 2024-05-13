@@ -1,6 +1,4 @@
 .btn-sign-up-box {
-  /* display: flex;
-  align-items: center; */
   margin: 7px 0;
   margin-left: 1rem;
   border: 0;
@@ -8,6 +6,5 @@
   border-radius: 10px;
   color: rgb(12, 12, 12);
   background-color: buttonface;
-  /* filter: invert(100%); */
   font-weight: bold;
 }
