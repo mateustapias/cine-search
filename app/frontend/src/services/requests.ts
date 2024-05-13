@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Token } from '../../../backend/src/types/Token';
 import { LogIn } from '../../../backend/src/types/Login';
+import { SignUp } from '../../../backend/src/types/SignUp';
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',
@@ -20,5 +21,10 @@ export const requestLogIn = async (endpoint: string, body: LogIn) => {
   const { data } = await api.post(endpoint, body);
   return data;
 };
+
+export const requestSignUp = async (endpoint: string, body: SignUp) => {
+  const { data } = await api.post(endpoint, body);
+  return data;
+}
 
 export default api;

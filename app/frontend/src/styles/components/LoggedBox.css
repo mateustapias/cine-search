@@ -49,6 +49,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease-out
+}
+
+.c-img-down.withMenu {
+  transform: rotate(90deg);
 }
 
 .c-img-down img {

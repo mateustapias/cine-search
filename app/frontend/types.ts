@@ -6,14 +6,14 @@ export type Movie = {
   release_date: string,
   runtime: number,
   vote_average: number,
-}
+};
 
 export type ShowLogInOrSignUp = {
   show: boolean,
-  type: 'logIn' | 'signUp'
-}
+  type: 'logIn' | 'signUp';
+};
 
 export type UserData = {
   email: string,
-  username: string
-}
+  username: string;
+};
