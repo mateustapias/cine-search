@@ -31,9 +31,9 @@ const GeneralPrompt = () => {
               onClick={() => setUserSelection('signUp')}
             >Sign up</button>
           </div>
-          {(userSelection == 'logIn') ?
-            <LogInPrompt /> :
-            <SignUpPrompt />
+          {(userSelection == 'logIn')
+            ? <LogInPrompt />
+            : <SignUpPrompt />
           }
         </div>
       </div>

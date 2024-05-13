@@ -12,3 +12,8 @@ export type ShowLogInOrSignUp = {
   show: boolean,
   type: 'logIn' | 'signUp'
 }
+
+export type UserData = {
+  email: string,
+  username: string
+}

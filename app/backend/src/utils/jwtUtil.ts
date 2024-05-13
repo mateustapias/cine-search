@@ -4,6 +4,7 @@ const secret = process.env.JWT_SECRET || 'secret';
 
 export type TokenPayload = {
   id: number,
+  username: string,
   email: string,
   role: string,
 };

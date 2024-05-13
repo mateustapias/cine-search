@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import '../styles/pages/Layout.css';
 import useAppContext from '../utils/useAppContext';
 import GeneralPrompt from '../components/LogInOrSignUpPrompt/GeneralPrompt';
@@ -17,6 +17,5 @@ const Layout = () => {
     </div>
   );
 };
-
 
 export default Layout;

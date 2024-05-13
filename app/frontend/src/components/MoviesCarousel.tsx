@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import '../styles/components/MoviesCarousel.css';
-import { Movie } from '../../types';
 import { Link } from 'react-router-dom';
+import { Movie } from '../../types';
 
 type MoviesCarouselProps = {
   moviesData: Movie[],
@@ -11,7 +11,7 @@ type MoviesCarouselProps = {
 }
 
 const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCarouselProps) => {
-  // Função para dividir o array {maxGroups} vezes de filmes em grupos de {chunkSize} 
+  // Função para dividir o array {maxGroups} vezes de filmes em grupos de {chunkSize}
   const chunkArray = (arr: Movie[], chunkSize: number, maxGroups: number): Movie[][] => {
     const chunkedArray = [];
     let groupsCount = 0;
@@ -29,7 +29,7 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
       {chunkArray(moviesData, chunkSize, maxGroups).map((group, index) => (
         <Carousel.Item key={index}>
           <div className='c-movie-group'>
-            {group.map(movie => (
+            {group.map((movie) => (
               <Link to={`/${movie.id}`} key={movie.id} className='movie-card'>
                 <div className='c-movie-poster'>
                   <img className='movie-poster' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />

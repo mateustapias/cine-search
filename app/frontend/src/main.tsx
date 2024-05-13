@@ -7,5 +7,5 @@ ReactDOM
   .render(
     <BrowserRouter>
       <App />
-    </BrowserRouter>
+    </BrowserRouter>,
   );

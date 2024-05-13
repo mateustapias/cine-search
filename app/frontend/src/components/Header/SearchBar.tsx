@@ -1,8 +1,9 @@
 import { ChangeEvent, useState } from 'react';
 import axios from 'axios';
-import '../styles/components/SearchBar.css';
-import { Movie } from '../../types';
-import searchIcon from '../assets/images/searchIcon.png';
+import '../../styles/components/SearchBar.css';
+import { Movie } from '../../../types';
+import searchIcon from '../../assets/images/searchIcon.png';
+// import searchIcon from '../../assets/images/searchIcon.png';
 import SearchSuggestionCard from './SearchSuggestionCard';
 
 const SearchBar = () => {
@@ -23,12 +24,12 @@ const SearchBar = () => {
         const config = {
           method: 'GET',
           headers: {
-            accept: 'application/json'
+            accept: 'application/json',
           },
           params: {
             api_key: '5e2aa1c348aa9fe8354f8e2c8a2f25eb',
             query: targetValue,
-          }
+          },
         };
         const response = await axios.get('https://api.themoviedb.org/3/search/movie', config);
         setSearchResults(response.data.results);
@@ -39,7 +40,6 @@ const SearchBar = () => {
       setSearchResults([]);
     }
   };
-
 
   const handleBlur = (event: React.FocusEvent<HTMLDivElement, Element>) => {
     if (event.relatedTarget && event.relatedTarget.className == 'search-suggestion-card') {
@@ -53,7 +53,7 @@ const SearchBar = () => {
       onFocus={() => setShowSuggestions(true)}
       onBlur={handleBlur}
     >
-      <div className={'c-search-bar' + (searchResults.length && showSuggestions ? ' with-suggestion' : '')}>
+      <div className={`c-search-bar${searchResults.length && showSuggestions ? ' with-suggestion' : ''}`}>
         <input
           id='input-search-bar'
           type="text"
@@ -66,10 +66,10 @@ const SearchBar = () => {
           <img id='search-icon' src={searchIcon} />
         </button>
       </div>
-      {showSuggestions &&
-        <div id='c-search-suggestion'>
-          {searchResults &&
-            searchResults.map((movie) => (
+      {showSuggestions
+        && <div id='c-search-suggestion'>
+          {searchResults
+            && searchResults.map((movie) => (
               <SearchSuggestionCard key={movie.id} movie={movie} />
             ))
           }

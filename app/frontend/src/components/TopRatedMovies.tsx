@@ -11,13 +11,13 @@ const TopRatedMovies = () => {
         const config = {
           method: 'GET',
           headers: {
-            accept: 'application/json'
+            accept: 'application/json',
           },
           params: {
             api_key: '5e2aa1c348aa9fe8354f8e2c8a2f25eb',
             language: 'pt-BR',
-            page: 1
-          }
+            page: 1,
+          },
         };
         const response = await axios.get('https://api.themoviedb.org/3/movie/top_rated', config);
         setTopRatedMovies(response.data.results);

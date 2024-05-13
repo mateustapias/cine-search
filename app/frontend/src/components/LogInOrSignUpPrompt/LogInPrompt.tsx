@@ -1,4 +1,6 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import {
+  ChangeEvent, FormEvent, useEffect, useState,
+} from 'react';
 import { requestLogIn, setToken } from '../../services/requests';
 import { LogIn } from '../../../../backend/src/types/Login';
 import useAppContext from '../../utils/useAppContext';
@@ -18,12 +20,14 @@ const LogInPrompt = () => {
     event.preventDefault();
 
     try {
-      const { token } = await requestLogIn('/logIn', logInData);
+      const { token, userData } = await requestLogIn('/logIn', logInData);
 
       setToken(token);
       setIsLogged(true);
       setShowLogInOrSignUp({ ...showLogInOrSignUp, show: false });
-      console.log(token);
+      const userDataSTR = JSON.stringify(userData);
+
+      sessionStorage.setItem('userData', userDataSTR);
     } catch (error) {
       setFailedLogInTry(true);
     }
@@ -60,8 +64,8 @@ const LogInPrompt = () => {
             onChange={handleChange}
           />
         </div>
-        {failedLogInTry &&
-          <div className='c-log-in-failed-message'>Email e/ou senha inválidos</div>
+        {failedLogInTry
+          && <div className='c-log-in-failed-message'>Email e/ou senha inválidos</div>
         }
         <div className='c-submit-btn'>
           <button type='submit'>Entrar</button>

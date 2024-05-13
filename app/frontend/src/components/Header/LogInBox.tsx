@@ -1,5 +1,5 @@
-import '../styles/components/LogInBox.css';
-import useAppContext from '../utils/useAppContext';
+import '../../styles/components/LogInBox.css';
+import useAppContext from '../../utils/useAppContext';
 // import defaultUserIcon from '../assets/images/defaultUserIcon.png';
 
 const LogInBox = () => {
@@ -7,7 +7,7 @@ const LogInBox = () => {
   function handleClick(): void {
     setShowLogInOrSignUp({
       show: true,
-      type: 'logIn'
+      type: 'logIn',
     });
   }
   return (

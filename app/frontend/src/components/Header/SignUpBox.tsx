@@ -1,12 +1,12 @@
-import '../styles/components/SignUpBox.css';
-import useAppContext from '../utils/useAppContext';
+import '../../styles/components/SignUpBox.css';
+import useAppContext from '../../utils/useAppContext';
 
 const SignUpBox = () => {
   const { setShowLogInOrSignUp } = useAppContext();
   const handleClick = () => {
     setShowLogInOrSignUp({
       show: true,
-      type: 'signUp'
+      type: 'signUp',
     });
   };
   return (
