@@ -26,6 +26,7 @@ const SignUpPrompt = () => {
 
       sessionStorage.setItem('userData', userDataSTR);
     } catch (error) {
+      // console.log(error.response.data.message)
       setFailedSignUpTry(true);
     }
   };

@@ -21,6 +21,7 @@ const LogInPrompt = () => {
 
     try {
       const { token, userData } = await requestLogIn('/logIn', logInData);
+      console.log(token);
 
       setToken(token);
       setIsLogged(true);
@@ -29,6 +30,7 @@ const LogInPrompt = () => {
 
       sessionStorage.setItem('userData', userDataSTR);
     } catch (error) {
+      console.log(error);
       setFailedLogInTry(true);
     }
   };

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src",
-    "dev": "vite --port 3000"
+    "dev": "vite"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +23,7 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-react": "^7.34.0",
     "typescript": "^5.3.3",
-    "vite": "^5.2.11",
+    "vite": "^5.1.5",
     "vite-plugin-eslint": "^1.8.1"
   },
   "dependencies": {

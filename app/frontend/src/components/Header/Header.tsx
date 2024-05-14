@@ -15,8 +15,10 @@ const Header = () => {
   const [userData, setUserData] = useState<UserData>();
 
   useEffect(() => {
-    const userDataSession = getUserData();
-    if (userDataSession) setUserData(userDataSession);
+    if (isLogged) {
+      const userDataSession = getUserData();
+      if (userDataSession) setUserData(userDataSession);
+    }
   }, [isLogged]);
 
   return (

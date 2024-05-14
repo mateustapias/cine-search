@@ -1,5 +1,5 @@
 # Usar a imagem node:16.14-alpine como base
-FROM node:16.14-alpine
+FROM node:20
 
 # Mudar para o diretório de trabalho /app-frontend
 WORKDIR /app-frontend
@@ -17,5 +17,5 @@ EXPOSE 3000
 
 # Configurar os comandos para iniciar a aplicação de acordo com as boas práticas
 # Dica: Leia a seção Docker e Docker-compose no README para mais informações
-# ENTRYPOINT [ "npm", "run", "dev" ]
-ENTRYPOINT [ "npm", "start" ]
+CMD [ "npm", "run", "dev" ]
+# ENTRYPOINT [ "npm", "start" ]
