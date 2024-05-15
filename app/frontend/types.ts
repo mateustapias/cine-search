@@ -13,19 +13,16 @@ export type ShowLogInOrSignUp = {
   type: 'logIn' | 'signUp';
 };
 
-// export type ShowErrorsMessages = {
+export type ShowErrorsMessages<T extends string> = {
+  [K in T]: string
+};
+
+// export type ShowErrorsMessages<T extends string> = {
 //   show: boolean,
 //   errors: {
-//     [error: string]: string
+//     [K in T]: string
 //   };
 // };
-
-export type ShowErrorsMessages<T extends string> = {
-  show: boolean,
-  errors: {
-    [K in T]: string
-  };
-};
 
 export type UserData = {
   email: string,

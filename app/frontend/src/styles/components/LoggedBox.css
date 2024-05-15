@@ -1,13 +1,12 @@
 .c-logged-box {
   padding: 7px 0;
   margin-left: 1rem;
-  width: 8rem;
+  max-width: 11rem;
 }
 
 .c-btn-user {
-  /* width: 8rem; */
   height: 100%;
-  width: inherit;
+  max-width: inherit;
   border-radius: 10px;
   padding: 0.1rem 0.2rem;
   background-color: rgb(12, 12, 12);
@@ -31,8 +30,10 @@
 }
 
 .c-logged-box .c-username {
-  /* display: inline-block; */
   flex: 1;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
   text-align: start;
   align-self: center;
   font-size: larger;
@@ -49,10 +50,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 0.2rem;
   transition: transform 0.2s ease-out
 }
 
-.c-img-down.withMenu {
+.c-img-down.with-menu {
   transform: rotate(90deg);
 }
 

@@ -4,8 +4,8 @@ import {
 import { requestLogIn, setToken } from '../../services/requests';
 import { LogIn } from '../../../../backend/src/types/Login';
 import useAppContext from '../../utils/useAppContext';
-// import { Navigate } from 'react-router-dom';
 
+// Propositalmente fazendo de um modo diferente de SignUpPrompt
 const LogInPrompt = () => {
   const { showLogInOrSignUp, setShowLogInOrSignUp, setIsLogged } = useAppContext();
   const [logInData, setLogInData] = useState<LogIn>({} as LogIn);
@@ -21,7 +21,6 @@ const LogInPrompt = () => {
 
     try {
       const { token, userData } = await requestLogIn('/logIn', logInData);
-      console.log(token);
 
       setToken(token);
       setIsLogged(true);
@@ -30,7 +29,6 @@ const LogInPrompt = () => {
 
       sessionStorage.setItem('userData', userDataSTR);
     } catch (error) {
-      console.log(error);
       setFailedLogInTry(true);
     }
   };
@@ -48,10 +46,9 @@ const LogInPrompt = () => {
           <label htmlFor='email' className='label-email'>Email</label>
           <input
             autoFocus
-            type='email'
             id='email'
             name='email'
-            className='input-email'
+            className={`input-email${failedLogInTry ? ' invalid' : ''}`}
             onChange={handleChange}
           />
         </div>
@@ -60,14 +57,13 @@ const LogInPrompt = () => {
           <input
             type='password'
             id='password'
-            // placeholder='senha'
             name='password'
-            className='input-password'
+            className={`input-email${failedLogInTry ? ' invalid' : ''}`}
             onChange={handleChange}
           />
         </div>
         {failedLogInTry
-          && <div className='c-log-in-failed-message'>Email e/ou senha inválidos</div>
+          && <div className='c-error-msg'>Email e/ou senha inválidos</div>
         }
         <div className='c-submit-btn'>
           <button type='submit'>Entrar</button>

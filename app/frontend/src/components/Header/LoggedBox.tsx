@@ -41,7 +41,7 @@ const LoggedBox = ({ userData, setUserData }: LoggedBoxProps) => {
         <div className='c-username'>
           {userData.username}
         </div>
-        <div className={`c-img-down ${menu ? ' withMenu' : ''}`}>
+        <div className={`c-img-down${menu ? ' with-menu' : ''}`}>
           <img src={downIcon}/>
         </div>
       </button>

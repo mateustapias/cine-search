@@ -5,27 +5,23 @@ import useAppContext from '../../utils/useAppContext';
 import { requestSignUp, setToken } from '../../services/requests';
 import { ShowErrorsMessages } from '../../../types';
 
+// Propositalmente fazendo de um modo diferente de LogInPrompt
 const SignUpPrompt = () => {
-  const INITIAL_SHOW_ERRORS_MESSAGES_STATE: ShowErrorsMessages<'email' | 'username' | 'password'> = {
-    show: false,
-    errors: {
-      email: '',
-      username: '',
-      password: '',
-    },
-  };
-  const INITIAL_SHOW_OTHER_ERRORS: ShowErrorsMessages<'userExists'> = {
-    show: false,
-    errors: {
-      userExists: '',
-    },
-  };
   const { showLogInOrSignUp, setShowLogInOrSignUp, setIsLogged } = useAppContext();
+
+  const INITIAL_FIELDS_ERRORS: ShowErrorsMessages<'email' | 'username' | 'password'> = {
+    email: '',
+    username: '',
+    password: '',
+  };
+  const INITIAL_OTHER_ERRORS: ShowErrorsMessages<'userExists'> = {
+    userExists: '',
+  };
   const [signUpData, setSignUpData] = useState({} as SignUp);
-  const [showErrorsMessages,
-    setShowErrorsMessages] = useState(INITIAL_SHOW_ERRORS_MESSAGES_STATE);
-  const { show, errors } = showErrorsMessages;
-  const [showOtherErrors, setShowOtherErrors] = useState(INITIAL_SHOW_OTHER_ERRORS);
+  const [fieldsErrors, setFieldsErrors] = useState(INITIAL_FIELDS_ERRORS);
+  const { email, username, password } = fieldsErrors;
+  const [otherErrors, setOtherErrors] = useState(INITIAL_OTHER_ERRORS);
+  const { userExists } = otherErrors;
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value: targetValue } } = event;
@@ -45,14 +41,15 @@ const SignUpPrompt = () => {
 
       sessionStorage.setItem('userData', userDataSTR);
     } catch (error) {
-      if (isAxiosError(error)
-        && error.response) {
+      if (isAxiosError(error) && error.response) {
         const { message } = error.response.data;
+
         if (error.response.status === 409) {
-          setShowOtherErrors({ show: true, errors: { userExists: message } });
-          setShowErrorsMessages({ ...showErrorsMessages, show: false });
+          setOtherErrors({ userExists: message });
+          setFieldsErrors(INITIAL_FIELDS_ERRORS);
         } else {
-          setShowErrorsMessages({ show: true, errors: message });
+          setOtherErrors(INITIAL_OTHER_ERRORS);
+          setFieldsErrors(message);
         }
       }
     }
@@ -66,14 +63,13 @@ const SignUpPrompt = () => {
           <label htmlFor='email' className='label-email'>Email</label>
           <input
             autoFocus
-            type='email'
             id='email'
             name='email'
-            className={`input-email ${errors.email ? 'invalid' : ''}`}
+            className={`input-email${email ? ' invalid' : ''}`}
             onChange={handleChange}
           />
-          {show && errors.email
-            && <div className='c-error-msg'>{errors.email}</div>}
+          {email
+            && <div className='c-error-msg'>{email}</div>}
         </div>
         <div className='c-username'>
           <label htmlFor='username' className='label-username'>Usuário</label>
@@ -81,11 +77,11 @@ const SignUpPrompt = () => {
             type='text'
             id='username'
             name='username'
-            className={`input-username ${errors.username ? 'invalid' : ''}`}
+            className={`input-username${username ? ' invalid' : ''}`}
             onChange={handleChange}
           />
-          {show && errors.username
-            && <div className='c-error-msg'>{errors.username}</div>}
+          {username
+            && <div className='c-error-msg'>{username}</div>}
         </div>
         <div className='c-password'>
           <label htmlFor='password' className='label-password'>Senha</label>
@@ -93,14 +89,14 @@ const SignUpPrompt = () => {
             type='password'
             id='password'
             name='password'
-            className={`input-password ${errors.password ? 'invalid' : ''}`}
+            className={`input-password${password ? ' invalid' : ''}`}
             onChange={handleChange}
           />
-          {show && errors.password
-            && <div className='c-error-msg'>{errors.password}</div>}
+          {password
+            && <div className='c-error-msg'>{password}</div>}
         </div>
-        {showOtherErrors.errors
-          && <div className='c-error-msg'>{showOtherErrors.errors.userExists}</div>}
+        {userExists
+          && <div className='c-error-msg'>{userExists}</div>}
         <div className='c-submit-btn'>
           <button type='submit'>Entrar</button>
         </div>

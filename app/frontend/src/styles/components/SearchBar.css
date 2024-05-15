@@ -34,6 +34,7 @@
   border: 0;
   background-color: transparent;
   border-right: 0;
+  padding: 0 6px
 }
 
 #input-search-bar:focus {
@@ -56,20 +57,27 @@
   height: 100%;
 }
 
-#c-search-suggestion {
+.c-outer-search-suggestion {
+  overflow: hidden;
+  border-radius: 0 0 8px 8px;
+}
+
+#c-inner-search-suggestion {
   width: 100%;
   color: black;
   position: relative;
   z-index: 999;
   max-height: 25em;
   flex: 1;
-  overflow-y: scroll;
+  overflow-y: auto;
+  
   /* border-radius: 0 0 10px 10px; */
 }
 
 /* Width */
 ::-webkit-scrollbar {
   width: 6px;
+  overflow: auto;
 }
 
 /* Track */
