@@ -30,7 +30,7 @@
   filter: invert(90%);
 }
 
-.c-username {
+.c-logged-box .c-username {
   /* display: inline-block; */
   flex: 1;
   text-align: start;

@@ -73,8 +73,9 @@
 }
 
 .c-inner-general-prompt form input:focus {
-  outline: 2px solid gray;
-  outline-offset: -2px;
+  /* outline: 2px solid gray; */
+  /* outline-offset: -2px; */
+  outline: none;
 }
 
 .c-inner-general-prompt form button {
@@ -102,21 +103,25 @@
 }
 
 .c-prompt .c-email {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .c-prompt .c-username {
-  margin-bottom: 1.5rem;
-}
-
-.c-prompt .c-password {
-  /* margin-bottom: 50px; */
+  margin-bottom: 1rem;
 }
 
 .c-prompt .c-log-in-failed-message {
   margin-top: 10px;
   /* font-size: larger; */
-  color: red;
+  color: #eb0036;
+}
+
+.c-prompt .invalid {
+  border: 1px solid #eb000c;
+}
+
+.c-prompt .c-error-msg {
+  color: #eb000c;
 }
 
 .c-prompt .c-submit-btn {
