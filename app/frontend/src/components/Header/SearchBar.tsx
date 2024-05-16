@@ -51,7 +51,7 @@ const SearchBar = () => {
   return (
     <div className='c-search'
       onFocus={() => setShowSuggestions(true)}
-    onBlur={handleBlur}
+      onBlur={handleBlur}
     >
       <div className={`c-search-bar${searchResults.length && showSuggestions ? ' with-suggestion' : ''}`}>
         <input
@@ -71,7 +71,12 @@ const SearchBar = () => {
           <div id='c-inner-search-suggestion'>
             {searchResults
               && searchResults.map((movie) => (
-                <SearchSuggestionCard key={movie.id} movie={movie} />
+                <>
+                  <SearchSuggestionCard key={movie.id} movie={movie} />
+                  <div className='c-line-break'>
+                    <div className='line-break'/>
+                  </div>
+                </>
               ))
             }
           </div>

@@ -8,6 +8,8 @@
   width: 100%;
 }
 
+
+
 .c-search-suggestion-poster {
   display: flex;
   max-height: 100%;
@@ -15,4 +17,5 @@
 
 .c-search-suggestion-title {
   align-self: center;
+  margin-left: 10px;
 }
