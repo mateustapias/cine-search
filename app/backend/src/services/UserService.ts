@@ -1,11 +1,11 @@
 import { compareSync, hashSync } from 'bcryptjs';
-import { SignUp } from '../types/SignUp';
 import IUserModel from '../interfaces/users/IUserModel';
+import IUser from '../interfaces/users/IUser';
 import UserModel from '../models/UserModel';
 import { ServiceResponse } from '../types/ServiceResponse';
-// import { Token } from '../types/Token';
-import jwtUtil from '../utils/jwtUtil';
+import { SignUp } from '../types/SignUp';
 import { LogIn } from '../types/Login';
+import jwtUtil from '../utils/jwtUtil';
 
 type logInResponse = {
   token: string,
@@ -14,6 +14,18 @@ type logInResponse = {
     username: string,
   };
 };
+
+function getDbDataConflictMessage(dbUser: IUser, signUpUser: SignUp): string {
+  let conflictMessage: string;
+  if (dbUser.email === signUpUser.email && dbUser.username === signUpUser.username) {
+    conflictMessage = 'Email and username already in use';
+  } else if (dbUser.email === signUpUser.email) {
+    conflictMessage = 'Email already in use';
+  } else {
+    conflictMessage = 'Username already in use';
+  }
+  return conflictMessage;
+}
 export default class UserService {
   constructor(
     private userModel: IUserModel = new UserModel(),
@@ -40,15 +52,15 @@ export default class UserService {
   async signUp(signUpData: SignUp) {
     let serviceResponse: ServiceResponse<logInResponse>;
 
-    const userExists = await this.userModel.findOne(signUpData.email);
+    const userExists = await this.userModel.findOne(signUpData.email, signUpData.username);
     if (userExists) {
-      serviceResponse = {
-        status: 'CONFLICT', data: { message: 'Email or username already in use' },
-      };
+      const message = getDbDataConflictMessage(userExists, signUpData);
+      serviceResponse = { status: 'CONFLICT', data: { message } };
+      return serviceResponse;
     }
-    const cryptedPassword = hashSync(signUpData.password, process.env.JWT_SECRET);
-    const newUser = await this.userModel.insert({ ...signUpData, password: cryptedPassword });
 
+    const cryptedPassword = hashSync(signUpData.password, 2);
+    const newUser = await this.userModel.insert({ ...signUpData, password: cryptedPassword });
     const { id, username, email, role } = newUser;
     const token = jwtUtil.signToken({ id, username, email, role });
     serviceResponse = { status: 'SUCCESSFUL', data: { token, userData: { email, username } } };

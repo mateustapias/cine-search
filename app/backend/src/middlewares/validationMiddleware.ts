@@ -16,16 +16,29 @@ class Validations {
   }
 
   static validateSignUp(req: Request, res: Response, next: NextFunction): Response | void {
-    const { error } = schema.signUpSchema.validate(req.body);
-    if (error) {
-      const { type } = error.details[0];
-      if (type === 'string.email' || type === 'string.min') {
-        return res.status(mapStatusHTTP('UNAUTHORIZED')).json({ message: error.message });
-      }
-      return res.status(mapStatusHTTP('BAD_REQUEST')).json({ message: error.message });
+    const result = schema.signUpSchema.validate(req.body);
+    if (result.error) {
+      const message: { [key: string]: string; } = {};
+      result.error.details.forEach((error) => {
+        if (error.context?.key) {
+          message[error.context.key] = error.message;
+        }
+      });
+      return res.status(mapStatusHTTP('UNAUTHORIZED')).json({ message });
     }
     next();
   }
+  // static validateSignUp(req: Request, res: Response, next: NextFunction): Response | void {
+  //   const { error } = schema.signUpSchema.validate(req.body);
+  //   if (error) {
+  //     const { type } = error.details[0];
+  //     if (type === 'string.email' || type === 'string.min') {
+  //       return res.status(mapStatusHTTP('UNAUTHORIZED')).json({ message: error.message });
+  //     }
+  //     return res.status(mapStatusHTTP('BAD_REQUEST')).json({ message: error.message });
+  //   }
+  //   next();
+  // }
 }
 
 export default Validations;
