@@ -57,7 +57,7 @@ const SignUpPrompt = () => {
 
   return (
     <div className='c-prompt c-sign-up-prompt'>
-      <div className='c-message'>Crie uma conta para desfrutar 100% do site</div>
+      <div className='c-message'>Crie uma conta para desfrutar 100% do site!</div>
       <form className='form-sign-up' onSubmit={handleSubmit}>
         <div className='c-email' >
           <label htmlFor='email' className='label-email'>Email</label>

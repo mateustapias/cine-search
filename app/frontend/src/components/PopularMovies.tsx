@@ -17,29 +17,41 @@ const PopularMovies = () => {
           params: {
             api_key: '5e2aa1c348aa9fe8354f8e2c8a2f25eb',
             language: 'pt-BR',
-            page: 1,
           },
         };
-        const response = await axios.get('https://api.themoviedb.org/3/movie/popular', config);
-        setPopularMoviesData(response.data.results);
+
+        const responsePage1 = await axios.get('https://api.themoviedb.org/3/movie/popular', {
+          ...config,
+          params: {
+            ...config.params,
+            page: 1,
+          },
+        });
+
+        const responsePage2 = await axios.get('https://api.themoviedb.org/3/movie/popular', {
+          ...config,
+          params: {
+            ...config.params,
+            page: 2,
+          },
+        });
+
+        const combinedResults = [...responsePage1.data.results, ...responsePage2.data.results];
+
+        setPopularMoviesData(combinedResults);
       } catch (error) {
         console.error('Error fetching movie data:', error);
       }
     };
 
     fetchData();
-
-    // Cleanup function to cancel any pending requests (if needed)
-    return () => {
-      // Cancel any pending requests here if axios supports it
-    };
   }, []);
 
   return (
     <div className='c-movies c-popular-movies'>
       <h1>Populares</h1>
       {popularMoviesData ? (
-        <MoviesCarousel moviesData={popularMoviesData} chunkSize={5} maxGroups={5} />
+        <MoviesCarousel moviesData={popularMoviesData} chunkSize={6} maxGroups={5} />
       ) : (
         <p>Loading...</p>
       )}

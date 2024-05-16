@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../styles/components/MoviesCarousel.css';
 import { Link } from 'react-router-dom';
 import { Movie } from '../../types';
+import starICon from '../assets/images/starIcon.png';
 
 type MoviesCarouselProps = {
   moviesData: Movie[],
@@ -15,8 +16,8 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
   const chunkArray = (arr: Movie[], chunkSizee: number, maxGroupss: number): Movie[][] => {
     const chunkedArray = [];
     let groupsCount = 0;
-    if (groupsCount <= maxGroupss) {
-      for (let i = 0; i < arr.length; i += chunkSizee) {
+    for (let i = 0; i < arr.length; i += chunkSizee) {
+      if (groupsCount < maxGroupss) {
         chunkedArray.push(arr.slice(i, i + chunkSizee));
         groupsCount += 1;
       }
@@ -34,8 +35,16 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
                 <div className='c-movie-poster'>
                   <img className='movie-poster' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                 </div>
-                <div className='c-movie-title'>
-                  <span className='movie-title'>{movie.title}</span>
+                <div className='c-movie-details'>
+                  <div className='c-movie-rating'>
+                    <div className='c-icon-star'>
+                      <img className='icon-star' src={starICon} />
+                    </div>
+                    <span className='movie-rating'>{`${movie.vote_average.toFixed(1)}`}</span>
+                  </div>
+                  <div className='c-movie-title'>
+                    <span className='movie-title'>{movie.title}</span>
+                  </div>
                 </div>
               </Link>
             ))}

@@ -3,8 +3,8 @@
   background-color: rgb(24, 24, 24);
   box-shadow: 0 1px 1px rgba(12, 12, 12, 0.2);
   height: 5.5vh;
-  width: 100vw;
-  padding: 0 10%;
+  width: 100%;
+  padding: 0 16%;
 }
 
 .c-logo {
