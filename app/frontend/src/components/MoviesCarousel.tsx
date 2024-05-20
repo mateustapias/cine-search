@@ -1,9 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import '../styles/components/MoviesCarousel.css';
-import { Link } from 'react-router-dom';
 import { Movie } from '../../types';
-import starICon from '../assets/images/starIcon.png';
+import MoviesCarouselCard from './MoviesCarouselCard';
 
 type MoviesCarouselProps = {
   moviesData: Movie[],
@@ -31,22 +30,7 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
         <Carousel.Item key={index}>
           <div className='c-movie-group'>
             {group.map((movie) => (
-              <Link to={`/${movie.id}`} key={movie.id} className='movie-card'>
-                <div className='c-movie-poster'>
-                  <img className='movie-poster' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                </div>
-                <div className='c-movie-details'>
-                  <div className='c-movie-rating'>
-                    <div className='c-icon-star'>
-                      <img className='icon-star' src={starICon} />
-                    </div>
-                    <span className='movie-rating'>{`${movie.vote_average.toFixed(1)}`}</span>
-                  </div>
-                  <div className='c-movie-title'>
-                    <span className='movie-title'>{movie.title}</span>
-                  </div>
-                </div>
-              </Link>
+              <MoviesCarouselCard key={movie.id} movie={movie}/>
             ))}
           </div>
         </Carousel.Item>

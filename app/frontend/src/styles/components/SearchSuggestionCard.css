@@ -3,12 +3,9 @@
   height: 6em;
   background-color: white;
   color: rgb(8, 8, 8);
-  box-sizing: border-box;
   padding: 0.5em;
   width: 100%;
 }
-
-
 
 .c-search-suggestion-poster {
   display: flex;
