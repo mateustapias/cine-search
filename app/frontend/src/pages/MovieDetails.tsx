@@ -36,28 +36,33 @@ const MovieDetails = () => {
   return (
     <div className='c-movie-details'>
       {movieData
-        && <div className='c-movie-data'>
-          <img src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} />
-          <div className='c-movie-data-details'>
-            <div className='c-movie-title'>
-              {movieData.title}
+        && <>
+          <div className='c-outer-movie-data'>
+            <div className='c-movie-data' style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w500${movieData.backdrop_path}')` }}>
+              <img className='c-poster-img' src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} />
+              <div className='c-movie-data-details'>
+                <div className='c-movie-title'>
+                  <span>{movieData.title}</span>
+                </div>
+                <div className='c-movie-rating'>
+                  <span>
+                    {`${movieData.vote_average.toFixed(1)} / 10`}
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className='c-movie-rating'>
-              <span>
-                {`${movieData.vote_average.toFixed(1)} / 10`}
-              </span>
-            </div>
-            <div className='c-movie-runtime'>
-              {`${movieData.runtime} min`}
-            </div>
-            <div className='c-movie-release-date'>
-              {movieData.release_date}
-            </div>
-            <div className='c-movie-overview'>
-              {movieData.overview}
-            </div>
+            <div id='fade-effect' />
           </div>
-        </div>
+          <div className='c-movie-runtime'>
+            {`${movieData.runtime} min`}
+          </div>
+          <div className='c-movie-release-date'>
+            {movieData.release_date}
+          </div>
+          <div className='c-movie-overview'>
+            {movieData.overview}
+          </div>
+        </>
       }
     </div>
   );
