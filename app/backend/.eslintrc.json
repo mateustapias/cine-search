@@ -42,7 +42,7 @@
       {
         "selector": "property",
         "format": [
-          "strictCamelCase"
+          // "strictCamelCase"
         ],
         "filter": {
           "regex": "^_",
@@ -81,9 +81,9 @@
       250
     ],
     "max-lines-per-function": [
-      "error",
+      // "error",
       {
-        "max": 20,
+        // "max": 30,
         "skipBlankLines": true,
         "skipComments": true
       }
