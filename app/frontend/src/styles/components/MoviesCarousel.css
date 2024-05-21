@@ -20,7 +20,8 @@
 }
 
 .movie-card {
-  width: 11rem;
+  width: 15%;
+  /* width: 11rem; */
   background-color: rgba(26, 26, 26);
   border-radius: 3px;
   text-decoration: none;

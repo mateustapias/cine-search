@@ -10,11 +10,9 @@ const LogInBox = () => {
     });
   };
   return (
-    // <div className='c-log-in-box'>
-      <button className='btn-log-in-box' onClick={handleClick}>
-        <span>Log in</span>
-      </button>
-    // </div>
+    <button className='btn-log-in-box' onClick={handleClick}>
+      <span>Log in</span>
+    </button>
   );
 };
 
