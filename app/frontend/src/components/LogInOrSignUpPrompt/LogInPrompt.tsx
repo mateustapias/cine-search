@@ -7,7 +7,7 @@ import useAppContext from '../../utils/useAppContext';
 
 // Propositalmente fazendo de um modo diferente de SignUpPrompt
 const LogInPrompt = () => {
-  const { showLogInOrSignUp, setShowLogInOrSignUp, setIsLogged } = useAppContext();
+  const { showLogInOrSignUp, setShowLogInOrSignUp, setUserRequest } = useAppContext();
   const [logInData, setLogInData] = useState<LogIn>({} as LogIn);
   const [failedLogInTry, setFailedLogInTry] = useState<boolean>(false);
 
@@ -23,11 +23,12 @@ const LogInPrompt = () => {
       const { token, userData } = await requestLogIn('/logIn', logInData);
 
       setToken(token);
-      setIsLogged(true);
+      setUserRequest(true);
       setShowLogInOrSignUp({ ...showLogInOrSignUp, show: false });
       const userDataSTR = JSON.stringify(userData);
 
       sessionStorage.setItem('userData', userDataSTR);
+      setUserRequest(true);
     } catch (error) {
       setFailedLogInTry(true);
     }

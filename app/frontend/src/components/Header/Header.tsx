@@ -11,15 +11,16 @@ import { UserData } from '../../../types';
 import LoggedBox from './LoggedBox';
 
 const Header = () => {
-  const { isLogged } = useAppContext();
-  const [userData, setUserData] = useState<UserData>();
+  const { userRequest, setUserRequest } = useAppContext();
+  // TODO: MUDAR O NOME DESSA VARIÁVEL
+  const [userData, setUserData] = useState<UserData | undefined>();
+  // const [userData, setUserData] = useState<UserData | undefined>(() => getUserData());
 
   useEffect(() => {
-    if (isLogged) {
-      const userDataSession = getUserData();
-      if (userDataSession) setUserData(userDataSession);
-    }
-  }, [isLogged]);
+    const userDataSession = getUserData();
+    if (userDataSession) setUserData(userDataSession);
+    setUserRequest(false);
+  }, [userRequest]);
 
   return (
     <div className='c-header'>
@@ -27,12 +28,10 @@ const Header = () => {
         <img src={popcornBoxIcon} alt="Logo" className="img-logo" />
         <div className='c-logo-name'>
           <span>C</span>ine<span>S</span>earch
-          {/* a */}
-          {/* <span>aç</span> */}
         </div>
       </Link>
       <SearchBar />
-      {(userData && isLogged)
+      {userData 
         ? <LoggedBox userData={userData} setUserData={setUserData} />
         : <>
           <LogInBox />
@@ -44,3 +43,35 @@ const Header = () => {
 };
 
 export default Header;
+// const Header = () => {
+//   const { userRequest } = useAppContext();
+//   const [userData, setUserData] = useState<UserData>();
+
+//   useEffect(() => {
+//     if (userRequest) {
+//       const userDataSession = getUserData();
+//       if (userDataSession) setUserData(userDataSession);
+//     }
+//   }, [userRequest]);
+
+//   return (
+//     <div className='c-header'>
+//       <Link to="/" className='c-logo' title='CineSearch'>
+//         <img src={popcornBoxIcon} alt="Logo" className="img-logo" />
+//         <div className='c-logo-name'>
+//           <span>C</span>ine<span>S</span>earch
+//         </div>
+//       </Link>
+//       <SearchBar />
+//       {(userData && userRequest)
+//         ? <LoggedBox userData={userData} setUserData={setUserData} />
+//         : <>
+//           <LogInBox />
+//           <SignUpBox />
+//         </>
+//       }
+//     </div>
+//   );
+// };
+
+// export default Header;

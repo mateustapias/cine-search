@@ -7,7 +7,7 @@ import { ShowErrorsMessages } from '../../../types';
 
 // Propositalmente fazendo de um modo diferente de LogInPrompt
 const SignUpPrompt = () => {
-  const { showLogInOrSignUp, setShowLogInOrSignUp, setIsLogged } = useAppContext();
+  const { showLogInOrSignUp, setShowLogInOrSignUp, setUserRequest } = useAppContext();
 
   const INITIAL_FIELDS_ERRORS: ShowErrorsMessages<'email' | 'username' | 'password'> = {
     email: '',
@@ -35,11 +35,12 @@ const SignUpPrompt = () => {
       const { token, userData } = await requestSignUp('/signUp', signUpData);
 
       setToken(token);
-      setIsLogged(true);
+      setUserRequest(true);
       setShowLogInOrSignUp({ ...showLogInOrSignUp, show: false });
       const userDataSTR = JSON.stringify(userData);
 
       sessionStorage.setItem('userData', userDataSTR);
+      setUserRequest(true);
     } catch (error) {
       if (isAxiosError(error) && error.response) {
         const { message } = error.response.data;

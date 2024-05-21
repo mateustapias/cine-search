@@ -16,19 +16,17 @@ const AppProvider = ({ children }: AppProviderProps) => {
   const [showLogInOrSignUp, setShowLogInOrSignUp] = useState<ShowLogInOrSignUp>(
     INITIAL_SHOW_LOG_IN_OR_SIGN_UP_STATE,
   );
-  const [isLogged, setIsLogged] = useState<boolean>(false);
+  const [userRequest, setUserRequest] = useState<boolean>(false);
   const INITIAL_APP_CONTEXT: AppContextType = {
     showLogInOrSignUp,
     setShowLogInOrSignUp,
-    isLogged,
-    setIsLogged,
+    userRequest,
+    setUserRequest,
   };
 
   return (
     <AppContext.Provider value={INITIAL_APP_CONTEXT}>
-      {/* <div className='appProvider'> */}
       {children}
-      {/* </div> */}
     </AppContext.Provider>
   );
 };

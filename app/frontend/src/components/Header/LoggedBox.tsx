@@ -1,6 +1,6 @@
 import { Dispatch, useState } from 'react';
 import { UserData } from '../../../types';
-import useAppContext from '../../utils/useAppContext';
+// import useAppContext from '../../utils/useAppContext';
 import defaultUserIcon from '../../assets/images/defaultUserIcon.png';
 import downIcon from '../../assets/images/downIcon.png';
 import '../../styles/components/LoggedBox.css';
@@ -9,8 +9,9 @@ type LoggedBoxProps = {
   userData: UserData;
   setUserData: Dispatch<React.SetStateAction<UserData | undefined>>;
 };
+
 const LoggedBox = ({ userData, setUserData }: LoggedBoxProps) => {
-  const { setIsLogged } = useAppContext();
+  // const { setUserRequest } = useAppContext();
   const [menu, setMenu] = useState<boolean>(false);
 
   const handleBlur = (event: React.FocusEvent<HTMLDivElement, Element>) => {
@@ -29,7 +30,7 @@ const LoggedBox = ({ userData, setUserData }: LoggedBoxProps) => {
   const logOff = (): void => {
     sessionStorage.removeItem('userData');
     setUserData(undefined);
-    setIsLogged(false);
+    // setUserRequest(true);
   };
 
   return (
