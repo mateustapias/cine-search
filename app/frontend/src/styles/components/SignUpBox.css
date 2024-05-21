@@ -1,10 +1,18 @@
+.c-sign-up-box {
+  height: 100%;
+  padding: 0.8rem 0;
+}
+
 .btn-sign-up-box {
-  margin: 7px 0;
-  margin-left: 1rem;
+  margin-left: 1em;
   border: 0;
-  padding: 7px 12px;
+  padding: 0.4rem 0.6rem;
   border-radius: 10px;
   color: rgb(12, 12, 12);
   background-color: buttonface;
+}
+
+.btn-sign-up-box span {
+  font-size: medium;
   font-weight: bold;
 }

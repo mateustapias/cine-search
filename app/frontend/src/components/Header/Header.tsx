@@ -24,9 +24,11 @@ const Header = () => {
   return (
     <div className='c-header'>
       <Link to="/" className='c-logo' title='CineSearch'>
-        <img src={popcornBoxIcon} alt="Logo" className="img-header" />
+        <img src={popcornBoxIcon} alt="Logo" className="img-logo" />
         <div className='c-logo-name'>
           <span>C</span>ine<span>S</span>earch
+          {/* a */}
+          {/* <span>aç</span> */}
         </div>
       </Link>
       <SearchBar />
@@ -37,14 +39,6 @@ const Header = () => {
           <SignUpBox />
         </>
       }
-      {/* {!isLogged ?
-        <>
-          <LogInBox />
-          <SignUpBox />
-        </>
-        :
-        <div>{userData}</div>
-      } */}
     </div>
   );
 };

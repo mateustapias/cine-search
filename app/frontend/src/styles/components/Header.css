@@ -1,14 +1,19 @@
 .c-header {
   display: flex;
+  align-items: center;
   background-color: rgb(24, 24, 24);
   box-shadow: 0 1px 1px rgba(12, 12, 12, 0.2);
-  height: 5.5vh;
+  height: 4rem;
+  /* padding: 3.3rem; */
+  /* height: 5.5vh; */
   width: 100%;
   padding: 0 16%;
 }
 
 .c-logo {
   display: flex;
+  align-items: end;
+  height: 100%;
   transition: filter 0.2s ease-out;
 }
 
@@ -16,24 +21,25 @@
   filter: brightness(1.2);
 }
 
-.img-header {
+.img-logo {
   align-self: center;
-  height: 95%;
+  height: 90%;
 }
 
 .c-logo-name {
-  display: flex;
-  height: 100%;
-  align-items: first baseline;
+  /* display: flex;
+  align-items: end; */
+  /* height: 100%; */
+  /* align-items: start; */
   font-size: 2.6rem;
-  font-weight: 900;
+  font-weight: 700;
   color: rgb(255, 210, 0);
 }
 
 .c-logo-name span {
-  display: flex;
-  align-self: center;
-  position: relative;
-  font-size: 3.6rem;
+  /* display: flex; */
+  /* align-self: center; */
+  /* position: relative; */
+  /* font-size: 3.6rem; */
   color: rgb(255, 50, 50);
 }
