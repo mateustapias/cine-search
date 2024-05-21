@@ -1,5 +1,5 @@
 import { Model, QueryInterface, DataTypes } from 'sequelize';
-import IMovie from '../../interfaces/movies/IMovie';
+import { IMovie } from '../../interfaces/movie';
 
 export default {
   up(queryInterface: QueryInterface) {

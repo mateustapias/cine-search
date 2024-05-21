@@ -1,6 +1,5 @@
 import { compareSync, hashSync } from 'bcryptjs';
-import IUserModel from '../interfaces/users/IUserModel';
-import IUser from '../interfaces/users/IUser';
+import { IUser, IUserModel } from '../interfaces/user';
 import UserModel from '../models/UserModel';
 import { ServiceResponse } from '../types/ServiceResponse';
 import { SignUp } from '../types/SignUp';

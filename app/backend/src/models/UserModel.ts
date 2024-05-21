@@ -1,8 +1,7 @@
 import { Op } from 'sequelize';
-import IUserModel from '../interfaces/users/IUserModel';
-import IUser from '../interfaces/users/IUser';
 import SequelizeUser from '../database/models/SequelizeUser';
 import { SignUp } from '../types/SignUp';
+import { IUser, IUserModel } from '../interfaces/user';
 
 export default class UserModel implements IUserModel {
   private model = SequelizeUser;

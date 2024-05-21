@@ -7,8 +7,8 @@ import {
 } from 'sequelize';
 import db from '.';
 
-class SequelizeMovies extends Model<InferAttributes<SequelizeMovies>,
-InferCreationAttributes<SequelizeMovies>> {
+class SequelizeMovie extends Model<InferAttributes<SequelizeMovie>,
+InferCreationAttributes<SequelizeMovie>> {
   declare id: number;
   declare title: string;
   declare overview: string;
@@ -18,10 +18,10 @@ InferCreationAttributes<SequelizeMovies>> {
   // declare runtime: number;
 }
 
-SequelizeMovies.init({
+SequelizeMovie.init({
   id: {
     type: DataTypes.INTEGER,
-    // primaryKey: true,
+    primaryKey: true,
     // autoIncrement: true,
     // allowNull: false,
   },
@@ -55,4 +55,4 @@ SequelizeMovies.init({
   timestamps: false,
 });
 
-export default SequelizeMovies;
+export default SequelizeMovie;

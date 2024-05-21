@@ -27,4 +27,9 @@ export const requestSignUp = async (endpoint: string, body: SignUp) => {
   return data;
 };
 
+export const requestMovies = async (endpoint: string) => {
+  const { data } = await api.get(endpoint);
+  return data;
+}
+
 export default api;

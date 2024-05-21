@@ -1,5 +1,5 @@
 import axios from 'axios';
-import IMovie from '../interfaces/movies/IMovie';
+import { IMovie } from '../interfaces/movie';
 
 async function fetchMovies(): Promise<IMovie[] | undefined> {
   const movies: IMovie[][] = [];
@@ -30,13 +30,13 @@ async function fetchMovies(): Promise<IMovie[] | undefined> {
       poster_path: movie.poster_path,
       vote_average: movie.vote_average,
     }));
-    console.log(filteredMovies.length)
-    console.log(typeof filteredMovies[0].id);
-    console.log(typeof filteredMovies[0].overview);
-    console.log(typeof filteredMovies[0].poster_path);
-    console.log(typeof filteredMovies[0].release_date);
-    console.log(typeof filteredMovies[0].title);
-    console.log(typeof filteredMovies[0].vote_average);
+    // console.log(filteredMovies.length)
+    // console.log(typeof filteredMovies[0].id);
+    // console.log(typeof filteredMovies[0].overview);
+    // console.log(typeof filteredMovies[0].poster_path);
+    // console.log(typeof filteredMovies[0].release_date);
+    // console.log(typeof filteredMovies[0].title);
+    // console.log(typeof filteredMovies[0].vote_average);
     return filteredMovies;
   } catch (error) {
     console.log('Error fetching movie data: ', error);
