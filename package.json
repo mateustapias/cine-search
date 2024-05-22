@@ -5,6 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build:front": "cd ./app/frontend && npm run build",
+    "build:back": "cd ./app/backend ** npm run build",
+    "build:apps": "npm run build:front && npm run build:back",
     "install:front": "cd ./app/frontend && npm install",
     "install:back": "cd ./app/backend && npm install",
     "install:apps": "npm run install:front && npm run install:back",
