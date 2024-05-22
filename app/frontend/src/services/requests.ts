@@ -4,7 +4,8 @@ import { LogIn } from '../../../backend/src/types/Login';
 import { SignUp } from '../../../backend/src/types/SignUp';
 
 const api = axios.create({
-  baseURL: 'https://my-cine-search.vercel.app/',
+  baseURL: 'https://my-cine-search.vercel.app',
+  // baseURL: 'http://localhost:3001',
   // baseURL: `http://localhost:${process.env.REACT_APP_API_PORT || '3001'}`,
 });
 
