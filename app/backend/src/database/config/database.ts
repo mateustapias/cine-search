@@ -15,6 +15,7 @@ const config: Options = {
   },
   logging: false,
 }
+
 const dbPort = process.env.DB_PORT;
 console.log(`Porta do banco de dados: ${dbPort}`);
 
