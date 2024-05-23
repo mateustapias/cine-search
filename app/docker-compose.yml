@@ -35,7 +35,7 @@ services:
       - DB_USER=root
       - DB_PASS=123456
       - DB_HOST=db
-      - DB_PORT=3306
+      - DB_PORT=3306 # Porta interna do MySQL
     healthcheck:
       test: ["CMD", "lsof", "-t", "-i:3001"] # Caso utilize outra porta interna para o back, altere ela aqui também
       timeout: 10s
@@ -44,7 +44,7 @@ services:
     image: mysql:8.0.32
     container_name: db
     ports:
-      - 3306:3306
+      - 3307:3306 # Mapear porta interna 3306 para 3307 na máquina host
     environment:
       - MYSQL_ROOT_PASSWORD=123456
     restart: 'always'
