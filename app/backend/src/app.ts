@@ -48,7 +48,8 @@
 // // Essa segunda exportação é estratégica, e a execução dos testes de cobertura depende dela
 // export const { app } = new App();
 
-import * as express from 'express';
+import express from 'express';
+// import * as express from 'express';
 import 'express-async-errors';
 
 import errorMiddleware from './middlewares/errorMiddleware';
