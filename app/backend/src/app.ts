@@ -1,25 +1,3 @@
-// import express from 'express';
-// import loginRouter from './routes/logIn.routes';
-
-// const app = express();
-
-// app.use(express.json());
-
-// app.use('/login', loginRouter);
-
-// export default app;
-
-// const express = require('express')
-
-// const app = express;
-// const { logInRouter } = require('./routes')
-
-// app.use(express.json())
-
-// app.use('/logIn', logInRouter);
-
-// module.exports = app;
-
 import * as express from 'express';
 import 'express-async-errors';
 

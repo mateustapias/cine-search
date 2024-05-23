@@ -80,14 +80,14 @@
       "error",
       250
     ],
-    "max-lines-per-function": [
-      // "error",
-      {
-        // "max": 30,
-        "skipBlankLines": true,
-        "skipComments": true
-      }
-    ],
+    // "max-lines-per-function": [
+    //   // "error",
+    //   {
+    //     // "max": 30,
+    //     "skipBlankLines": true,
+    //     "skipComments": true
+    //   }
+    // ],
     "max-len": [
       "error",
       100,

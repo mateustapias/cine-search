@@ -7,7 +7,6 @@ export default class MovieService {
     private movieModel: IMovieModel = new MovieModel(),
   ) { }
 
-
   async getManyMovies() {
     let serviceResponse: ServiceResponse<IMovie[]>;
 
@@ -19,7 +18,7 @@ export default class MovieService {
       };
       return serviceResponse;
     }
-    
+
     serviceResponse = { status: 'SUCCESSFUL', data: movies };
     return serviceResponse;
   }
