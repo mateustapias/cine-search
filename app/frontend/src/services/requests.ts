@@ -5,10 +5,18 @@ import { SignUp } from '../../../backend/src/types/SignUp';
 
 const api = axios.create({
   baseURL: 'https://cine-search-pxki.onrender.com',
-  // baseURL: 'https://my-cine-search.vercel.app',
   // baseURL: import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:3001',
-  // baseURL: 'http://localhost:3001',
 });
+
+// var axios = require("axios").default;
+
+// var options = { method: 'GET', url: 'https://cine-search-pxki.onrender.com/movies/many' };
+
+// axios.request(options).then(function (response) {
+//   console.log(response.data);
+// }).catch(function (error) {
+//   console.error(error);
+// });
 
 export const setToken = (token: Token) => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -29,9 +37,22 @@ export const requestSignUp = async (endpoint: string, body: SignUp) => {
   return data;
 };
 
-export const requestMovies = async (endpoint: string) => {
-  const { data } = await api.get(endpoint);
-  return data;
-};
+// export const requestMovies = async (endpoint: string) => {
+//   const { data } = await api.get(endpoint);
+//   return data;
+// };
+
+export const requestMovies = async () => {
+  const options = { method: 'GET', url: 'https://cine-search-pxki.onrender.com/movies/many' };
+
+  axios.request(options).then(function (response) {
+    console.log(response.data);
+    return response
+  }).catch(function (error) {
+    console.error(error);
+  });
+}
+
+console.log(requestMovies())
 
 export default api;

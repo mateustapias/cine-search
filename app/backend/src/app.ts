@@ -82,7 +82,7 @@ class App {
 
   private config(): void {
     const corsOptions = {
-      origin: 'https://my-cine-search.vercel.app', // url do front
+      origin: 'https://my-cine-search.vercel.app/', // url do front
       // exposedHeaders: ['Content-Type', 'Location', 'x-amzn-requestid'],
       credentials: true,
       optionsSuccessStatus: 200,
