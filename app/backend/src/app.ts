@@ -66,7 +66,7 @@ import cors from 'cors';
 import router from './routes';
 
 const corsOptions = {
-  origin: ['*'], // url do front
+  origin: ['http://my-cine-search.vercel.app'], // url do front
   // exposedHeaders: ['Content-Type', 'Location', 'x-amzn-requestid'],
   credentials: true,
   optionsSuccessStatus: 200,
