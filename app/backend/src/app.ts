@@ -65,11 +65,11 @@ import express from 'express';
 import cors from 'cors';
 import router from './routes';
 
-const corsOptions = {
-  origin: ['https://my-cine-search.vercel.app'], // url do front
-  exposedHeaders: ['Content-Type', 'Location', 'x-amzn-requestid'],
-  optionsSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: ['https://my-cine-search.vercel.app'], // url do front
+//   exposedHeaders: ['Content-Type', 'Location', 'x-amzn-requestid'],
+//   optionsSuccessStatus: 200,
+// };
 
 class App {
   public app: express.Express;
@@ -85,7 +85,8 @@ class App {
   }
 
   private config(): void {
-    this.app.use(express.json()).use(cors(corsOptions));
+    this.app.use(cors());
+    this.app.use(express.json());
   }
 
   private routes(): void {
