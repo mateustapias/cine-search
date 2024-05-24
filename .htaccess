@@ -1,0 +1,8 @@
+<IfModule mod_headers.c>
+    # Ativa o compartilhamento de recursos entre origens
+    Header set Access-Control-Allow-Origin "*"
+    # Permite métodos específicos
+    Header set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
+    # Permite cabeçalhos específicos
+    Header set Access-Control-Allow-Headers "X-Requested-With, Content-Type"
+</IfModule>
