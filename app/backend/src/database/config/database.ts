@@ -15,6 +15,10 @@ const config: Options = {
   logging: false,
 }
 
+const dBName = process.env.DB_NAME;
+console.log(`Database name: ${dBName}`);
+const dbHost = process.env.DB_HOST;
+console.log(`Host: ${dbHost}`);
 const dbPort = process.env.DB_PORT;
 console.log(`Porta do banco de dados: ${dbPort}`);
 

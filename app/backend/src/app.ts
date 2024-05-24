@@ -62,7 +62,7 @@
 // export const { app } = new App();
 
 import express from 'express';
-import sequelize from './database/models';
+import router from './routes';
 
 class App {
   public app: express.Express;
@@ -74,20 +74,15 @@ class App {
     // Rota básica para teste
     this.app.get('/', (req, res) => res.json({ ok: true }));
 
-    // Rota para testar a conexão com o banco de dados
-    this.app.get('/test-connection', async (req, res) => {
-      try {
-        await sequelize.authenticate();
-        res.send('Connection has been established successfully.');
-      } catch (error) {
-        console.error('Unable to connect to the database:', error);
-        res.status(500).send('Unable to connect to the database.');
-      }
-    });
+    this.routes();
   }
 
   private config(): void {
     this.app.use(express.json());
+  }
+
+  private routes(): void {
+    this.app.use(router);
   }
 
   public start(PORT: string | number): void {
