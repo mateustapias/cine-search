@@ -42,7 +42,7 @@ export const requestSignUp = async (endpoint: string, body: SignUp) => {
 //   return data;
 // };
 
-export const requestMovies = async () => {
+export const requestMovies = async (endpoint: string) => {
   const options = { method: 'GET', url: 'https://cine-search-pxki.onrender.com/movies/many' };
 
   axios.request(options).then(function (response) {
@@ -53,6 +53,5 @@ export const requestMovies = async () => {
   });
 }
 
-console.log(requestMovies())
 
 export default api;
