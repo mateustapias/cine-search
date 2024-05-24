@@ -3,13 +3,15 @@ import { Movie } from '../../types';
 import MoviesCarousel from './MoviesCarousel';
 import { requestMovies } from '../services/requests';
 
+// Diferente de TopRatedMovies
+// Aqui faço a requisição para o meu prórpio banco
 const PopularMovies = () => {
   const [popularMoviesData, setPopularMoviesData] = useState<Movie[]>();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const movies = await requestMovies('/movies/many')
+        const movies = await requestMovies('/movies/many');
 
         setPopularMoviesData(movies);
       } catch (error) {
@@ -19,46 +21,6 @@ const PopularMovies = () => {
 
     fetchData();
   }, []);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const config = {
-  //         method: 'GET',
-  //         headers: {
-  //           accept: 'application/json',
-  //         },
-  //         params: {
-  //           api_key: '5e2aa1c348aa9fe8354f8e2c8a2f25eb',
-  //           language: 'pt-BR',
-  //         },
-  //       };
-
-  //       const responsePage1 = await axios.get('https://api.themoviedb.org/3/movie/popular', {
-  //         ...config,
-  //         params: {
-  //           ...config.params,
-  //           page: 1,
-  //         },
-  //       });
-
-  //       const responsePage2 = await axios.get('https://api.themoviedb.org/3/movie/popular', {
-  //         ...config,
-  //         params: {
-  //           ...config.params,
-  //           page: 2,
-  //         },
-  //       });
-
-  //       const combinedResults = [...responsePage1.data.results, ...responsePage2.data.results];
-
-  //       setPopularMoviesData(combinedResults);
-  //     } catch (error) {
-  //       console.error('Error fetching movie data:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
 
   return (
     <div className='c-movies c-popular-movies'>

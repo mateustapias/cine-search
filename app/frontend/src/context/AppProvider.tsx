@@ -1,4 +1,3 @@
-// import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import AppContext, { AppContextType } from './AppContext';
 import { ShowLogInOrSignUp } from '../../types';

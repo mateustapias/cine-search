@@ -14,7 +14,6 @@ const Header = () => {
   const { userRequest, setUserRequest } = useAppContext();
   // TODO: MUDAR O NOME DESSA VARIÁVEL
   const [userData, setUserData] = useState<UserData | undefined>();
-  // const [userData, setUserData] = useState<UserData | undefined>(() => getUserData());
 
   useEffect(() => {
     const userDataSession = getUserData();
@@ -43,35 +42,3 @@ const Header = () => {
 };
 
 export default Header;
-// const Header = () => {
-//   const { userRequest } = useAppContext();
-//   const [userData, setUserData] = useState<UserData>();
-
-//   useEffect(() => {
-//     if (userRequest) {
-//       const userDataSession = getUserData();
-//       if (userDataSession) setUserData(userDataSession);
-//     }
-//   }, [userRequest]);
-
-//   return (
-//     <div className='c-header'>
-//       <Link to="/" className='c-logo' title='CineSearch'>
-//         <img src={popcornBoxIcon} alt="Logo" className="img-logo" />
-//         <div className='c-logo-name'>
-//           <span>C</span>ine<span>S</span>earch
-//         </div>
-//       </Link>
-//       <SearchBar />
-//       {(userData && userRequest)
-//         ? <LoggedBox userData={userData} setUserData={setUserData} />
-//         : <>
-//           <LogInBox />
-//           <SignUpBox />
-//         </>
-//       }
-//     </div>
-//   );
-// };
-
-// export default Header;

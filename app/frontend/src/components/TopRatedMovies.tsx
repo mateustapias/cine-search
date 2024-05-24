@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import MoviesCarousel from './MoviesCarousel';
 import { Movie } from '../../types';
 
+// Diferente do PopularMovies
+// Aqui faço requisição direto pra API externa, para comparação
+// O objetivo é ficar igual ao PopularMovies
 const TopRatedMovies = () => {
   const [topRatedMovies, setTopRatedMovies] = useState<Movie[]>();
 

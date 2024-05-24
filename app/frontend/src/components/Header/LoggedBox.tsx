@@ -11,7 +11,6 @@ type LoggedBoxProps = {
 };
 
 const LoggedBox = ({ userData, setUserData }: LoggedBoxProps) => {
-  // const { setUserRequest } = useAppContext();
   const [menu, setMenu] = useState<boolean>(false);
 
   const handleBlur = (event: React.FocusEvent<HTMLDivElement, Element>) => {
@@ -30,7 +29,6 @@ const LoggedBox = ({ userData, setUserData }: LoggedBoxProps) => {
   const logOff = (): void => {
     sessionStorage.removeItem('userData');
     setUserData(undefined);
-    // setUserRequest(true);
   };
 
   return (
