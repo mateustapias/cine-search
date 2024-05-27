@@ -32,7 +32,7 @@ const SignUpPrompt = () => {
     event.preventDefault();
 
     try {
-      const { token, userData } = await requestSignUp('/signUp', signUpData);
+      const { token, userData } = await requestSignUp(signUpData);
 
       setToken(token);
       setUserRequest(true);

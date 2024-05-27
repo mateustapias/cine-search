@@ -20,7 +20,7 @@ const LogInPrompt = () => {
     event.preventDefault();
 
     try {
-      const { token, userData } = await requestLogIn('/logIn', logInData);
+      const { token, userData } = await requestLogIn(logInData);
 
       setToken(token);
       setUserRequest(true);

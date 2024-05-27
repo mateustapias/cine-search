@@ -4,7 +4,7 @@ import movieRouter from './movie.routes';
 
 const router = Router();
 
-router.use('/', userRouter);
+router.use('/user', userRouter);
 // router.use('/', userRouter);
 router.use('/movies', movieRouter);
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Movie } from '../../types';
 import MoviesCarousel from './MoviesCarousel';
-import { requestMovies } from '../services/requests';
+import { requestData } from '../services/requests';
 
 // Diferente de TopRatedMovies
 // Aqui faço a requisição para o meu prórpio banco
@@ -11,7 +11,7 @@ const PopularMovies = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const movies = await requestMovies('/movies/many');
+        const movies = await requestData('/movies/many');
 
         setPopularMoviesData(movies);
       } catch (error) {

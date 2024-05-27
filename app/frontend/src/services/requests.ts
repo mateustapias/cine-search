@@ -4,8 +4,6 @@ import { LogIn } from '../../../backend/src/types/Login';
 import { SignUp } from '../../../backend/src/types/SignUp';
 
 const api = axios.create({
-  // baseURL: 'https://cine-search-pxki.onrender.com',
-  // baseURL: import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:3001',
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001',
 });
 
@@ -18,12 +16,14 @@ export const requestData = async (endpoint: string) => {
   return data;
 };
 
-export const requestLogIn = async (endpoint: string, body: LogIn) => {
+export const requestLogIn = async (body: LogIn) => {
+  const endpoint = '/user/logIn'
   const { data } = await api.post(endpoint, body);
   return data;
 };
 
-export const requestSignUp = async (endpoint: string, body: SignUp) => {
+export const requestSignUp = async (body: SignUp) => {
+  const endpoint = 'user/signUp'
   const { data } = await api.post(endpoint, body);
   return data;
 };
