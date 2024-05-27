@@ -4,8 +4,9 @@ import { LogIn } from '../../../backend/src/types/Login';
 import { SignUp } from '../../../backend/src/types/SignUp';
 
 const api = axios.create({
-  baseURL: 'https://cine-search-pxki.onrender.com',
+  // baseURL: 'https://cine-search-pxki.onrender.com',
   // baseURL: import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:3001',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'
 });
 
 export const setToken = (token: Token) => {

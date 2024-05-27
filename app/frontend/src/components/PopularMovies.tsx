@@ -18,8 +18,8 @@ const PopularMovies = () => {
         console.error('Error fetching movie data:', error);
       }
     };
-
     fetchData();
+    console.log(import.meta.env.VITE_API_BASE_URL);
   }, []);
 
   return (

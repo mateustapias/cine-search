@@ -80,23 +80,13 @@ class App {
 
   public config(): void {
     const corsOptions = {
-      origin: 'https://my-cine-search.vercel.app', // URL do front sem barra no final
+      origin: '*', // URL do front sem barra no final
+      // origin: 'https://my-cine-search.vercel.app', // URL do front sem barra no final
       credentials: true,
       optionsSuccessStatus: 200,
       methods: 'GET,POST,DELETE,OPTIONS,PUT,PATCH', // Permitindo métodos necessários
       allowedHeaders: 'Content-Type,Authorization', // Permitindo cabeçalhos necessários
     };
-    // const corsOptions = {
-    //   origin: 'https://my-cine-search.vercel.app/', // url do front
-    //   credentials: true,
-    //   optionsSuccessStatus: 200,
-    // };
-    // const accessControl: express.RequestHandler = (_req, res, next) => {
-    //   res.header('Access-Control-Allow-Origin', '*');
-    //   res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS,PUT,PATCH');
-    //   res.header('Access-Control-Allow-Headers', '*');
-    //   next();
-    // };
     this.app.use(cors(corsOptions));
     this.app.use(express.json());
   }
