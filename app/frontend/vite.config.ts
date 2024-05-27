@@ -8,4 +8,7 @@ export default defineConfig({
     host: true,
     hmr: true,
   },
+  build: {
+    outDir: 'dist',
+  },
 });
