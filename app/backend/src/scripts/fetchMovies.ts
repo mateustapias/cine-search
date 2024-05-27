@@ -13,6 +13,7 @@ async function fetchMovies(): Promise<IMovie[] | undefined> {
         params: {
           api_key: '5e2aa1c348aa9fe8354f8e2c8a2f25eb',
           language: 'pt-BR',
+          page,
         },
       };
       // eslint-disable-next-line no-await-in-loop

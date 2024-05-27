@@ -39,7 +39,7 @@ services:
     image: mysql:8.0.32
     container_name: db
     ports:
-      - 3306:3306 # Mapear porta interna 3306 para 3307 na máquina host
+      - 3307:3306 # Mapear porta interna 3307 para 3306 na máquina host
     environment:
       - MYSQL_ROOT_PASSWORD=123456
     restart: 'always'

@@ -31,7 +31,7 @@ const MovieDetails = () => {
     };
 
     fetchData();
-  });
+  }, []);
 
   return (
     <div className='c-movie-details'>
