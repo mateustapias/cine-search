@@ -6,7 +6,7 @@ import { SignUp } from '../../../backend/src/types/SignUp';
 const api = axios.create({
   // baseURL: 'https://cine-search-pxki.onrender.com',
   // baseURL: import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:3001',
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001',
 });
 
 export const setToken = (token: Token) => {
@@ -33,6 +33,5 @@ export const requestMovies = async (endpoint: string) => {
   const { data } = await api.get(endpoint);
   return data;
 };
-
 
 export default api;

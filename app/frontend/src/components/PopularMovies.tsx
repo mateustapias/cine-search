@@ -19,7 +19,6 @@ const PopularMovies = () => {
       }
     };
     fetchData();
-    console.log(import.meta.env.VITE_API_BASE_URL);
   }, []);
 
   return (

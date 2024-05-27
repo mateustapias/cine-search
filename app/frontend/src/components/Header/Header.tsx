@@ -30,7 +30,7 @@ const Header = () => {
         </div>
       </Link>
       <SearchBar />
-      {userData 
+      {userData
         ? <LoggedBox userData={userData} setUserData={setUserData} />
         : <>
           <LogInBox />

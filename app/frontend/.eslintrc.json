@@ -1,0 +1,23 @@
+{
+  "plugins": [
+    // "@typescript-eslint",
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    // "react-app",
+    "airbnb-base",
+    "airbnb-typescript/base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "tsConfigRootDir": "../",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "import/no-relative-packages": "off",
+    "import/extensions": "off",
+    "no-console": "off"
+  }
+}

@@ -29,8 +29,8 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
       {chunkArray(moviesData, chunkSize, maxGroups).map((group, index) => (
         <Carousel.Item key={index}>
           <div className='c-movie-group'>
-            {group.map((movie, index) => (
-              <MoviesCarouselCard key={index} movie={movie} />
+            {group.map((movie, movieIndex) => (
+              <MoviesCarouselCard key={movieIndex} movie={movie} />
             ))}
           </div>
         </Carousel.Item>
