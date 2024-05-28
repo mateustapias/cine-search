@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Movie } from '../../types';
 import '../styles/pages/MovieDetails.css';
-import { requestData } from '../services/requests';
+// import { requestData } from '../services/requests';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -30,11 +30,11 @@ const MovieDetails = () => {
         console.error('Error fetching movie data:', error);
       }
     };
-
+    
     fetchData();
   }, []);
 
-  const movieData = requestData(`/movie/${id}`);
+  // const movieData = requestData(`/movie/${id}`);
 
   return (
     <div className='c-movie-details'>
