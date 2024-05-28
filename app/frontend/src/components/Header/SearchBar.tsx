@@ -30,6 +30,7 @@ const SearchBar = () => {
           params: {
             api_key: '5e2aa1c348aa9fe8354f8e2c8a2f25eb',
             query: targetValue,
+            language: 'pt-BR',
           },
         };
         const response = await axios.get('https://api.themoviedb.org/3/search/movie', config);

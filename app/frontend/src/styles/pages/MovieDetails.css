@@ -1,6 +1,8 @@
 .c-outer-movie-data {
   width: 800px;
   height: 500px;
+  /* border: radial-gradient(); */
+  /* border: 10px solid red */
 }
 
 .c-movie-data {

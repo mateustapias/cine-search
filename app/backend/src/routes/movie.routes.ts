@@ -10,8 +10,10 @@ movieRouter.get(
   (req: Request, res: Response) => movieController.getManyMovies(req, res),
 );
 
-// movieRouter.get(
-//   '/:id',
-// (req: Request, res: Response) => movieController)
+movieRouter.get(
+  '/:id',
+  // (req: Request, res: Response) => res.status(200).json(req.params),
+  (req: Request, res: Response) => movieController.getMovieDetails(req, res),
+);
 
 export default movieRouter;

@@ -11,4 +11,6 @@ export interface IMovie {
 
 export interface IMovieModel {
   findMany(limit: number): Promise<IMovie[] | null>;
+  findOne(id: number): Promise<IMovie | null>;
+  createOne(movie: IMovie): Promise<IMovie | null>;
 }

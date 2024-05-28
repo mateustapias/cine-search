@@ -38,6 +38,7 @@ const TopRatedMovies = () => {
             page: 2,
           },
         });
+        console.log(responsePage2.data);
 
         const combinedResults = [...responsePage1.data.results, ...responsePage2.data.results];
 
