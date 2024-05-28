@@ -1,9 +1,10 @@
-import { ChangeEvent, useState } from 'react';
+import {
+  ChangeEvent, useState, FocusEvent,
+} from 'react';
 import axios from 'axios';
 import '../../styles/components/SearchBar.css';
 import { Movie } from '../../../types';
 import searchIcon from '../../assets/images/searchIcon.png';
-// import searchIcon from '../../assets/images/searchIcon.png';
 import SearchSuggestionCard from './SearchSuggestionCard';
 
 const SearchBar = () => {
@@ -41,17 +42,18 @@ const SearchBar = () => {
     }
   };
 
-  const handleBlur = (event: React.FocusEvent<HTMLDivElement, Element>) => {
-    if (event.relatedTarget && event.relatedTarget.className === 'search-suggestion-card') {
+  const handleBlur = (event: FocusEvent) => {
+    if (event.relatedTarget) {
       return;
     }
     setShowSuggestions(false);
   };
 
   return (
-    <div className='c-search'
+    <div
+      className='c-search'
       onFocus={() => setShowSuggestions(true)}
-    onBlur={handleBlur}
+      onBlur={handleBlur}
     >
       <div className={`c-search-bar${searchResults.length && showSuggestions ? ' with-suggestion' : ''}`}>
         <input
@@ -66,22 +68,20 @@ const SearchBar = () => {
           <img id='search-icon' src={searchIcon} />
         </button>
       </div>
-      {showSuggestions
-        && <div className='c-outer-search-suggestion'>
+      {showSuggestions && (
+        <div className='c-outer-search-suggestion'>
           <div id='c-inner-search-suggestion'>
-            {searchResults
-              && searchResults.map((movie) => (
-                <>
-                  <SearchSuggestionCard key={movie.id} movie={movie} />
-                  <div className='c-line-break'>
-                    <hr className='line-break' />
-                  </div>
-                </>
-              ))
-            }
+            {searchResults && searchResults.map((movie) => (
+              <>
+                <SearchSuggestionCard key={movie.id} movie={movie} />
+                <div className='c-line-break'>
+                  <hr className='line-break' />
+                </div>
+              </>
+            ))}
           </div>
         </div>
-      }
+      )}
     </div>
   );
 };

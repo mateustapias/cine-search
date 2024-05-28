@@ -17,13 +17,13 @@ export const requestData = async (endpoint: string) => {
 };
 
 export const requestLogIn = async (body: LogIn) => {
-  const endpoint = '/user/logIn'
+  const endpoint = '/user/logIn';
   const { data } = await api.post(endpoint, body);
   return data;
 };
 
 export const requestSignUp = async (body: SignUp) => {
-  const endpoint = 'user/signUp'
+  const endpoint = 'user/signUp';
   const { data } = await api.post(endpoint, body);
   return data;
 };
