@@ -36,7 +36,7 @@ export default class UserService {
 
     if (!foundUser || !compareSync(logInData.password, foundUser.password)) {
       serviceResponse = {
-        status: 'UNAUTHORIZED', data: { message: 'Invalid email or password' },
+        status: 'UNAUTHORIZED', data: { message: 'Email ou senha inválidos' },
       };
       return serviceResponse;
     }
