@@ -12,7 +12,6 @@ movieRouter.get(
 
 movieRouter.get(
   '/:id',
-  // (req: Request, res: Response) => res.status(200).json(req.params),
   (req: Request, res: Response) => movieController.getMovieDetails(req, res),
 );
 
