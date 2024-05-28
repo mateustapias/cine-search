@@ -11,7 +11,8 @@ const SignUpBox = () => {
   };
   return (
     <button className='btn-sign-up-box' onClick={handleClick}>
-      <span>Sign up</span>
+      <span>Registrar</span>
+      {/* <span>Sign up</span> */}
     </button>
   );
 };

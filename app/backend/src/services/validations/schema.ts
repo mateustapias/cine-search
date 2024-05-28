@@ -1,45 +1,42 @@
-import Joi = require('joi');
-
-const emailMissingMessage = 'O email deve estar preenchido';
-const passwordMissingMessage = 'A senha deve estar preenchida';
-const passwordMaxLenMessage = 'A senha deve ter no máximo {{#limit}} caracteres';
+import Joi from 'joi';
+import errorMessages from './errorMessages';
 
 const logInUserSchema = Joi.object({
   email: Joi.string().email().required()
     .messages({
-      'any.required': emailMissingMessage,
-      'string.empty': emailMissingMessage,
-      'string.email': 'O email não é válido',
+      'any.required': errorMessages.email.required,
+      'string.empty': errorMessages.email.empty,
+      'string.email': errorMessages.email.invalid,
     }),
   password: Joi.string().required().min(6).max(20)
     .messages({
-      'string.required': passwordMissingMessage,
-      'string.empty': passwordMissingMessage,
-      'string.min': passwordMaxLenMessage,
-      'string.max': passwordMaxLenMessage,
+      'any.required': errorMessages.password.required,
+      'string.empty': errorMessages.password.empty,
+      'string.min': errorMessages.password.min,
+      'string.max': errorMessages.password.max,
     }),
-});
+}).options({ abortEarly: false });
 
 const signUpSchema = Joi.object({
   email: Joi.string().email().required()
     .messages({
-      'any.required': emailMissingMessage,
-      'string.empty': emailMissingMessage,
-      'string.email': 'O email não é válido',
+      'any.required': errorMessages.email.required,
+      'string.empty': errorMessages.email.empty,
+      'string.email': errorMessages.email.invalid,
     }),
   username: Joi.string().required().min(3).max(20)
     .messages({
-      'string.required': 'O usuário deve estar preenchido',
-      'string.empty': 'O usuário deve estar preenchido',
-      'string.min': 'O usuário deve ter no mínimo {{#limit}} caracteres',
-      'string.max': 'O usuário deve ter no máximo {{#limit}} caracteres',
+      'any.required': errorMessages.username.required,
+      'string.empty': errorMessages.username.empty,
+      'string.min': errorMessages.username.min,
+      'string.max': errorMessages.username.max,
     }),
   password: Joi.string().required().min(6).max(20)
     .messages({
-      'string.required': passwordMissingMessage,
-      'string.empty': passwordMissingMessage,
-      'string.min': passwordMaxLenMessage,
-      'string.max': passwordMaxLenMessage,
+      'any.required': errorMessages.password.required,
+      'string.empty': errorMessages.password.empty,
+      'string.min': errorMessages.password.min,
+      'string.max': errorMessages.password.max,
     }),
 }).options({ abortEarly: false });
 

@@ -11,7 +11,8 @@ const LogInBox = () => {
   };
   return (
     <button className='btn-log-in-box' onClick={handleClick}>
-      <span>Log in</span>
+      <span>Entrar</span>
+      {/* <span>Log in</span> */}
     </button>
   );
 };
