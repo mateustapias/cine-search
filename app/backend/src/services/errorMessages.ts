@@ -1,4 +1,4 @@
-const errorMessages = {
+export const schemaErrorMessages = {
   email: {
     required: 'O email deve estar preenchido',
     empty: 'O email deve estar preenchido',
@@ -18,4 +18,4 @@ const errorMessages = {
   },
 };
 
-export default errorMessages;
+export const dataBaseErrorMessage = 'Erro ao consultar o banco de dados';

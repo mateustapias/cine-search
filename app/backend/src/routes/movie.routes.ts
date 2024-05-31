@@ -6,8 +6,13 @@ const movieController = new MovieController();
 const movieRouter = Router();
 
 movieRouter.get(
-  '/many',
-  (req: Request, res: Response) => movieController.getManyMovies(req, res),
+  '/popular',
+  (req: Request, res: Response) => movieController.getPopularMovies(req, res),
+);
+
+movieRouter.get(
+  '/top-rated',
+  (req: Request, res: Response) => movieController.getTopRatedMovies(req, res),
 );
 
 movieRouter.get(

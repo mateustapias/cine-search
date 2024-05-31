@@ -7,9 +7,14 @@ export default class MovieController {
     private movieService = new MovieService(),
   ) { }
 
-  async getManyMovies(req: Request, res: Response) {
-    const { status, data } = await this.movieService.getManyMovies();
-    console.log('oi');
+  async getPopularMovies(req: Request, res: Response) {
+    const { status, data } = await this.movieService.getPopularMovies();
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
+
+  async getTopRatedMovies(req: Request, res: Response) {
+    const { status, data } = await this.movieService.getTopRatedMovies();
 
     return res.status(mapStatusHTTP(status)).json(data);
   }

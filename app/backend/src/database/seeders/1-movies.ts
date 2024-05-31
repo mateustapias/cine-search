@@ -1,5 +1,5 @@
 import { QueryInterface } from 'sequelize';
-import { fetchMovies, insertMovies } from '../../scripts/fetchMovies';
+import fetchMovies from '../../scripts/getSeederMovies';
 
 export default {
   up: async (queryInterface: QueryInterface) => {

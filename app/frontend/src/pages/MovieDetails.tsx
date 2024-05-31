@@ -10,30 +10,6 @@ const MovieDetails = () => {
 
   const [movieData, setMovieData] = useState<Movie>();
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const config = {
-  //         method: 'GET',
-  //         headers: {
-  //           accept: 'application/json',
-  //         },
-  //         params: {
-  //           api_key: '5e2aa1c348aa9fe8354f8e2c8a2f25eb',
-  //           language: 'pt-BR',
-  //           page: 1,
-  //         },
-  //       };
-  //       const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}`, config);
-  //       setMovieData(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching movie data:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
   useEffect(() => {
     const fetchData = async () => {
       const movieDetails = await requestData(`/movies/${id}`);
@@ -63,9 +39,9 @@ const MovieDetails = () => {
             </div>
             <div id='fade-effect' />
           </div>
-          {/* <div className='c-movie-runtime'>
+          <div className='c-movie-runtime'>
             {`${movieData.runtime} min`}
-          </div> */}
+          </div>
           <div className='c-movie-release-date'>
             {movieData.release_date}
           </div>

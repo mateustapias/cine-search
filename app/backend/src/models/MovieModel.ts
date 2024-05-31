@@ -5,8 +5,18 @@ import SequelizeMovie from '../database/models/SequelizeMovie';
 export default class MovieModel implements IMovieModel {
   private model = SequelizeMovie;
 
-  async findMany(limit: number): Promise<IMovie[] | null> {
+  async findPopular(limit: number): Promise<IMovie[] | null> {
     const dbData = await this.model.findAll({
+      order: [['popularity', 'DESC']],
+      limit,
+    });
+
+    return dbData;
+  }
+
+  async findTopRated(limit: number): Promise<IMovie[] | null> {
+    const dbData = await this.model.findAll({
+      order: [['vote_average', 'DESC']],
       limit,
     });
 
@@ -27,10 +37,3 @@ export default class MovieModel implements IMovieModel {
     return dbData;
   }
 }
-
-// const findOrCreateOptions: FindOrCreateOptions = {
-//   where: { id: movie.id }, // Assumindo que `id` é uma propriedade única para identificar o filme
-//   defaults: movie,
-// };
-
-// const [dbData] = await this.model.findOrCreate(findOrCreateOptions);

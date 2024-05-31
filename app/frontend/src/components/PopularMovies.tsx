@@ -1,8 +1,6 @@
 import MoviesCarousel from './MoviesCarousel';
 import useMovies from '../hooks/useMovies';
 
-// Diferente de TopRatedMovies
-// Aqui faço a requisição para o meu prórpio banco
 const PopularMovies = () => {
   const { moviesData } = useMovies('popular');
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Movie } from '../../types';
 import { requestMovies } from '../services/requests';
 
-type UseMoviesType = 'popular' | 'topRated';
+type UseMoviesType = 'popular' | 'top-rated';
 
 const useMovies = (type: UseMoviesType) => {
   const [moviesData, setMoviesData] = useState<Movie[] | undefined>();
@@ -11,10 +11,11 @@ const useMovies = (type: UseMoviesType) => {
     const fetchData = async () => {
       try {
         if (type === 'popular') {
-          const movies = await requestMovies('/movies/many');
+          const movies = await requestMovies('/movies/popular');
           setMoviesData(movies);
-          // const sortedMovies = movies.sort((a, b) => b.vote_average - a.vote_average);
-          // setMoviesData(sortedMovies);
+        } else {
+          const movies = await requestMovies('/movies/top-rated');
+          setMoviesData(movies);
         }
       } catch (err) {
         console.error('Error fetching movie data:', err);

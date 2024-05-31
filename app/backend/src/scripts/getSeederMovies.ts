@@ -1,7 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import axios from 'axios';
 import { IMovie } from '../interfaces/movie';
-import SequelizeMovie from '../database/models/SequelizeMovie';
 import requestAPI from '../utils/requestAPI';
 
 function filterMovies(movies: IMovie[]): IMovie[] {
@@ -26,13 +25,11 @@ function filterMovies(movies: IMovie[]): IMovie[] {
 
 async function addRuntimeColumn(movie: IMovie): Promise<IMovie> {
   const movieFromAPI = await requestAPI(movie.id);
-  // await setTimeout(1000)
-  console.log(movieFromAPI.runtime);
 
-  return { ...movie, runtime: movieFromAPI.runtime };
+  return { ...movie, runtime: Number(movieFromAPI.runtime) };
 }
 
-export async function fetchMovies(initialPage = 1): Promise<IMovie[] | undefined> {
+export default async function getSeederMovies(initialPage = 1): Promise<IMovie[] | undefined> {
   const movies: IMovie[][] = [];
   try {
     for (let page = initialPage; page < initialPage + 5; page += 1) {
@@ -47,9 +44,10 @@ export async function fetchMovies(initialPage = 1): Promise<IMovie[] | undefined
           page,
         },
       };
-      // eslint-disable-next-line no-await-in-loop
-      const response = await axios.get('https://api.themoviedb.org/3/movie/popular', config);
-      movies.push(response.data.results);
+      const popularMovies = await axios.get('https://api.themoviedb.org/3/movie/popular', config);
+      movies.push(popularMovies.data.results);
+      const topRatedMovies = await axios.get('https://api.themoviedb.org/3/movie/top_rated', config);
+      movies.push(topRatedMovies.data.results);
     }
 
     const flattenedMovies = movies.flat();
@@ -62,12 +60,12 @@ export async function fetchMovies(initialPage = 1): Promise<IMovie[] | undefined
   }
 }
 
-export async function insertMovies(initialRequest: number): Promise<void> {
-  const maxRequests = 20;
-  for (let requests = initialRequest; requests < initialRequest + maxRequests; requests += 1) {
-    const moviesToInsert = await fetchMovies(requests * 20);
-    if (moviesToInsert) {
-      SequelizeMovie.bulkCreate(moviesToInsert, {});
-    }
-  }
-}
+// export async function insertMovies(initialRequest: number): Promise<void> {
+//   const maxRequests = 20;
+//   for (let requests = initialRequest; requests < initialRequest + maxRequests; requests += 1) {
+//     const moviesToInsert = await fetchMovies(requests * 20);
+//     if (moviesToInsert) {
+//       SequelizeMovie.bulkCreate(moviesToInsert, {});
+//     }
+//   }
+// }

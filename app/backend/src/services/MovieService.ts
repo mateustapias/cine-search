@@ -2,20 +2,37 @@ import MovieModel from '../models/MovieModel';
 import { IMovie, IMovieModel } from '../interfaces/movie';
 import { ServiceResponse } from '../types/ServiceResponse';
 import requestAPI from '../utils/requestAPI';
+import { dataBaseErrorMessage } from './errorMessages';
 
 export default class MovieService {
   constructor(
     private movieModel: IMovieModel = new MovieModel(),
   ) { }
 
-  async getManyMovies() {
+  async getPopularMovies() {
     let serviceResponse: ServiceResponse<IMovie[]>;
 
-    const movies = await this.movieModel.findMany(32);
+    const movies = await this.movieModel.findPopular(32);
 
     if (!movies) {
       serviceResponse = {
-        status: 'NOT_FOUND', data: { message: 'Erro ao consultar o banco de dados' },
+        status: 'NOT_FOUND', data: { message: dataBaseErrorMessage },
+      };
+      return serviceResponse;
+    }
+
+    serviceResponse = { status: 'SUCCESSFUL', data: movies };
+    return serviceResponse;
+  }
+
+  async getTopRatedMovies() {
+    let serviceResponse: ServiceResponse<IMovie[]>;
+
+    const movies = await this.movieModel.findTopRated(32);
+
+    if (!movies) {
+      serviceResponse = {
+        status: 'NOT_FOUND', data: { message: dataBaseErrorMessage },
       };
       return serviceResponse;
     }
@@ -50,7 +67,7 @@ export default class MovieService {
     }
 
     serviceResponse = {
-      status: 'BAD_REQUEST', data: { message: 'Erro ao consultar o banco de dados' },
+      status: 'BAD_REQUEST', data: { message: dataBaseErrorMessage },
     };
     return serviceResponse;
   }

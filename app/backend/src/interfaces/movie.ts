@@ -12,7 +12,8 @@ export interface IMovie {
 }
 
 export interface IMovieModel {
-  findMany(limit: number): Promise<IMovie[] | null>;
   findOne(id: number): Promise<IMovie | null>;
   createOne(movie: IMovie): Promise<IMovie | null>;
+  findPopular(limit: number): Promise<IMovie[] | null>;
+  findTopRated(limit: number): Promise<IMovie[] | null>;
 }
