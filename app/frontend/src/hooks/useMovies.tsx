@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Movie } from '../../types';
-import { requestData } from '../services/requests';
+import { requestMovies } from '../services/requests';
 
 type UseMoviesType = 'popular' | 'topRated';
 
@@ -11,8 +11,10 @@ const useMovies = (type: UseMoviesType) => {
     const fetchData = async () => {
       try {
         if (type === 'popular') {
-          const movies = await requestData('/movies/many');
+          const movies = await requestMovies('/movies/many');
           setMoviesData(movies);
+          // const sortedMovies = movies.sort((a, b) => b.vote_average - a.vote_average);
+          // setMoviesData(sortedMovies);
         }
       } catch (err) {
         console.error('Error fetching movie data:', err);

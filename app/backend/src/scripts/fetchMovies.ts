@@ -2,24 +2,40 @@
 import axios from 'axios';
 import { IMovie } from '../interfaces/movie';
 import SequelizeMovie from '../database/models/SequelizeMovie';
+import requestAPI from '../utils/requestAPI';
 
 function filterMovies(movies: IMovie[]): IMovie[] {
   return movies
     .filter((movie: IMovie) => (movie.overview))
-    .map((movie: IMovie) => ({
-      id: movie.id,
-      title: movie.title,
-      overview: movie.overview,
-      release_date: movie.release_date,
-      poster_path: movie.poster_path,
-      vote_average: Number(movie.vote_average.toFixed(1)),
+    .map(({
+      id, title, adult, overview, popularity, release_date,
+      vote_average, runtime, poster_path, backdrop_path,
+    }: IMovie) => ({
+      id,
+      title,
+      adult,
+      overview,
+      popularity,
+      release_date,
+      vote_average: Number(vote_average.toFixed(1)),
+      runtime,
+      poster_path,
+      backdrop_path,
     }));
+}
+
+async function addRuntimeColumn(movie: IMovie): Promise<IMovie> {
+  const movieFromAPI = await requestAPI(movie.id);
+  // await setTimeout(1000)
+  console.log(movieFromAPI.runtime);
+
+  return { ...movie, runtime: movieFromAPI.runtime };
 }
 
 export async function fetchMovies(initialPage = 1): Promise<IMovie[] | undefined> {
   const movies: IMovie[][] = [];
   try {
-    for (let page = initialPage; page < initialPage + 20; page += 1) {
+    for (let page = initialPage; page < initialPage + 5; page += 1) {
       const config = {
         method: 'GET',
         headers: {
@@ -35,8 +51,10 @@ export async function fetchMovies(initialPage = 1): Promise<IMovie[] | undefined
       const response = await axios.get('https://api.themoviedb.org/3/movie/popular', config);
       movies.push(response.data.results);
     }
+
     const flattenedMovies = movies.flat();
-    const filteredMovies = filterMovies(flattenedMovies);
+    const moviesWithRuntime = await Promise.all(flattenedMovies.map(addRuntimeColumn));
+    const filteredMovies = filterMovies(moviesWithRuntime);
 
     return filteredMovies;
   } catch (error) {
@@ -51,9 +69,5 @@ export async function insertMovies(initialRequest: number): Promise<void> {
     if (moviesToInsert) {
       SequelizeMovie.bulkCreate(moviesToInsert, {});
     }
-    await new Promise((resolve) => { setTimeout(resolve, 1000); });
   }
 }
-
-// insertMovies(1);
-// insertMovies(21);

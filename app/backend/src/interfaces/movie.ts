@@ -1,12 +1,14 @@
 export interface IMovie {
   id: number;
   title: string;
-  poster_path: string;
-  // backdrop_path: string;
+  adult: boolean;
   overview: string;
+  popularity: number;
   release_date: string;
-  // runtime: number;
   vote_average: number;
+  runtime?: number;
+  poster_path: string;
+  backdrop_path: string;
 }
 
 export interface IMovieModel {

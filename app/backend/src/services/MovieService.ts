@@ -29,10 +29,12 @@ export default class MovieService {
 
     const movie = await this.movieModel.findOne(id);
 
+    // Procura o filme no banco de dados
     if (movie) {
       serviceResponse = { status: 'SUCCESSFUL', data: movie };
       return serviceResponse;
     }
+    // Caso não exista, cria um filme
     return this.createMovie(id);
   }
 

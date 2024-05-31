@@ -9,6 +9,7 @@ export default class MovieController {
 
   async getManyMovies(req: Request, res: Response) {
     const { status, data } = await this.movieService.getManyMovies();
+    console.log('oi');
 
     return res.status(mapStatusHTTP(status)).json(data);
   }

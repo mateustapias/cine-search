@@ -1,12 +1,14 @@
 export type Movie = {
   id: number,
   title: string,
+  adult: boolean,
+  overview: string,
+  popularity: number,
+  release_date: string,
+  vote_average: number,
   poster_path: string,
   backdrop_path: string,
-  overview: string,
-  release_date: string,
   runtime: number,
-  vote_average: number,
 };
 
 export type ShowLogInOrSignUp = {

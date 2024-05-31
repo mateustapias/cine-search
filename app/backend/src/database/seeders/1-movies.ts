@@ -3,7 +3,7 @@ import { fetchMovies, insertMovies } from '../../scripts/fetchMovies';
 
 export default {
   up: async (queryInterface: QueryInterface) => {
-    const movies = await fetchMovies(20);
+    const movies = await fetchMovies(1);
     if (movies) await queryInterface.bulkInsert('movies', movies, {});
   },
 

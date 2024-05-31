@@ -14,29 +14,43 @@ export default {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      adult: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+      },
       overview: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
+      popularity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       release_date: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
         field: 'release_date',
-      },
-      poster_path: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        field: 'poster_path',
       },
       vote_average: {
         type: DataTypes.FLOAT,
         allowNull: false,
         field: 'vote_average',
       },
-      // runtime: {
-      //   type: DataTypes.INTEGER,
-      //   allowNull: false,
-      // },
+      runtime: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        // defaultValue: 10
+      },
+      poster_path: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        field: 'poster_path',
+      },
+      backdrop_path: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        field: 'backdrop_path'
+      },
     });
   },
   down(queryInterface: QueryInterface) {
