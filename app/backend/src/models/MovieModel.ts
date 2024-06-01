@@ -11,6 +11,7 @@ export default class MovieModel implements IMovieModel {
       limit,
     });
 
+    if (!dbData) return null;
     return dbData;
   }
 
@@ -20,6 +21,7 @@ export default class MovieModel implements IMovieModel {
       limit,
     });
 
+    if (!dbData) return null;
     return dbData;
   }
 
@@ -28,12 +30,14 @@ export default class MovieModel implements IMovieModel {
       where: { id },
     });
 
+    if (!dbData) return null;
     return dbData;
   }
 
   async createOne(movie: IMovie): Promise<IMovie | null> {
     const dbData = await this.model.create(movie);
-
+    
+    if (!dbData) return null;
     return dbData;
   }
 }
