@@ -3,25 +3,23 @@
   "env": {
     "browser": false,
     "node": true,
-    "es2021": true,
+    "es2020": true,
     "jest": true
   },
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "airbnb-base",
-    "plugin:mocha/recommended",
     "airbnb-typescript/base"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2019,
+    "ecmaVersion": 2020,
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
   "plugins": [
     "@typescript-eslint",
-    "sonarjs",
-    "mocha"
+    "sonarjs"
   ],
   "rules": {
     "no-underscore-dangle": "off",

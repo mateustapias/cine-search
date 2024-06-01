@@ -64,6 +64,7 @@
 import express from 'express';
 import cors from 'cors';
 import router from './routes';
+import errorMiddleware from './middlewares/errorMiddleware';
 
 class App {
   public app: express.Express;
@@ -76,6 +77,8 @@ class App {
     this.app.get('/', (req, res) => res.json({ ok: true }));
 
     this.routes();
+
+    this.app.use(errorMiddleware);
   }
 
   public config(): void {
