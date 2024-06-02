@@ -21,7 +21,10 @@ const MovieDetails = () => {
       {movieData && (
         <>
           <div className='c-outer-movie-data'>
-            <div id='foto' className='c-movie-data' style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w500${movieData.backdrop_path}')` }}>
+            <div className='c-movie-data'>
+            {/* <div className='c-movie-data' style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w500${movieData.backdrop_path}')` }}> */}
+              <img id='foto' src={`https://image.tmdb.org/t/p/w500${movieData.backdrop_path}`} />
+              <img id='foto-blur' src={`https://image.tmdb.org/t/p/w500${movieData.backdrop_path}`}/>
               <img
                 className='c-poster-img'
                 src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
@@ -40,12 +43,10 @@ const MovieDetails = () => {
           <div className='c-movie-runtime'>{`${movieData.runtime} min`}</div>
           <div className='c-movie-release-date'>{movieData.release_date}</div>
           <div className='c-movie-overview'>{movieData.overview}</div>
-          <div className='test-div'>
-            <img
-              className='teste'
-              src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-            />
-          </div>
+          {/* <img
+            className='teste'
+            src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+          /> */}
         </>
       )}
     </div>
