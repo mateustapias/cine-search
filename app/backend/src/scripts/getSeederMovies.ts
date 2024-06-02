@@ -7,11 +7,12 @@ function filterMovies(movies: IMovie[]): IMovie[] {
   return movies
     .filter((movie: IMovie) => (movie.overview))
     .map(({
-      id, title, adult, overview, popularity, release_date,
+      id, title, tagline, adult, overview, popularity, release_date,
       vote_average, runtime, poster_path, backdrop_path,
     }: IMovie) => ({
       id,
       title,
+      tagline,
       adult,
       overview,
       popularity,
@@ -23,10 +24,10 @@ function filterMovies(movies: IMovie[]): IMovie[] {
     }));
 }
 
-async function addRuntimeColumn(movie: IMovie): Promise<IMovie> {
-  const movieFromAPI = await requestAPI(movie.id);
+async function addDetailColumns(movie: IMovie): Promise<IMovie> {
+  const { runtime, tagline } = await requestAPI(movie.id);
 
-  return { ...movie, runtime: Number(movieFromAPI.runtime) };
+  return { ...movie, runtime: Number(runtime), tagline };
 }
 
 export default async function getSeederMovies(initialPage = 1): Promise<IMovie[] | undefined> {
@@ -53,7 +54,7 @@ export default async function getSeederMovies(initialPage = 1): Promise<IMovie[]
     }
 
     const flattenedMovies = movies.flat();
-    const moviesWithRuntime = await Promise.all(flattenedMovies.map(addRuntimeColumn));
+    const moviesWithRuntime = await Promise.all(flattenedMovies.map(addDetailColumns));
     const filteredMovies = filterMovies(moviesWithRuntime);
 
     return filteredMovies;

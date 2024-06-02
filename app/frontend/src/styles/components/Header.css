@@ -27,19 +27,17 @@
 }
 
 .c-logo-name {
-  /* display: flex;
-  align-items: end; */
-  /* height: 100%; */
-  /* align-items: start; */
   font-size: 2.6rem;
   font-weight: 700;
   color: rgb(255, 210, 0);
 }
 
 .c-logo-name span {
-  /* display: flex; */
-  /* align-self: center; */
-  /* position: relative; */
-  /* font-size: 3.6rem; */
   color: rgb(255, 50, 50);
+  text-shadow:
+      1px 1px 0 black,
+      -1px 1px 0 black,
+      1px -1px 0 black,
+      -1px -1px 0 black;
+  /* Define a cor e a posição das sombras */
 }

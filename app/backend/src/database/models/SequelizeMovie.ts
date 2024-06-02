@@ -11,6 +11,7 @@ class SequelizeMovie extends Model<InferAttributes<SequelizeMovie>,
 InferCreationAttributes<SequelizeMovie>> {
   declare id: number;
   declare title: string;
+  declare tagline: string;
   declare adult: boolean;
   declare overview: string;
   declare popularity: number;
@@ -25,16 +26,16 @@ SequelizeMovie.init({
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    // autoIncrement: true,
-    // allowNull: false,
   },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  tagline: {
+    type: DataTypes.STRING,
+  },
   adult: {
     type: DataTypes.BOOLEAN,
-    allowNull: true,
   },
   overview: {
     type: DataTypes.TEXT,
@@ -54,16 +55,12 @@ SequelizeMovie.init({
   },
   runtime: {
     type: DataTypes.INTEGER,
-    // allowNull: false,
-    // defaultValue: 10,
   },
   poster_path: {
     type: DataTypes.STRING,
-    allowNull: true,
   },
   backdrop_path: {
     type: DataTypes.STRING,
-    allowNull: false,
   },
 }, {
   sequelize: db,

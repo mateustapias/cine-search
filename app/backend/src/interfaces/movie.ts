@@ -1,6 +1,7 @@
 export interface IMovie {
   id: number;
   title: string;
+  tagline: string;
   adult: boolean;
   overview: string;
   popularity: number;

@@ -1,6 +1,7 @@
 export type Movie = {
   id: number,
   title: string,
+  tagline: string,
   adult: boolean,
   overview: string,
   popularity: number,

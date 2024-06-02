@@ -6,17 +6,16 @@ export default {
     return queryInterface.createTable<Model<IMovie>>('movies', {
       id: {
         type: DataTypes.INTEGER,
-        // primaryKey: true,
-        // autoIncrement: true,
-        // allowNull: false,
       },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      tagline: {
+        type: DataTypes.STRING,
+      },
       adult: {
         type: DataTypes.BOOLEAN,
-        allowNull: true,
       },
       overview: {
         type: DataTypes.TEXT,
@@ -39,16 +38,13 @@ export default {
       runtime: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        // defaultValue: 10
       },
       poster_path: {
         type: DataTypes.STRING,
-        allowNull: true,
         field: 'poster_path',
       },
       backdrop_path: {
         type: DataTypes.STRING,
-        allowNull: false,
         field: 'backdrop_path'
       },
     });
