@@ -9,7 +9,7 @@
   "scripts": {
     "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "clean": "rimraf ./build",
-    "build": "tsc --project tsconfig.json && npm run db:reset",
+    "build": "tsc --project tsconfig.json",
     "prestart": "npm run build",
     "start": "node ./build/server.js",
     "predev": "npm run db:reset",

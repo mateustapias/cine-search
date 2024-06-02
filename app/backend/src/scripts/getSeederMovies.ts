@@ -32,7 +32,7 @@ async function addRuntimeColumn(movie: IMovie): Promise<IMovie> {
 export default async function getSeederMovies(initialPage = 1): Promise<IMovie[] | undefined> {
   const movies: IMovie[][] = [];
   try {
-    for (let page = initialPage; page < initialPage + 5; page += 1) {
+    for (let page = initialPage; page < initialPage + 3; page += 1) {
       const config = {
         method: 'GET',
         headers: {
@@ -48,6 +48,8 @@ export default async function getSeederMovies(initialPage = 1): Promise<IMovie[]
       movies.push(popularMovies.data.results);
       const topRatedMovies = await axios.get('https://api.themoviedb.org/3/movie/top_rated', config);
       movies.push(topRatedMovies.data.results);
+      // eslint-disable-next-line no-promise-executor-return
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
 
     const flattenedMovies = movies.flat();

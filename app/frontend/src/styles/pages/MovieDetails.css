@@ -5,6 +5,31 @@
   /* border: 10px solid red */
 }
 
+.teste-div {
+  height: 280px;
+  overflow: hidden;
+}
+
+.teste {
+  background-size: cover;
+  filter: blur(100px);
+  height: 280px;
+  transform: scale(2);
+  overflow: hidden;
+}
+
+.teste::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  filter: blur(50px);
+  transform: scale(3);
+}
+
 .c-movie-data {
   display: flex;
   align-items: end;
