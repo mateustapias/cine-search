@@ -80,6 +80,7 @@
   }
 
   .c-outer-secondary-data {
+    height: 450px;
     margin: 0 1rem;
     padding: 1rem;
     background-color: rgb(26 26 26);
@@ -89,6 +90,8 @@
       padding: 1rem;
       background-color: rgb(20 20 20);
       height: 100%;
+      display: flex;
+      flex-direction: column;
 
       .c-movie-rating,
       .c-movie-runtime,
@@ -106,14 +109,43 @@
       }
 
       .c-movie-runtime,
-      .c-movie-release-date,
-      .c-movie-overview {
+      .c-movie-release-date {
         margin-top: 0.3rem;
 
         img {
           filter: invert(30%);
         }
       }
+
+      .c-movie-overview {
+        margin-top: 0.3rem;
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+
+      .c-movie-overview span {
+        display: block;
+      }
+            ::-webkit-scrollbar {
+              width: 3px;
+            }
+      
+            /* Track */
+            ::-webkit-scrollbar-track {
+              background: rgba(0, 0, 0, 0.2);
+            }
+      
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+              background: rgba(255, 255, 255, 0.2);
+              border-radius: 10px;
+            }
+      
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+              background: #555;
+              cursor: pointer;
+            }
     }
   }
 }
