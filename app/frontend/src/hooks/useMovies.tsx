@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Movie } from '../../types';
-import { requestMovies } from '../services/requests';
+import { requestData } from '../services/requests';
 
 type UseMoviesType = 'popular' | 'top-rated';
 
@@ -11,11 +11,11 @@ const useMovies = (type: UseMoviesType) => {
     const fetchData = async () => {
       try {
         if (type === 'popular') {
-          const movies = await requestMovies('/movies/popular');
+          const movies = await requestData('/movies/popular');
 
           setMoviesData(movies);
         } else {
-          const movies = await requestMovies('/movies/top-rated');
+          const movies = await requestData('/movies/top-rated');
 
           setMoviesData(movies);
         }

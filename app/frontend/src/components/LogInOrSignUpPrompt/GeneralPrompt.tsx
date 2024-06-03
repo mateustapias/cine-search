@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import LogInPrompt from './LogInPrompt';
-import SignUpPrompt from './SignUpPrompt';
+import { LogInPrompt, SignUpPrompt } from '.';
 import '../../styles/components/GeneralPrompt.scss';
 import useAppContext from '../../utils/useAppContext';
 

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Token } from '../../../backend/src/types/Token';
 import { LogIn } from '../../../backend/src/types/Login';
 import { SignUp } from '../../../backend/src/types/SignUp';
-import { Movie } from '../../types';
+// TODO: aplicar barrel nesses tipos acima
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001',
@@ -28,13 +28,6 @@ export const requestLogIn = async (body: LogIn) => {
 export const requestSignUp = async (body: SignUp) => {
   const endpoint = 'user/signUp';
   const { data } = await api.post(endpoint, body);
-
-  return data;
-};
-
-// TODO: usar apenas o RequestData
-export const requestMovies = async (endpoint: string): Promise<Movie[]> => {
-  const { data } = await api.get(endpoint);
 
   return data;
 };

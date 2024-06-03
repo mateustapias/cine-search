@@ -4,8 +4,8 @@ import {
 import axios from 'axios';
 import '../../styles/components/SearchBar.scss';
 import { Movie } from '../../../types';
-import searchIcon from '../../assets/images/searchIcon.png';
-import SearchSuggestionCard from './SearchSuggestionCard';
+import { searchIcon } from '../../assets/icons';
+import { SearchSuggestionCard } from '.';
 
 const SearchBar = () => {
   const FORM_INITIAL_STATE = {

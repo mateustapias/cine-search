@@ -1,14 +1,13 @@
 import '../../styles/components/Header.scss';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import popcornBoxIcon from '../../assets/images/popcornBoxIcon.png';
-import SearchBar from './SearchBar';
-import LogInBox from './LogInBox';
-import SignUpBox from './SignUpBox';
+import { popcornBoxIcon } from '../../assets/icons';
+import {
+  SearchBar, LogInBox, SignUpBox, LoggedBox,
+} from '.';
 import useAppContext from '../../utils/useAppContext';
 import getUserData from '../../utils/getUserData';
 import { UserData } from '../../../types';
-import LoggedBox from './LoggedBox';
 
 const Header = () => {
   const { userRequest, setUserRequest } = useAppContext();

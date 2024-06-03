@@ -1,4 +1,4 @@
-const handleAsyncError = async <T>(promise: Promise<T>): Promise<[T | null, any]> => {
+const handleAsyncError = async <T>(promise: Promise<T>): Promise<[T | null, unknown]> => {
   try {
     const data = await promise;
     return [data, null];

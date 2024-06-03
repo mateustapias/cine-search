@@ -1,5 +1,5 @@
 import MoviesCarousel from './MoviesCarousel';
-import useMovies from '../hooks/useMovies';
+import useMovies from '../../hooks/useMovies';
 
 const PopularMovies = () => {
   const { moviesData } = useMovies('popular');

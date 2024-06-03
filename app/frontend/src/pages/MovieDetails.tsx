@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Movie } from '../../types';
-import '../styles/pages/MovieDetails.scss';
 import { requestData } from '../services/requests';
-import starIcon from '../assets/images/starIcon.png';
-import clockIcon from '../assets/images/clockIcon.png';
-import calendarIcon from '../assets/images/calendarIcon.png';
-// TODO: adicionar um index nas images para barrel
+import { calendarIcon, clockIcon, starIcon } from '../assets/icons';
+import '../styles/pages/MovieDetails.scss';
 
 const MovieDetails = () => {
   const { id } = useParams();

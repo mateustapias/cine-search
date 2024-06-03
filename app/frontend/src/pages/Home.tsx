@@ -1,5 +1,4 @@
-import PopularMovies from '../components/PopularMovies';
-import TopRatedMovies from '../components/TopRatedMovies';
+import { PopularMovies, TopRatedMovies } from '../components/Carousel';
 import '../styles/pages/Home.scss';
 
 const Home = () => (

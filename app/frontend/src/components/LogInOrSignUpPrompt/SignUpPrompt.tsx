@@ -5,7 +5,6 @@ import useAppContext from '../../utils/useAppContext';
 import { requestSignUp, setToken } from '../../services/requests';
 import { ShowErrorsMessages } from '../../../types';
 
-// Propositalmente fazendo de um modo diferente de LogInPrompt
 const SignUpPrompt = () => {
   const { showLogInOrSignUp, setShowLogInOrSignUp, setUserRequest } = useAppContext();
 
