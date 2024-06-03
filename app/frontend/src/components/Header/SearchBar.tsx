@@ -1,11 +1,12 @@
 import {
-  ChangeEvent, FocusEvent, useState,
+  ChangeEvent, useState,
 } from 'react';
 import axios from 'axios';
-import { SearchSuggestionCard } from '.';
+// import { SearchSuggestionCard } from '.';
 import { searchIcon } from '../../assets/icons';
 import { Movie } from '../../../types';
 import '../../styles/components/SearchBar.scss';
+import SearchSuggestion from './SearchSuggestion';
 
 const SearchBar = () => {
   const FORM_INITIAL_STATE = {
@@ -46,19 +47,11 @@ const SearchBar = () => {
     }
   };
 
-  const handleBlur = (event: FocusEvent) => {
-    if (event.relatedTarget) {
-      return;
-    }
-
-    setShowSuggestions(false);
-  };
-
   return (
     <div
       className='c-search'
       onFocus={() => setShowSuggestions(true)}
-      onBlur={handleBlur}
+      onBlur={(event) => (event.relatedTarget ? null : setShowSuggestions(false))}
     >
       <div className={`c-search-bar${searchResults.length && showSuggestions ? ' with-suggestion' : ''}`}>
         <input
@@ -73,20 +66,7 @@ const SearchBar = () => {
           <img id='search-icon' src={searchIcon} />
         </button>
       </div>
-      {showSuggestions && (
-        <div className='c-outer-search-suggestion'>
-          <div id='c-inner-search-suggestion'>
-            {searchResults && searchResults.map((movie) => (
-              <>
-                <SearchSuggestionCard key={movie.id} movie={movie} />
-                <div className='c-line-break'>
-                  <hr className='line-break' />
-                </div>
-              </>
-            ))}
-          </div>
-        </div>
-      )}
+      {showSuggestions && <SearchSuggestion movies={searchResults} />}
     </div>
   );
 };

@@ -11,16 +11,6 @@ type LoggedBoxProps = {
 const LoggedBox = ({ userData, setUserData }: LoggedBoxProps) => {
   const [menu, setMenu] = useState<boolean>(false);
 
-  const handleBlur = (event: React.FocusEvent<HTMLDivElement, Element>) => {
-    if (event.relatedTarget
-      && event.relatedTarget.parentElement
-      && event.relatedTarget.parentElement.className === 'c-user-options') {
-      return;
-    }
-
-    setMenu(false);
-  };
-
   const showMenu = (): void => {
     setMenu(!menu);
   };
@@ -31,7 +21,7 @@ const LoggedBox = ({ userData, setUserData }: LoggedBoxProps) => {
   };
 
   return (
-    <div className='c-logged-box' onBlur={handleBlur}>
+    <div className='c-logged-box' onBlur={(event) => (event.relatedTarget ? null : setMenu(false))}>
       <button className='c-btn-user' onClick={showMenu}>
         <div className='c-img-user'>
           <img src={defaultUserIcon} />

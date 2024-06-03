@@ -12,7 +12,7 @@ const SignUpBox = () => {
 
   return (
     <button className='btn-sign-up-box' onClick={handleClick}>
-      <span>Registrar</span>
+      <span>Registrar-se</span>
     </button>
   );
 };
