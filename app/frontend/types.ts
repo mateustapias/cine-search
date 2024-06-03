@@ -17,10 +17,6 @@ export type ShowLogInOrSignUp = {
   type: 'logIn' | 'signUp';
 };
 
-export type ShowErrorsMessages<T extends string> = {
-  [K in T]: string
-};
-
 export type UserData = {
   email: string,
   username: string;

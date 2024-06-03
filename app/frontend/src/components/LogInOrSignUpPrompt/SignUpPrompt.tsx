@@ -2,24 +2,20 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { isAxiosError } from 'axios';
 import { useAppContext } from '../../utils';
 import { requestSignUp, setToken } from '../../services/requests';
-import { ShowErrorsMessages } from '../../../types';
+// import { ErrorMessages } from '../../../types';
 import { SignUp } from '../../../../backend/src/types/SignUp';
+import useErrorMessages from '../../hooks/useErroMessages';
 
 const SignUpPrompt = () => {
   const { showLogInOrSignUp, setShowLogInOrSignUp, setUserRequest } = useAppContext();
 
-  const INITIAL_FIELDS_ERRORS: ShowErrorsMessages<'email' | 'username' | 'password'> = {
-    email: '',
-    username: '',
-    password: '',
-  };
-  const INITIAL_OTHER_ERRORS: ShowErrorsMessages<'userExists'> = {
-    userExists: '',
-  };
   const [signUpData, setSignUpData] = useState({} as SignUp);
-  const [fieldsErrors, setFieldsErrors] = useState(INITIAL_FIELDS_ERRORS);
+
+  const fieldsError = ['email', 'username', 'password'];
+  const otherError = ['userExists'];
+  const [fieldsErrors, setFieldsErrors, INITIAL_FIELDS_ERRORS] = useErrorMessages(fieldsError);
   const { email, username, password } = fieldsErrors;
-  const [otherErrors, setOtherErrors] = useState(INITIAL_OTHER_ERRORS);
+  const [otherErrors, setOtherErrors, INITIAL_OTHER_ERRORS] = useErrorMessages(otherError);
   const { userExists } = otherErrors;
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
