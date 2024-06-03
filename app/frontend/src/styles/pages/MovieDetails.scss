@@ -126,26 +126,27 @@
       .c-movie-overview span {
         display: block;
       }
-            ::-webkit-scrollbar {
-              width: 3px;
-            }
-      
-            /* Track */
-            ::-webkit-scrollbar-track {
-              background: rgba(0, 0, 0, 0.2);
-            }
-      
-            /* Handle */
-            ::-webkit-scrollbar-thumb {
-              background: rgba(255, 255, 255, 0.2);
-              border-radius: 10px;
-            }
-            // TESTANDO BACK
-            /* Handle on hover */
-            ::-webkit-scrollbar-thumb:hover {
-              background: #555;
-              cursor: pointer;
-            }
+
+      ::-webkit-scrollbar {
+        width: 3px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: rgb(0 0 0 / 20%);
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgb(255 255 255 / 20%);
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        cursor: pointer;
+      }
     }
   }
 }

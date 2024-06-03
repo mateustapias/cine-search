@@ -5,13 +5,13 @@
   .carousel-control-next {
     width: auto;
     align-self: center;
-    height: min-content;
+    scale: 1.4;
   }
 
   .c-movie-group {
     display: flex;
     justify-content: space-evenly;
-    margin: 1rem 0 2rem;
+    margin: 1rem 1rem 2rem;
   }
 
   .carousel-indicators {
