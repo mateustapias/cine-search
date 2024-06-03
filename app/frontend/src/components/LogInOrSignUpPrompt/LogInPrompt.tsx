@@ -1,11 +1,10 @@
 import {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
+import { useAppContext } from '../../utils';
 import { requestLogIn, setToken } from '../../services/requests';
 import { LogIn } from '../../../../backend/src/types/Login';
-import useAppContext from '../../utils/useAppContext';
 
-// Propositalmente fazendo de um modo diferente de SignUpPrompt
 const LogInPrompt = () => {
   const { showLogInOrSignUp, setShowLogInOrSignUp, setUserRequest } = useAppContext();
   const [logInData, setLogInData] = useState<LogIn>({} as LogIn);

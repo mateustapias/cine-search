@@ -1,9 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import './App.css';
-import MovieDetails from './pages/MovieDetails';
-import Layout from './pages/Layout';
+import { Layout, Home, MovieDetails } from './pages';
 import AppProvider from './context/AppProvider';
+import './App.css';
 
 const App = () => (
   <AppProvider>

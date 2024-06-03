@@ -2,10 +2,10 @@ import {
   ChangeEvent, FocusEvent, useState,
 } from 'react';
 import axios from 'axios';
-import '../../styles/components/SearchBar.scss';
-import { Movie } from '../../../types';
-import { searchIcon } from '../../assets/icons';
 import { SearchSuggestionCard } from '.';
+import { searchIcon } from '../../assets/icons';
+import { Movie } from '../../../types';
+import '../../styles/components/SearchBar.scss';
 
 const SearchBar = () => {
   const FORM_INITIAL_STATE = {

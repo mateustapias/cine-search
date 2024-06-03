@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
-import '../../styles/components/MoviesCarousel.scss';
+import { MoviesCarouselCard } from '.';
 import { Movie } from '../../../types';
-import MoviesCarouselCard from './MoviesCarouselCard';
+import '../../styles/components/MoviesCarousel.scss';
 
 type MoviesCarouselProps = {
   moviesData: Movie[],

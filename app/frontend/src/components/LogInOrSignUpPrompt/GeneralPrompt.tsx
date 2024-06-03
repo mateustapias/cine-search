@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { LogInPrompt, SignUpPrompt } from '.';
+import { useAppContext } from '../../utils';
 import '../../styles/components/GeneralPrompt.scss';
-import useAppContext from '../../utils/useAppContext';
 
 type SelectedType = 'logIn' | 'signUp';
 

@@ -1,4 +1,4 @@
-import MoviesCarousel from './MoviesCarousel';
+import { MoviesCarousel } from '.';
 import useMovies from '../../hooks/useMovies';
 
 const TopRatedMovies = () => {

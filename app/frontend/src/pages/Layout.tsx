@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { GeneralPrompt } from '../components/LogInOrSignUpPrompt';
-import useAppContext from '../utils/useAppContext';
+import { useAppContext } from '../utils';
 import '../styles/pages/Layout.scss';
 
 const Layout = () => {

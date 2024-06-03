@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Movie } from '../../../types';
 import { starIcon } from '../../assets/icons';
+import { Movie } from '../../../types';
 import '../../styles/components/MoviesCarouselCard.scss';
 
 type MoviesCarouselCardProps = {

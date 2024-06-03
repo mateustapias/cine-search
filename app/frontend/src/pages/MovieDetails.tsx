@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Movie } from '../../types';
 import { requestData } from '../services/requests';
 import { calendarIcon, clockIcon, starIcon } from '../assets/icons';
+import { Movie } from '../../types';
 import '../styles/pages/MovieDetails.scss';
 
 const MovieDetails = () => {

@@ -1,9 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { isAxiosError } from 'axios';
-import { SignUp } from '../../../../backend/src/types/SignUp';
-import useAppContext from '../../utils/useAppContext';
+import { useAppContext } from '../../utils';
 import { requestSignUp, setToken } from '../../services/requests';
 import { ShowErrorsMessages } from '../../../types';
+import { SignUp } from '../../../../backend/src/types/SignUp';
 
 const SignUpPrompt = () => {
   const { showLogInOrSignUp, setShowLogInOrSignUp, setUserRequest } = useAppContext();
