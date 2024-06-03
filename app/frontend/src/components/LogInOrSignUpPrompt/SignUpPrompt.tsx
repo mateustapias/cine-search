@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { isAxiosError } from 'axios';
 import { SignUp } from '../../../../backend/src/types/SignUp';
 import useAppContext from '../../utils/useAppContext';
@@ -25,6 +25,7 @@ const SignUpPrompt = () => {
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value: targetValue } } = event;
+
     setSignUpData({ ...signUpData, [name]: targetValue });
   };
 

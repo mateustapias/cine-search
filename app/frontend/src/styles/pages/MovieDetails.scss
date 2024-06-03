@@ -1,0 +1,119 @@
+.c-movie-details-a {
+  display: flex;
+
+  .c-outer-movie-main-data {
+    width: 800px;
+    height: 450px;
+    display: inline-block;
+
+    .c-inner-movie-main-data {
+      display: flex;
+      align-items: end;
+      width: inherit;
+      height: inherit;
+
+      #img-backdrop {
+        position: absolute;
+        width: inherit;
+        height: auto;
+      }
+
+      #img-backdrop-blur-effect {
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        background-size: cover;
+        filter: blur(500px);
+        transform: scale(0.9);
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .c-movie-main-data-main-content {
+        z-index: 2;
+        display: flex;
+        width: 800px;
+        height: 280px;
+        padding: 0 2rem;
+        overflow: hidden;
+      }
+
+      .c-movie-data-title-and-tagline {
+        width: 32rem;
+        overflow-wrap: break-word;
+        margin-left: auto;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        color: white;
+
+        .c-movie-title,
+        .c-movie-tagline {
+          text-shadow:
+            1px 1px 0 rgb(0 0 0 / 30%),
+            -1px 1px 0 rgb(0 0 0 / 30%),
+            1px -1px 0 rgb(0 0 0 / 30%),
+            -1px -1px 0 rgb(0 0 0 / 30%);
+        }
+
+        .c-movie-title {
+          font-size: 3.5rem;
+          font-weight: bolder;
+          line-height: 1;
+        }
+
+        .c-movie-tagline {
+          margin-top: 0.5rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    #fade-effect {
+      z-index: 0;
+      position: relative;
+      width: 100%;
+      height: 200px;
+      bottom: 200px;
+      background: linear-gradient(to bottom, rgb(255 255 255 / 0%), rgb(4 4 4 / 50%) 80%);
+    }
+  }
+
+  .c-outer-secondary-data {
+    margin: 0 1rem;
+    padding: 1rem;
+    background-color: rgb(26 26 26);
+    border-radius: 10px;
+
+    .c-inner-secondary-data {
+      padding: 1rem;
+      background-color: rgb(20 20 20);
+      height: 100%;
+
+      .c-movie-rating,
+      .c-movie-runtime,
+      .c-movie-release-date {
+        height: 1.3rem;
+
+        img {
+          height: 100%;
+        }
+
+        span {
+          font-size: 1em;
+          margin-left: 0.2rem;
+        }
+      }
+
+      .c-movie-runtime,
+      .c-movie-release-date,
+      .c-movie-overview {
+        margin-top: 0.3rem;
+
+        img {
+          filter: invert(30%);
+        }
+      }
+    }
+  }
+}

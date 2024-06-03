@@ -28,6 +28,7 @@
     "@types/request": "^2.48.12",
     "mysql2": "^3.9.7",
     "react-error-overlay": "^6.0.9",
+    "sass": "^1.77.4",
     "sequelize": "^6.37.3",
     "sequelize-cli": "^6.6.2",
     "typescript": "^5.4.5",

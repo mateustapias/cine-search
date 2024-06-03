@@ -6,6 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint ./src",
+    "lint:styles": "stylelint '**/*.scss'",
     "preview": "vite preview"
   },
   "keywords": [],
@@ -22,7 +23,12 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-react-app": "^7.0.1",
+    "eslint-config-stylelint": "^21.0.0",
     "eslint-plugin-react": "^7.34.0",
+    "sass": "^1.77.4",
+    "stylelint": "^16.6.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-scss": "^6.3.0",
     "typescript": "^5.3.3",
     "vite": "^5.1.5",
     "vite-plugin-eslint": "^1.8.1"

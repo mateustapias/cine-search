@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Movie } from '../../types';
-import '../styles/pages/MovieDetails.css';
+import '../styles/pages/MovieDetails.scss';
 import { requestData } from '../services/requests';
 import starIcon from '../assets/images/starIcon.png';
 import clockIcon from '../assets/images/clockIcon.png';
@@ -15,8 +15,10 @@ const MovieDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       const movieDetails = await requestData(`/movies/${id}`);
+
       setMovieData(movieDetails);
     };
+
     fetchData();
   }, [id]);
 
@@ -25,16 +27,16 @@ const MovieDetails = () => {
       <div className='c-movie-details-a'>
         {movieData && (
           <>
-            <div className='c-outer-movie-data'>
-              <div className='c-movie-data'>
-                <img id='foto' src={`https://image.tmdb.org/t/p/w500${movieData.backdrop_path}`} />
-                <img id='foto-blur' src={`https://image.tmdb.org/t/p/w500${movieData.backdrop_path}`} />
-                <div className='c-movie-data-details-a'>
+            <div className='c-outer-movie-main-data'>
+              <div className='c-inner-movie-main-data'>
+                <img id='img-backdrop' src={`https://image.tmdb.org/t/p/w500${movieData.backdrop_path}`} />
+                <img id='img-backdrop-blur-effect' src={`https://image.tmdb.org/t/p/w500${movieData.backdrop_path}`} />
+                <div className='c-movie-main-data-main-content'>
                   <img
-                    className='c-poster-img'
+                    id='img-poster'
                     src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
                   />
-                  <div className='c-movie-data-details'>
+                  <div className='c-movie-data-title-and-tagline'>
                     <div className='c-movie-title'>
                       <span>{movieData.title}</span>
                     </div>
@@ -46,9 +48,9 @@ const MovieDetails = () => {
               </div>
               <div id='fade-effect' />
             </div>
-            <div className='c-outer-sla'>
-              <div className='c-inner-sla'>
-                <div className='c-movie-rating-a'>
+            <div className='c-outer-secondary-data'>
+              <div className='c-inner-secondary-data'>
+                <div className='c-movie-rating'>
                   <img className='icon-star' src={starIcon} />
                   <span>{`${movieData.vote_average} / 10`}</span>
                 </div>

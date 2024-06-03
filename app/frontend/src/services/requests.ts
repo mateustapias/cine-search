@@ -14,24 +14,28 @@ export const setToken = (token: Token) => {
 
 export const requestData = async (endpoint: string) => {
   const { data } = await api.get(endpoint);
+
   return data;
 };
 
 export const requestLogIn = async (body: LogIn) => {
   const endpoint = '/user/logIn';
   const { data } = await api.post(endpoint, body);
+
   return data;
 };
 
 export const requestSignUp = async (body: SignUp) => {
   const endpoint = 'user/signUp';
   const { data } = await api.post(endpoint, body);
+
   return data;
 };
 
 // TODO: usar apenas o RequestData
 export const requestMovies = async (endpoint: string): Promise<Movie[]> => {
   const { data } = await api.get(endpoint);
+
   return data;
 };
 

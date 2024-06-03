@@ -61,7 +61,10 @@ export default class MovieService {
     const movieFromAPI = await requestAPI(id);
 
     const newMovie = await this.movieModel.createOne(
-      { ...movieFromAPI, vote_average: Number(movieFromAPI.vote_average.toFixed(1)) },
+      {
+        ...movieFromAPI,
+        vote_average: Number(movieFromAPI.vote_average.toFixed(1)),
+      },
     );
     if (newMovie) {
       serviceResponse = { status: 'CREATED', data: newMovie };

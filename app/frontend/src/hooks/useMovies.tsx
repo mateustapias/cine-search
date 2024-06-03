@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Movie } from '../../types';
 import { requestMovies } from '../services/requests';
 
@@ -12,15 +12,18 @@ const useMovies = (type: UseMoviesType) => {
       try {
         if (type === 'popular') {
           const movies = await requestMovies('/movies/popular');
+
           setMoviesData(movies);
         } else {
           const movies = await requestMovies('/movies/top-rated');
+
           setMoviesData(movies);
         }
       } catch (err) {
         console.error('Error fetching movie data:', err);
       }
     };
+
     fetchData();
   }, []);
 

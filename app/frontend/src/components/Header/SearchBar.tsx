@@ -1,8 +1,8 @@
 import {
-  ChangeEvent, useState, FocusEvent,
+  ChangeEvent, FocusEvent, useState,
 } from 'react';
 import axios from 'axios';
-import '../../styles/components/SearchBar.css';
+import '../../styles/components/SearchBar.scss';
 import { Movie } from '../../../types';
 import searchIcon from '../../assets/images/searchIcon.png';
 import SearchSuggestionCard from './SearchSuggestionCard';
@@ -19,7 +19,9 @@ const SearchBar = () => {
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value: targetValue } } = event;
+
     setFormData({ ...formData, [name]: targetValue });
+
     if (targetValue.trim() !== '') {
       try {
         const config = {
@@ -34,6 +36,7 @@ const SearchBar = () => {
           },
         };
         const response = await axios.get('https://api.themoviedb.org/3/search/movie', config);
+
         setSearchResults(response.data.results);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -47,6 +50,7 @@ const SearchBar = () => {
     if (event.relatedTarget) {
       return;
     }
+
     setShowSuggestions(false);
   };
 

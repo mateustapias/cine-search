@@ -1,4 +1,4 @@
-import '../../styles/components/Header.css';
+import '../../styles/components/Header.scss';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import popcornBoxIcon from '../../assets/images/popcornBoxIcon.png';
@@ -17,7 +17,9 @@ const Header = () => {
 
   useEffect(() => {
     const userDataSession = getUserData();
+
     if (userDataSession) setUserData(userDataSession);
+
     setUserRequest(false);
   }, [userRequest]);
 

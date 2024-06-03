@@ -1,6 +1,6 @@
 import PopularMovies from '../components/PopularMovies';
 import TopRatedMovies from '../components/TopRatedMovies';
-import '../styles/pages/Home.css';
+import '../styles/pages/Home.scss';
 
 const Home = () => (
   <div className='c-home'>

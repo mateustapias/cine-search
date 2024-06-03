@@ -1,0 +1,20 @@
+.c-movies-carousel {
+  border-radius: 10px;
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: auto;
+    align-self: center;
+    height: min-content;
+  }
+
+  .c-movie-group {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem 0 2rem;
+  }
+
+  .carousel-indicators {
+    margin: 0;
+  }
+}

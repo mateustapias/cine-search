@@ -1,0 +1,127 @@
+.page-general-prompt {
+  .background {
+    background-color: rgb(0 0 0 / 60%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .c-outter-general-prompt {
+    background-color: rgb(20 20 20);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32rem;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+  }
+
+  .c-selection {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+
+    button {
+      font-size: larger;
+      height: 50px;
+      border: 0;
+      padding: 0;
+      width: 100%;
+      background-color: rgb(66 66 66);
+    }
+
+    .btn-log-in {
+      border-top-left-radius: inherit;
+    }
+
+    .btn-sign-up {
+      border-top-right-radius: inherit;
+    }
+
+    .active {
+      background-color: buttonface;
+    }
+  }
+
+  .c-inner-general-prompt {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(16 16 16);
+    border-radius: inherit;
+    object-fit: contain;
+
+    form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid gray;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      button {
+        height: 40px;
+        border: 0;
+        border-radius: 6px;
+        padding: 0;
+        width: 100%;
+      }
+    }
+
+  }
+
+  /* CONTAINER DE LOGIN OU CADASTRO */
+  .c-prompt {
+    background-color: rgb(16 16 16);
+    border-radius: inherit;
+    padding: 30px 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .c-message {
+      text-align: center;
+      font-size: x-large;
+      margin-bottom: 2rem;
+    }
+
+    .c-email,
+    .c-username {
+      margin-bottom: 1rem;
+    }
+
+    // TODO: juntar .c-log-in-failed-message com .c-error-msg
+    .c-log-in-failed-message {
+      margin-top: 10px;
+      color: #eb0036;
+    }
+
+    .invalid {
+      border: 1px solid #eb000c;
+    }
+
+    .c-error-msg {
+      color: #eb000c;
+    }
+
+    .c-submit-btn {
+      margin-top: 2.5rem;
+    }
+  }
+}

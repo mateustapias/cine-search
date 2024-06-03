@@ -13,6 +13,7 @@ const LogInPrompt = () => {
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value: targetValue } } = event;
+
     setLogInData({ ...logInData, [name]: targetValue });
   };
 

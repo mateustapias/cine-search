@@ -3,7 +3,7 @@ import { UserData } from '../../../types';
 // import useAppContext from '../../utils/useAppContext';
 import defaultUserIcon from '../../assets/images/defaultUserIcon.png';
 import downIcon from '../../assets/images/downIcon.png';
-import '../../styles/components/LoggedBox.css';
+import '../../styles/components/LoggedBox.scss';
 
 type LoggedBoxProps = {
   userData: UserData;
@@ -19,6 +19,7 @@ const LoggedBox = ({ userData, setUserData }: LoggedBoxProps) => {
       && event.relatedTarget.parentElement.className === 'c-user-options') {
       return;
     }
+
     setMenu(false);
   };
 

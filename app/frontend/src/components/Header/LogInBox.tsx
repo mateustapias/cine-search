@@ -1,4 +1,4 @@
-import '../../styles/components/LogInBox.css';
+import '../../styles/components/LogInBox.scss';
 import useAppContext from '../../utils/useAppContext';
 
 const LogInBox = () => {
@@ -9,10 +9,10 @@ const LogInBox = () => {
       type: 'logIn',
     });
   };
+
   return (
     <button className='btn-log-in-box' onClick={handleClick}>
       <span>Entrar</span>
-      {/* <span>Log in</span> */}
     </button>
   );
 };

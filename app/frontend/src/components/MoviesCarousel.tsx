@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
-import '../styles/components/MoviesCarousel.css';
+import '../styles/components/MoviesCarousel.scss';
 import { Movie } from '../../types';
 import MoviesCarouselCard from './MoviesCarouselCard';
 
@@ -15,12 +15,14 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
   const chunkArray = (arr: Movie[], chunkSizee: number, maxGroupss: number): Movie[][] => {
     const chunkedArray = [];
     let groupsCount = 0;
+
     for (let i = 0; i < arr.length; i += chunkSizee) {
       if (groupsCount < maxGroupss) {
         chunkedArray.push(arr.slice(i, i + chunkSizee));
         groupsCount += 1;
       }
     }
+
     return chunkedArray;
   };
 

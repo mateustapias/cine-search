@@ -19,6 +19,7 @@ const getAverageRGB = (imgEl: HTMLImageElement): RGB => {
 
   const height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
   const width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+
   console.log(height);
   console.log(width);
 
