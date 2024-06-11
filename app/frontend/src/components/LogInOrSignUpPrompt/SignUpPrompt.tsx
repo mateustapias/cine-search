@@ -41,9 +41,11 @@ const SignUpPrompt = () => {
       if (isAxiosError(error) && error.response) {
         const { message } = error.response.data;
 
+        // Erro de banco
         if (error.response.status === 409) {
           setOtherErrors({ userExists: message });
           setFieldsErrors(INITIAL_FIELDS_ERRORS);
+          // Erro de validação
         } else {
           setOtherErrors(INITIAL_OTHER_ERRORS);
           setFieldsErrors(message);

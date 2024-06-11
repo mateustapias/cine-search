@@ -12,7 +12,6 @@ type MoviesCarouselProps = {
 };
 
 const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCarouselProps) => (
-  // TODO: talvez colocar um estado aqui para chunkArray?
   <Carousel wrap={false} interval={null} className='c-movies-carousel'>
     {chunkArray(moviesData, chunkSize, maxGroups).map((group, index) => (
       <Carousel.Item key={index}>

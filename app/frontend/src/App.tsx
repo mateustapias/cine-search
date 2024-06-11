@@ -1,3 +1,4 @@
+import { SkeletonTheme } from 'react-loading-skeleton';
 import { Route, Routes } from 'react-router-dom';
 import { Layout, Home, MovieDetails } from './pages';
 import AppProvider from './context/AppProvider';
@@ -5,12 +6,15 @@ import './App.css';
 
 const App = () => (
   <AppProvider>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/:id" element={<MovieDetails />} />
-      </Route>
-    </Routes>
+    {/* <SkeletonTheme baseColor='#ff0303' highlightColor='#444'> */}
+    <SkeletonTheme baseColor='#202020' highlightColor='#444'>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/:id" element={<MovieDetails />} />
+        </Route>
+      </Routes>
+    </SkeletonTheme>
   </AppProvider>
 );
 
