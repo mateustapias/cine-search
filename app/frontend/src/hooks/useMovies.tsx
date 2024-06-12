@@ -6,6 +6,7 @@ type UseMoviesType = 'popular' | 'top-rated';
 
 const useMovies = (type: UseMoviesType) => {
   const [moviesData, setMoviesData] = useState<Movie[] | undefined>();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +20,7 @@ const useMovies = (type: UseMoviesType) => {
 
           setMoviesData(movies);
         }
+        setIsLoading(false);
       } catch (err) {
         console.error('Error fetching movie data:', err);
       }
@@ -27,7 +29,7 @@ const useMovies = (type: UseMoviesType) => {
     fetchData();
   }, []);
 
-  return { moviesData };
+  return { moviesData, isLoading };
 };
 
 export default useMovies;

@@ -7,7 +7,7 @@ import './App.css';
 const App = () => (
   <AppProvider>
     {/* <SkeletonTheme baseColor='#ff0303' highlightColor='#444'> */}
-    <SkeletonTheme baseColor='#202020' highlightColor='#444'>
+    <SkeletonTheme baseColor='#202020' highlightColor='#444' height={300}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

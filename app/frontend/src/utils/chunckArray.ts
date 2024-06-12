@@ -1,6 +1,9 @@
 import { Movie } from '../../types';
 
-const chunkArray = (arr: Movie[], chunkSizee: number, maxGroupss: number): Movie[][] => {
+const array = Array(30).fill(0);
+
+const chunkArray = (chunkSizee: number, maxGroupss: number, arr: any[] = array)
+: Movie[][] | Number[][] => {
   const chunkedArray = [];
   let groupsCount = 0;
 
