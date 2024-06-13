@@ -1,0 +1,70 @@
+.c-outer-secondary-details {
+  height: 450px;
+  margin: 0 1rem;
+  padding: 1rem;
+  background-color: rgb(26 26 26);
+  border-radius: 10px;
+
+  .c-inner-secondary-details {
+    padding: 1rem;
+    background-color: rgb(20 20 20);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .c-movie-rating,
+    .c-movie-runtime,
+    .c-movie-release-date {
+      height: 1.3rem;
+
+      img {
+        height: 100%;
+      }
+
+      span {
+        font-size: 1em;
+        margin-left: 0.2rem;
+      }
+    }
+
+    .c-movie-runtime,
+    .c-movie-release-date {
+      margin-top: 0.3rem;
+
+      img {
+        filter: invert(30%);
+      }
+    }
+
+    .c-movie-overview {
+      margin-top: 0.3rem;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .c-movie-overview span {
+      display: block;
+    }
+
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: rgb(0 0 0 / 20%);
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: rgb(255 255 255 / 20%);
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      cursor: pointer;
+    }
+  }
+}
