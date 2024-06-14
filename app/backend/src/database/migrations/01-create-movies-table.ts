@@ -6,6 +6,7 @@ export default {
     return queryInterface.createTable<Model<IMovie>>('movies', {
       id: {
         type: DataTypes.INTEGER,
+        primaryKey: true,
       },
       title: {
         type: DataTypes.STRING,

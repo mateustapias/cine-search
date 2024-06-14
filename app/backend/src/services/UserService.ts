@@ -6,7 +6,7 @@ import { SignUp } from '../types/SignUp';
 import { LogIn } from '../types/Login';
 import jwtUtil from '../utils/jwtUtil';
 
-type logInResponse = {
+type LogInResponse = {
   token: string,
   userData: {
     email: string;
@@ -31,7 +31,7 @@ export default class UserService {
   ) { }
 
   async logIn(logInData: LogIn) {
-    let serviceResponse: ServiceResponse<logInResponse>;
+    let serviceResponse: ServiceResponse<LogInResponse>;
     const foundUser = await this.userModel.findOne(logInData.email);
 
     if (!foundUser || !compareSync(logInData.password, foundUser.password)) {
@@ -41,15 +41,19 @@ export default class UserService {
       return serviceResponse;
     }
 
-    const { id, username, email, role } = foundUser;
-    const token = jwtUtil.signToken({ id, username, email, role });
+    const {
+      id, username, email, role,
+    } = foundUser;
+    const token = jwtUtil.signToken({
+      id, username, email, role,
+    });
     serviceResponse = { status: 'SUCCESSFUL', data: { token, userData: { email, username } } };
 
     return serviceResponse;
   }
 
   async signUp(signUpData: SignUp) {
-    let serviceResponse: ServiceResponse<logInResponse>;
+    let serviceResponse: ServiceResponse<LogInResponse>;
 
     const userExists = await this.userModel.findOne(signUpData.email, signUpData.username);
     if (userExists) {
@@ -60,8 +64,12 @@ export default class UserService {
 
     const cryptedPassword = hashSync(signUpData.password, 2);
     const newUser = await this.userModel.insert({ ...signUpData, password: cryptedPassword });
-    const { id, username, email, role } = newUser;
-    const token = jwtUtil.signToken({ id, username, email, role });
+    const {
+      id, username, email, role,
+    } = newUser;
+    const token = jwtUtil.signToken({
+      id, username, email, role,
+    });
     serviceResponse = { status: 'SUCCESSFUL', data: { token, userData: { email, username } } };
 
     return serviceResponse;

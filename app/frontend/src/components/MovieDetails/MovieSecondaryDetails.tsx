@@ -26,9 +26,9 @@ const MovieSecondaryDetails = ({ movieData }: MovieSecondaryDetailsProps) => (
         </span>
       </div>
       <div className='c-movie-overview'>
-        <span>
+        <p>
           {movieData.overview}
-        </span>
+        </p>
       </div>
     </div>
   </div>

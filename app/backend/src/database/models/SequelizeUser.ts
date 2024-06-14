@@ -10,9 +10,13 @@ import db from '.';
 class SequelizeUser extends Model<InferAttributes<SequelizeUser>,
 InferCreationAttributes<SequelizeUser>> {
   declare id: CreationOptional<number>;
+
   declare username: string;
+
   declare role: string;
+
   declare email: string;
+
   declare password: string;
 }
 
