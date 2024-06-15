@@ -1,27 +1,37 @@
+/* eslint-disable no-promise-executor-return */
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable no-await-in-loop */
 import axios from 'axios';
 import { IMovie } from '../interfaces/movie';
 import requestAPI from '../utils/requestAPI';
 
 function filterMovies(movies: IMovie[]): IMovie[] {
-  return movies
-    .filter((movie: IMovie) => (movie.overview))
-    .map(({
-      id, title, tagline, adult, overview, popularity, release_date,
-      vote_average, runtime, poster_path, backdrop_path,
-    }: IMovie) => ({
-      id,
-      title,
-      tagline,
-      adult,
-      overview,
-      popularity,
-      release_date,
-      vote_average: Number(vote_average.toFixed(1)),
-      runtime,
-      poster_path,
-      backdrop_path,
-    }));
+  const uniqueMoviesMap: { [id: string]: IMovie; } = {};
+
+  movies.forEach((movie: IMovie) => {
+    if (movie.overview && !uniqueMoviesMap[movie.id]) {
+      const {
+        id, title, tagline, adult, overview, popularity, release_date,
+        vote_average, runtime = 0, poster_path, backdrop_path,
+      } = movie;
+
+      uniqueMoviesMap[movie.id] = {
+        id,
+        title,
+        tagline,
+        adult,
+        overview,
+        popularity,
+        release_date,
+        vote_average: Number(vote_average.toFixed(1)),
+        runtime: Number(runtime),
+        poster_path,
+        backdrop_path,
+      };
+    }
+  });
+
+  return Object.values(uniqueMoviesMap);
 }
 
 async function addDetailColumns(movie: IMovie): Promise<IMovie> {
@@ -33,7 +43,7 @@ async function addDetailColumns(movie: IMovie): Promise<IMovie> {
 export default async function getSeederMovies(initialPage = 1): Promise<IMovie[] | undefined> {
   const movies: IMovie[][] = [];
   try {
-    for (let page = initialPage; page < initialPage + 3; page += 1) {
+    for (let page = initialPage; page < initialPage + 2; page += 1) {
       const config = {
         method: 'GET',
         headers: {
@@ -49,7 +59,6 @@ export default async function getSeederMovies(initialPage = 1): Promise<IMovie[]
       movies.push(popularMovies.data.results);
       const topRatedMovies = await axios.get('https://api.themoviedb.org/3/movie/top_rated', config);
       movies.push(topRatedMovies.data.results);
-      // eslint-disable-next-line no-promise-executor-return
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
 
@@ -62,13 +71,3 @@ export default async function getSeederMovies(initialPage = 1): Promise<IMovie[]
     console.log('Error fetching movie data: ', error);
   }
 }
-
-// export async function insertMovies(initialRequest: number): Promise<void> {
-//   const maxRequests = 20;
-//   for (let requests = initialRequest; requests < initialRequest + maxRequests; requests += 1) {
-//     const moviesToInsert = await fetchMovies(requests * 20);
-//     if (moviesToInsert) {
-//       SequelizeMovie.bulkCreate(moviesToInsert, {});
-//     }
-//   }
-// }

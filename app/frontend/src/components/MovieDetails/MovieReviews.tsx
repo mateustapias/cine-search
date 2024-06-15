@@ -1,5 +1,6 @@
 const MovieReviews = () => {
   const a = 'a';
+  console.log(a);
 
   return (
     <div className='c-movie-reviews'>

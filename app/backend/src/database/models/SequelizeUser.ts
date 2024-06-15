@@ -6,6 +6,7 @@ import {
   CreationOptional,
 } from 'sequelize';
 import db from '.';
+import SequelizeReview from './SequelizeReview';
 
 class SequelizeUser extends Model<InferAttributes<SequelizeUser>,
 InferCreationAttributes<SequelizeUser>> {
@@ -25,7 +26,6 @@ SequelizeUser.init({
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    allowNull: false,
   },
   username: {
     type: DataTypes.STRING,
@@ -48,5 +48,12 @@ SequelizeUser.init({
   modelName: 'users',
   timestamps: false,
 });
+
+// userId na tabela SequelizeReview é a chave estrangeira que referencia SequelizeUser
+// O alias reviews permite utilizar user.getReviews() para obter todas as avaliações de um filme
+SequelizeUser.hasMany(SequelizeReview, { foreignKey: 'userId', as: 'reviews' });
+
+// O alias movie permite utilizar review.getUser() para obter o filme associado a uma avaliação
+SequelizeReview.belongsTo(SequelizeUser, { foreignKey: 'userId', as: 'user' });
 
 export default SequelizeUser;

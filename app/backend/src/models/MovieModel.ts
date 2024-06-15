@@ -5,6 +5,8 @@ import handleAsyncError from '../utils/handleAsyncError';
 export default class MovieModel implements IMovieModel {
   private model = SequelizeMovie;
 
+  // É possível colocar a lógica de findPopular e findTopRated em uma função só
+  // mas não sei se é o certo
   async findPopular(limit: number): Promise<IMovie[] | null> {
     const [dbData, error] = await handleAsyncError(this.model.findAll({
       order: [['popularity', 'DESC']],

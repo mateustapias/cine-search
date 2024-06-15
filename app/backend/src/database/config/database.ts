@@ -12,7 +12,8 @@ const config: Options = {
   dialectOptions: {
     timezone: 'Z',
   },
-  logging: false,
+  // logging: false,
+  logging: console.log
 }
 
 // const dBName = process.env.DB_NAME;

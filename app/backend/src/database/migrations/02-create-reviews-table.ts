@@ -1,5 +1,5 @@
 import { Model, QueryInterface, DataTypes } from 'sequelize';
-import { IReview } from '../../interfaces/reviews';
+import { IReview } from '../../interfaces/review';
 
 export default {
   up(queryInterface: QueryInterface) {
@@ -15,6 +15,14 @@ export default {
       text: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
       },
       movieId: {
         type: DataTypes.INTEGER,

@@ -7,7 +7,7 @@
     "node": "20.x"
   },
   "scripts": {
-    "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate --debug && npx sequelize-cli db:seed:all --debug",
     "clean": "rimraf ./build",
     "build": "tsc --project tsconfig.json",
     "prestart": "npm run build",

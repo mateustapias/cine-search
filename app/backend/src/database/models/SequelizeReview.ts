@@ -14,9 +14,12 @@ InferCreationAttributes<SequelizeReview>> {
 
   declare text: string;
 
+  declare userId: number;
+
   declare movieId: number;
 }
 
+// TODO: ver se da pra remover os CASCADE
 SequelizeReview.init({
   id: {
     type: DataTypes.INTEGER,
@@ -29,6 +32,16 @@ SequelizeReview.init({
   text: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE',
+    references: {
+      model: 'users',
+      key: 'id',
+    },
   },
   movieId: {
     type: DataTypes.INTEGER,
