@@ -1,0 +1,11 @@
+.c-movie-review-card {
+  background-color: var(--primary-container-color);
+  padding: 1rem;
+
+  .c-movie-review-author {
+    display: flex;
+    img {
+      height: 30px;
+    }
+  }
+}

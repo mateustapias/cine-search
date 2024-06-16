@@ -32,6 +32,13 @@ export default {
         password: '$2a$10$HDkFwOMKOI6PTza0F7.YRu1Bqsqb9hx7XkuV7QeYB5dRL4z9DI1Mu',
         // senha: 12345
       },
+      {
+        username: 'Bags',
+        role: 'user',
+        email: 'bags@gmail.com',
+        password: '$2a$04$m7hr9x6R54i2L1H.2UJzWO8urpWD2qt85FZxrnqAx/IyMUzdsZrfi',
+        // senha: 12345
+      },
     ], {});
   },
 

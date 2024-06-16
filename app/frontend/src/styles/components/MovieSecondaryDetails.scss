@@ -2,16 +2,12 @@
   height: 450px;
   margin: 0 1rem;
   padding: 1rem;
-  // flex: 1;
-  // background-color: rgb(26 26 26);
-  background-color: rgb(20 20 20);
+  background-color: var(--primary-container-color);
   border-radius: 10px;
-  // box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   .c-inner-secondary-details {
     padding: 1rem;
-    // background-color: rgb(20 20 20);
     height: 100%;
     display: flex;
     flex-direction: column;

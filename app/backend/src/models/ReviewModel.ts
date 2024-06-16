@@ -1,6 +1,7 @@
 import handleAsyncError from '../utils/handleAsyncError';
 import { IReview, IReviewModel } from '../interfaces/review';
 import SequelizeReview from '../database/models/SequelizeReview';
+import SequelizeUser from '../database/models/SequelizeUser';
 
 export default class ReviewModel implements IReviewModel {
   private model = SequelizeReview;
@@ -24,18 +25,35 @@ export default class ReviewModel implements IReviewModel {
   }
 
   async findAllByMovie(movieId: number): Promise<IReview[] | null> {
-    const [dbData, error] = await handleAsyncError(this.model.findAll({
+    // Ver se o deploy aponta como erro
+    const dbData = await this.model.findAll({
       where: {
         movieId,
       },
-    }));
+      include: [{
+        model: SequelizeUser,
+        attributes: ['username'],
+        as: 'user',
+      }],
+    });
 
-    if (error) {
-      console.error('Error in findAllByMovie:', error);
+    if (!dbData || dbData.length === 0) {
       return null;
     }
 
     return dbData;
+    // const [dbData, error] = await handleAsyncError(this.model.findAll({
+    //   where: {
+    //     movieId,
+    //   },
+    // }));
+
+    // if (error) {
+    //   console.error('Error in findAllByMovie:', error);
+    //   return null;
+    // }
+
+    // return dbData;
   }
 
   async createOne(review: IReview): Promise<IReview | null> {

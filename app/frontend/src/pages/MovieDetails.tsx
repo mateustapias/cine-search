@@ -11,6 +11,7 @@ import MovieReviews from '../components/MovieDetails/MovieReviews';
 
 const MovieDetails = () => {
   const { id } = useParams();
+  // Colocar isso em um customHook
   const [movieData, setMovieData] = useState<Movie>();
 
   useEffect(() => {
@@ -48,7 +49,8 @@ const MovieDetails = () => {
           </>
         )} */}
       </div >
-      <MovieReviews />
+      {/* Não sei se é melhor passar o id como prop ou usar useParams no componente */}
+      <MovieReviews id={Number(id)} />
     </>
   );
 };

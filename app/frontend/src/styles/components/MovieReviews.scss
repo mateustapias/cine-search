@@ -1,0 +1,11 @@
+.c-outer-movie-reviews {
+  h1 {
+    color: rgb(255 210 0)
+  }
+
+  .c-inner-movie-reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}

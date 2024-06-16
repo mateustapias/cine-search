@@ -2,7 +2,7 @@ import { SkeletonTheme } from 'react-loading-skeleton';
 import { Route, Routes } from 'react-router-dom';
 import { Layout, Home, MovieDetails } from './pages';
 import AppProvider from './context/AppProvider';
-import './App.css';
+import './App.scss';
 
 const App = () => (
   <AppProvider>

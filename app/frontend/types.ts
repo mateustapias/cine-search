@@ -21,3 +21,14 @@ export type UserData = {
   email: string,
   username: string;
 };
+
+export type Review = {
+  id: number,
+  rating: number,
+  text: string,
+  userId: number,
+  movieId: number,
+  user?: {
+    username: string
+  }
+};

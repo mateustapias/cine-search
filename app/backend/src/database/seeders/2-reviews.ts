@@ -14,7 +14,7 @@ export default {
         id: 2,
         rating: 10,
         text: 'Suspense dramático sobre Alemanha nazista onde um empresário tenta salvar o máximo possível de judeus sem ser pego. Emocionante, cru, tenso e muito triste',
-        userId: 1,
+        userId: 5,
         movieId: 424,
       }
     ], {});

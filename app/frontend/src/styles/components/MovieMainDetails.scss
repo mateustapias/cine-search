@@ -1,9 +1,7 @@
 .c-outer-movie-main-details {
-  // flex-basis: 800px;
   width: 800px;
   height: inherit;
   display: inline-block;
-  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   .c-inner-movie-main-details {
@@ -26,7 +24,7 @@
       filter: blur(500px);
       transform: scale(0.9);
       overflow: hidden;
-      z-index: -1;
+      z-index: -2;
     }
 
     .c-movie-main-data-main-content {
