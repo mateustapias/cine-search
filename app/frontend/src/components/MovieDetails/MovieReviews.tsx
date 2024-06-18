@@ -11,7 +11,9 @@ type MovieReviewsProps = {
 
 const MovieReviews = ({ id }: MovieReviewsProps) => {
   const [reviews, setReviews] = useState<Review[]>();
+  const [isLogged, setIsLogged] = useState(false);
   const [userReview, setUserReview] = useState<Review>();
+  const [isAddingReview, setIsAddingReview] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,37 +24,58 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
 
       if (user) {
         setToken(user.token);
-        const userReviewData = await requestData(`/reviews/user&movie/${id}`);
-        setUserReview(userReviewData);
+        setIsLogged(true);
+        try {
+          const userReviewData = await requestData(`/reviews/user&movie/${id}`);
+          setUserReview(userReviewData);
+        } catch (error) {
+          console.log('O usuário não possui uma resenha para esse filme.');
+        }
       }
     };
 
     fetchData();
   }, [id]);
 
+  const handleAddReviewClick = () => {
+    setIsAddingReview(true);
+  };
+
   return (
     <div className='c-outer-movie-reviews'>
       <div className='c-movie-reviews-header'>
         <h1>Resenhas</h1>
-        {userReview
-          ? <div className='c-user-movie-review'>
-            <MovieReviewCard review={userReview} isFromUser={true} />
-          </div>
-          : <button className='btn-add-review'>
+        {(isLogged)
+          ? !userReview
+          && (<button className='btn-add-review' onClick={handleAddReviewClick}>
             <div className='c-btn-content'>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span>Adicionar</span>
             </div>
-          </button>
-        }
+          </button>)
+          : (<span>Faça login para adicionar uma resenha</span>)}
+        {userReview && <div className='c-user-movie-review'>
+          <MovieReviewCard review={userReview} isFromUser={true} />
+        </div>}
       </div>
+      {isAddingReview && (
+        <div className='c-user-movie-review'>
+          <MovieReviewCard
+            review={{
+              rating: 0, text: '', user: getUserData(), movieId: id,
+            }}
+            isFromUser
+            isNew
+          />
+        </div>
+      )}
       {reviews
         && reviews.map((review, index) => (
           <div className='c-inner-movie-reviews' key={index}>
-            <MovieReviewCard review={review} isFromUser={false} />
-            <MovieReviewCard review={review} isFromUser={false} />
+            <MovieReviewCard review={review} />
+            <MovieReviewCard review={review} />
           </div>
         ))}
     </div>

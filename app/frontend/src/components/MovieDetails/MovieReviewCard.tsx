@@ -1,14 +1,15 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
 import { Review } from '../../../types';
 import { defaultUserIcon, pencilIcon } from '../../assets/icons';
 import '../../styles/components/MovieReviewCard.scss';
 
 type MovieReviewsProps = {
   review: Review;
-  isFromUser: boolean;
+  isFromUser?: boolean;
+  isNew?: boolean;
 };
 
-const MovieReviewCard = ({ review, isFromUser }: MovieReviewsProps) => {
+const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
   const FORM_INITIAL_STATE = {
     rating: review.rating || 0,
     text: review.text || '',
@@ -17,7 +18,13 @@ const MovieReviewCard = ({ review, isFromUser }: MovieReviewsProps) => {
   const [editMode, setEditMode] = useState(false);
   const [reviewData, setReviewData] = useState(FORM_INITIAL_STATE);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    if (isNew) {
+      setEditMode(true);
+    }
+  }, []);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
     setReviewData({ ...reviewData, [name]: value });
   };
@@ -40,12 +47,17 @@ const MovieReviewCard = ({ review, isFromUser }: MovieReviewsProps) => {
       <div className='c-movie-review-rating'>
         <h3>Nota:
           {editMode ? (
-            <input
-              type='number'
+            <select
               name='rating'
               value={reviewData.rating}
               onChange={handleChange}
-            />
+            >
+              {[...Array(11).keys()].map((value) => (
+                <option key={value} value={value}>
+                  {value}
+                </option>
+              ))}
+            </select>
           ) : (
             <span>{review.rating}</span>
           )}

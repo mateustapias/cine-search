@@ -24,10 +24,10 @@ export type UserData = {
 };
 
 export type Review = {
-  id: number,
+  id?: number,
   rating: number,
   text: string,
-  userId: number,
+  userId?: number,
   movieId: number,
   user?: {
     username: string
