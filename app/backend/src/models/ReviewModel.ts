@@ -24,6 +24,27 @@ export default class ReviewModel implements IReviewModel {
     return dbData;
   }
 
+  async findOneByUserAndMovie(userId: number, movieId: number): Promise<IReview | null> {
+    const [dbData, error] = await handleAsyncError(this.model.findOne({
+      where: {
+        userId,
+        movieId,
+      },
+      include: [{
+        model: SequelizeUser,
+        attributes: ['username'],
+        as: 'user',
+      }],
+    }));
+
+    if (error) {
+      console.error('Error in findOneByUserAndMovie:', error);
+      return null;
+    }
+
+    return dbData;
+  }
+
   async findAllByMovie(movieId: number): Promise<IReview[] | null> {
     // Ver se o deploy aponta como erro
     const dbData = await this.model.findAll({

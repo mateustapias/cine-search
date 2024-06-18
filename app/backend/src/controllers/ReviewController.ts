@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import mapStatusHTTP from '../utils/mapStatusHTTP';
 import ReviewService from '../services/ReviewService';
+import { IUser } from '../interfaces/user';
 
 export default class ReviewController {
   constructor(
@@ -11,6 +12,18 @@ export default class ReviewController {
     const { id } = req.params;
 
     const { status, data } = await this.reviewService.getAllByUser(Number(id));
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
+
+  async getOneByUserAndMovie(req: Request, res: Response) {
+    const { movieId } = req.params;
+
+    const user = res.locals.user as IUser;
+
+    const {
+      status, data,
+    } = await this.reviewService.getOneByUserAndMovie(Number(user.id), Number(movieId));
 
     return res.status(mapStatusHTTP(status)).json(data);
   }

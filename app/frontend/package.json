@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint ./src",
-    "lint:styles": "stylelint '**/*.scss'",
+    "lint": "eslint ./src --fix && npm run lint:styles",
+    "lint:styles": "stylelint '**/*.scss' --fix",
     "preview": "vite preview"
   },
   "keywords": [],

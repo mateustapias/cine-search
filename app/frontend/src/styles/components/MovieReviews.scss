@@ -1,7 +1,24 @@
 .c-outer-movie-reviews {
-  h1 {
-    color: rgb(255 210 0)
-  }
+  .c-movie-reviews-header {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      color: rgb(255 210 0);
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+      background-color: transparent;
+      color: rgb(11 77 146);
+    }
+
+    button:hover {
+        box-shadow: none;
+      }
+    }
 
   .c-inner-movie-reviews {
     display: grid;

@@ -40,8 +40,10 @@ services:
     container_name: db
     ports:
       - 3307:3306 # Mapear porta interna 3307 para 3306 na máquina host
+      # - 3306:3306 # Para banco local
     environment:
       - MYSQL_ROOT_PASSWORD=123456
+      # - MYSQL_ROOT_PASSWORD=???? # Colocar senha do meu banco
     restart: 'always'
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]

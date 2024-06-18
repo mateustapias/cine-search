@@ -2,7 +2,6 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { isAxiosError } from 'axios';
 import { useAppContext } from '../../utils';
 import { requestSignUp, setToken } from '../../services/requests';
-// import { ErrorMessages } from '../../../types';
 import { SignUp } from '../../../../backend/src/types/SignUp';
 import useErrorMessages from '../../hooks/useErroMessages';
 

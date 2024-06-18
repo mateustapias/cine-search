@@ -24,6 +24,22 @@ export default class ReviewService {
     return serviceResponse;
   }
 
+  async getOneByUserAndMovie(userId: number, movieId: number) {
+    let serviceResponse: ServiceResponse<IReview>;
+
+    const review = await this.reviewModel.findOneByUserAndMovie(userId, movieId);
+
+    if (!review) {
+      serviceResponse = {
+        status: 'NOT_FOUND', data: { message: dataBaseErrorMessage },
+      };
+      return serviceResponse;
+    }
+
+    serviceResponse = { status: 'SUCCESSFUL', data: review };
+    return serviceResponse;
+  }
+
   async getAllByMovie(movieId: number) {
     let serviceResponse: ServiceResponse<IReview[]>;
 
