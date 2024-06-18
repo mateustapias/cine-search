@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Review } from '../../../types';
 import { defaultUserIcon, pencilIcon } from '../../assets/icons';
 import '../../styles/components/MovieReviewCard.scss';
@@ -8,8 +9,11 @@ type MovieReviewsProps = {
 };
 
 const MovieReviewCard = ({ review, isFromUser }: MovieReviewsProps) => {
-  const a = 'a';
-  console.log(a);
+  // Criar outro componente para criação 
+  const FORM_INITIAL_STATE = {
+    rating: 
+  }
+  const [editMode, setEditMode] = useState(false);
 
   return (
     <div className='c-movie-review-card'>
@@ -21,7 +25,7 @@ const MovieReviewCard = ({ review, isFromUser }: MovieReviewsProps) => {
           </h2>
         </div>
         {isFromUser
-          && <button className='c-btn-edit-review'>
+          && <button className='c-btn-edit-review' onClick={() => setEditMode(true)}>
             <img src={pencilIcon} />
           </button>
         }
@@ -31,9 +35,15 @@ const MovieReviewCard = ({ review, isFromUser }: MovieReviewsProps) => {
           Nota: {review.rating}
         </h3>
       </div>
-      <div className='c-movie-review-rating'>
-        {review.text}
-      </div>
+      {editMode
+        ? <input
+          type='text'
+
+        />
+        : <div className='c-movie-review-overview'>
+          {review.text}
+        </div>
+      }
     </div>
   );
 };

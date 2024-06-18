@@ -29,6 +29,7 @@ const LogInPrompt = () => {
 
       sessionStorage.setItem('userData', userDataSTR);
       setUserRequest(true);
+      window.location.reload();
     } catch (error) {
       setFailedLogInTry(true);
     }

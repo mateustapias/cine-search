@@ -36,6 +36,7 @@ const SignUpPrompt = () => {
 
       sessionStorage.setItem('userData', userDataSTR);
       setUserRequest(true);
+      window.location.reload();
     } catch (error) {
       if (isAxiosError(error) && error.response) {
         const { message } = error.response.data;
