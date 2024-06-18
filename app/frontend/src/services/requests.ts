@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Token } from '../../../backend/src/types/Token';
+// import { Token } from '../../../backend/src/types/Token';
 import { LogIn } from '../../../backend/src/types/Login';
 import { SignUp } from '../../../backend/src/types/SignUp';
 // TODO: aplicar barrel nesses tipos acima
@@ -8,7 +8,7 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001',
 });
 
-export const setToken = (token: Token) => {
+export const setToken = (token: string) => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 

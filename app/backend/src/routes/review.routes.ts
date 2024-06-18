@@ -16,6 +16,7 @@ reviewRouter.get(
 );
 reviewRouter.get(
   '/movie/:id',
+  AuthMiddleware.check,
   (req: Request, res: Response) => reviewController.getAllByMovie(req, res),
 );
 reviewRouter.post(

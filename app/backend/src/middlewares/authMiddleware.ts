@@ -25,4 +25,24 @@ export default class AuthMiddleware {
         .status(mapStatusHTTP('UNAUTHORIZED')).json({ message: 'Token must be a valid token' });
     }
   }
+
+  static async check(req: Request, res: Response, next: NextFunction) {
+    const { authorization } = req.headers;
+
+    if (!authorization) {
+      next();
+      return;
+    }
+
+    const token = AuthMiddleware.extractToken(authorization);
+
+    try {
+      const decoded = jwtUtil.verifyToken(token);
+      res.locals.user = decoded;
+      next();
+    } catch (e) {
+      return res
+        .status(mapStatusHTTP('UNAUTHORIZED')).json({ message: 'Token must be a valid token' });
+    }
+  }
 }

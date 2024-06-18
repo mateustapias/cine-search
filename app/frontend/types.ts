@@ -20,6 +20,7 @@ export type ShowLogInOrSignUp = {
 export type UserData = {
   email: string,
   username: string;
+  token: string;
 };
 
 export type Review = {

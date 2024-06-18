@@ -2,11 +2,32 @@
   background-color: var(--primary-container-color);
   padding: 1rem;
 
-  .c-movie-review-author {
-    display: flex;
 
-    img {
-      height: 30px;
+  .c-movie-review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 2rem;
+
+    .c-movie-review-author {
+      display: flex;
+      align-items: center;
+      height: inherit;
+  
+      img {
+        height: 100%;
+      }
     }
+
+    .c-btn-edit-review {
+      height: inherit;
+      background-color: transparent;
+      
+      img {
+        height: 100%;
+        filter: invert(95%);
+      }
+    }
+
   }
 }

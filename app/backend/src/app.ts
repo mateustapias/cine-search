@@ -88,7 +88,7 @@ class App {
       credentials: true,
       optionsSuccessStatus: 200,
       methods: 'GET,POST,DELETE,OPTIONS,PUT,PATCH', // Permitindo métodos necessários
-      allowedHeaders: 'Content-Type,Authorization', // Permitindo cabeçalhos necessários
+      allowedHeaders: 'Content-Type, Authorization', // Permitindo cabeçalhos necessários
     };
     this.app.use(cors(corsOptions));
     this.app.use(express.json());

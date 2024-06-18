@@ -18,6 +18,7 @@ const LoggedBox = ({ userData, setUserData }: LoggedBoxProps) => {
   const logOff = (): void => {
     sessionStorage.removeItem('userData');
     setUserData(undefined);
+    window.location.reload();
   };
 
   return (

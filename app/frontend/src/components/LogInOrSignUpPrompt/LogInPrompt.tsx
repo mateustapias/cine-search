@@ -25,7 +25,7 @@ const LogInPrompt = () => {
       setToken(token);
       setUserRequest(true);
       setShowLogInOrSignUp({ ...showLogInOrSignUp, show: false });
-      const userDataSTR = JSON.stringify(userData);
+      const userDataSTR = JSON.stringify({ ...userData, token });
 
       sessionStorage.setItem('userData', userDataSTR);
       setUserRequest(true);
