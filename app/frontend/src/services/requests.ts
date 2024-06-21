@@ -33,6 +33,8 @@ export const requestSignUp = async (body: SignUp) => {
   return data;
 };
 
+// Todo: talvez criar um argumento do tipo 'add' | 'update' e colocar
+// Todo: requestAddReview e requestUpdateReview em uma única função
 export const requestAddReview = async (body: Review): Promise<Review> => {
   const endpoint = 'reviews/create';
   const { data } = await api.post(endpoint, body);
@@ -40,8 +42,11 @@ export const requestAddReview = async (body: Review): Promise<Review> => {
   return data;
 };
 
-// export const requestUpdateReview = async (body: Review) => {
-//   const endpoint = ''
-// }
+export const requestUpdateReview = async (body: Review): Promise<Review> => {
+  const endpoint = 'reviews/update';
+  const { data } = await api.patch(endpoint, body);
+
+  return data;
+};
 
 export default api;

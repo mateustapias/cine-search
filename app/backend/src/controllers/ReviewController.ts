@@ -46,4 +46,14 @@ export default class ReviewController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  async updateReview(req: Request, res: Response) {
+    const reviewData = req.body;
+
+    const { id: userId } = res.locals.user as IUser;
+
+    const { status, data } = await this.reviewService.updateReview({ ...reviewData, userId });
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
 }

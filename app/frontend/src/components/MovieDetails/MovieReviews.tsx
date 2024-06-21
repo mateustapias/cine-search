@@ -81,8 +81,8 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
       {reviews
         && (
           <div className='c-inner-movie-reviews'>
-            {reviews.map((review, index) => (
-              <MovieReviewCard review={review} key={index}/>
+            {reviews.map((review) => (
+              <MovieReviewCard review={review} key={review.id}/>
             ))}
           </div>
         )}

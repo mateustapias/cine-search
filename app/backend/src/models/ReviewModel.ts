@@ -87,4 +87,15 @@ export default class ReviewModel implements IReviewModel {
 
     return dbData;
   }
+
+  async updateOne(review: IReview): Promise<void> {
+    await this.model.update(
+      review,
+      {
+        where: {
+          id: review.id,
+        },
+      },
+    );
+  }
 }

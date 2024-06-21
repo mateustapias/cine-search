@@ -25,5 +25,10 @@ reviewRouter.post(
   AuthMiddleware.auth,
   (req: Request, res: Response) => reviewController.createReview(req, res),
 );
+reviewRouter.patch(
+  '/update',
+  AuthMiddleware.auth,
+  (req: Request, res: Response) => reviewController.updateReview(req, res),
+);
 
 export default reviewRouter;

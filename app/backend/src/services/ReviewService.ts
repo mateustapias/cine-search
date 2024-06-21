@@ -1,4 +1,4 @@
-import { ServiceResponse } from '../types/ServiceResponse';
+import { ServiceMessage, ServiceResponse } from '../types/ServiceResponse';
 import { dataBaseErrorMessage } from './errorMessages';
 import { IReview, IReviewModel } from '../interfaces/review';
 import ReviewModel from '../models/ReviewModel';
@@ -70,5 +70,12 @@ export default class ReviewService {
       status: 'BAD_REQUEST', data: { message: dataBaseErrorMessage },
     };
     return serviceResponse;
+  }
+
+  async updateReview(review: IReview): Promise<ServiceResponse<ServiceMessage>> {
+    // const review =
+    await this.reviewModel.updateOne(review);
+
+    return { status: 'NO_CONTENT', data: { message: 'Review updated' } };
   }
 }

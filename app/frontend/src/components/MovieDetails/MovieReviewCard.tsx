@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Review } from '../../../types';
 import { defaultUserIcon, pencilIcon } from '../../assets/icons';
 import '../../styles/components/MovieReviewCard.scss';
-import { requestAddReview } from '../../services/requests';
+import { requestAddReview, requestUpdateReview } from '../../services/requests';
 
 type MovieReviewsProps = {
   review: Review;
@@ -39,7 +39,8 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
   };
 
   const handleUpdateClick = () => {
-    // requestAddReview({ ...reviewData, movieId });
+    // console.log({ ...reviewData, movieId, id: review.id });
+    requestUpdateReview({ ...reviewData, movieId, id: Number(review.id) });
     window.location.reload();
   };
 

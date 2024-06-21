@@ -1,6 +1,6 @@
 export type ServiceMessage = { message: string };
 
-export type ServiceResponseSuccessType = 'SUCCESSFUL' | 'CREATED';
+export type ServiceResponseSuccessType = 'SUCCESSFUL' | 'CREATED' | 'NO_CONTENT';
 export type ServiceResponseErrorType =
   'BAD_REQUEST'
   | 'UNAUTHORIZED'
