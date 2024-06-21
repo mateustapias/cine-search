@@ -1,7 +1,9 @@
 import { useState, ChangeEvent, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Review } from '../../../types';
 import { defaultUserIcon, pencilIcon } from '../../assets/icons';
 import '../../styles/components/MovieReviewCard.scss';
+import { requestAddReview } from '../../services/requests';
 
 type MovieReviewsProps = {
   review: Review;
@@ -10,6 +12,8 @@ type MovieReviewsProps = {
 };
 
 const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
+  const { id } = useParams();
+  const movieId = Number(id);
   const FORM_INITIAL_STATE = {
     rating: review.rating || 0,
     text: review.text || '',
@@ -27,6 +31,16 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
     setReviewData({ ...reviewData, [name]: value });
+  };
+
+  const handleAddClick = async () => {
+    await requestAddReview({ ...reviewData, movieId });
+    window.location.reload();
+  };
+
+  const handleUpdateClick = () => {
+    // requestAddReview({ ...reviewData, movieId });
+    window.location.reload();
   };
 
   return (
@@ -75,6 +89,12 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
         <div className='c-movie-review-overview'>
           {review.text}
         </div>
+      )}
+      {editMode && (isNew ? (
+        <button onClick={handleAddClick}>Adicionar</button>
+      ) : (
+        <button onClick={handleUpdateClick}>Salvar</button>
+      )
       )}
     </div>
   );

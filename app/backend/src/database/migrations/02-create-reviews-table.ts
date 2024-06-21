@@ -7,6 +7,7 @@ export default {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
       },
       rating: {
         type: DataTypes.INTEGER,

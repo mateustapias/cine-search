@@ -19,11 +19,11 @@ export default class ReviewController {
   async getOneByUserAndMovie(req: Request, res: Response) {
     const { movieId } = req.params;
 
-    const user = res.locals.user as IUser;
+    const { id: userId } = res.locals.user as IUser;
 
     const {
       status, data,
-    } = await this.reviewService.getOneByUserAndMovie(Number(user.id), Number(movieId));
+    } = await this.reviewService.getOneByUserAndMovie(userId, Number(movieId));
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
@@ -37,9 +37,12 @@ export default class ReviewController {
   }
 
   async createReview(req: Request, res: Response) {
-    const { body } = req;
+    // TODO: talvez fazer tipagem para os dados do body?
+    const reviewData = req.body;
 
-    const { status, data } = await this.reviewService.createReview(body);
+    const { id: userId } = res.locals.user as IUser;
+
+    const { status, data } = await this.reviewService.createReview({ ...reviewData, userId });
 
     return res.status(mapStatusHTTP(status)).json(data);
   }

@@ -2,6 +2,7 @@ import axios from 'axios';
 // import { Token } from '../../../backend/src/types/Token';
 import { LogIn } from '../../../backend/src/types/Login';
 import { SignUp } from '../../../backend/src/types/SignUp';
+import { Review } from '../../types';
 // TODO: aplicar barrel nesses tipos acima
 
 const api = axios.create({
@@ -19,7 +20,7 @@ export const requestData = async (endpoint: string) => {
 };
 
 export const requestLogIn = async (body: LogIn) => {
-  const endpoint = '/user/logIn';
+  const endpoint = 'user/logIn';
   const { data } = await api.post(endpoint, body);
 
   return data;
@@ -31,5 +32,16 @@ export const requestSignUp = async (body: SignUp) => {
 
   return data;
 };
+
+export const requestAddReview = async (body: Review): Promise<Review> => {
+  const endpoint = 'reviews/create';
+  const { data } = await api.post(endpoint, body);
+
+  return data;
+};
+
+// export const requestUpdateReview = async (body: Review) => {
+//   const endpoint = ''
+// }
 
 export default api;

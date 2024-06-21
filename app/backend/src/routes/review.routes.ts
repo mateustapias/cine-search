@@ -16,11 +16,13 @@ reviewRouter.get(
 );
 reviewRouter.get(
   '/movie/:id',
+  // Precisa dessa autenticação?
   AuthMiddleware.check,
   (req: Request, res: Response) => reviewController.getAllByMovie(req, res),
 );
 reviewRouter.post(
-  '/',
+  '/create',
+  AuthMiddleware.auth,
   (req: Request, res: Response) => reviewController.createReview(req, res),
 );
 
