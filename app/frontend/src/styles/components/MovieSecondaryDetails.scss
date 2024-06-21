@@ -1,5 +1,5 @@
 .c-outer-secondary-details {
-  height: 450px;
+  flex: 1;
   margin: 0 1rem;
   padding: 1rem;
   background-color: var(--primary-container-color);
@@ -50,18 +50,15 @@
       width: 3px;
     }
 
-    /* Track */
     ::-webkit-scrollbar-track {
       background: rgb(0 0 0 / 20%);
     }
 
-    /* Handle */
     ::-webkit-scrollbar-thumb {
       background: rgb(255 255 255 / 20%);
       border-radius: 10px;
     }
 
-    /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
       background: #555;
       cursor: pointer;
