@@ -63,18 +63,6 @@ export default class ReviewModel implements IReviewModel {
     }
 
     return dbData;
-    // const [dbData, error] = await handleAsyncError(this.model.findAll({
-    //   where: {
-    //     movieId,
-    //   },
-    // }));
-
-    // if (error) {
-    //   console.error('Error in findAllByMovie:', error);
-    //   return null;
-    // }
-
-    // return dbData;
   }
 
   async createOne(review: IReview): Promise<IReview | null> {

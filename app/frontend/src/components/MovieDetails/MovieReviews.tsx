@@ -18,19 +18,27 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
   useEffect(() => {
     const fetchData = async () => {
       const user = getUserData();
+      let userReviewData = {} as Review;
       if (user) {
         setToken(user.token);
         setIsLogged(true);
         try {
-          const userReviewData = await requestData(`/reviews/user&movie/${id}`);
+          userReviewData = await requestData(`/reviews/user&movie/${id}`);
           setUserReview(userReviewData);
         } catch (error) {
           console.log('O usuário não possui uma resenha para esse filme.');
         }
       }
 
-      const reviewsData = await requestData(`/reviews/movie/${id}`);
-      setReviews(reviewsData);
+      const reviewsData = await requestData(`/reviews/movie/${id}`) as Review[];
+      if (userReviewData) {
+        const filteredReviewsData = reviewsData.filter(
+          (review) => (review.userId !== userReviewData.userId),
+        );
+        setReviews(filteredReviewsData);
+      } else {
+        setReviews(reviewsData);
+      }
     };
 
     fetchData();
@@ -60,14 +68,12 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
             <span>Faça login para adicionar uma resenha</span>
           )}
       </div>
-      {userReview
-        && (
-          <div className='c-user-movie-review'>
+      <div className='c-user-movie-review'>
+        {userReview
+          && (
             <MovieReviewCard review={userReview} isFromUser={true} />
-          </div>
-        )}
-      {isAddingReview && (
-        <div className='c-user-movie-review'>
+          )}
+        {isAddingReview && (
           <MovieReviewCard
             review={{
               rating: 0, text: '', user: getUserData(), movieId: id,
@@ -75,8 +81,8 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
             isFromUser
             isNew
           />
-        </div>
-      )}
+        )}
+      </div>
       {reviews
         && (
           <div className='c-inner-movie-reviews'>
