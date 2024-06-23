@@ -5,6 +5,7 @@ import { defaultUserIcon, pencilIcon } from '../../../assets/icons';
 import '../../../styles/components/MovieReviewCard.scss';
 import { requestAddReview, requestUpdateReview } from '../../../services/requests';
 import CustomRatingSelector from './CustomRatingSelector';
+import getReviewButtonColor from '../../../utils/getReviewButtonColor';
 
 type MovieReviewsProps = {
   review: Review;
@@ -51,6 +52,16 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
   return (
     <div className='c-movie-review-card'>
       <div className='c-movie-review-header'>
+        {/* {!editMode && (
+          <span
+            className='c-movie-review-rating-prompt'
+            style={{ backgroundColor: getReviewButtonColor(review.rating) }}
+          >{review.rating}</span>
+        )} */}
+        <span
+          className='c-movie-review-rating-prompt'
+          style={{ backgroundColor: getReviewButtonColor(reviewData.rating) }}
+        >{reviewData.rating}</span>
         <div className='c-movie-review-author'>
           <img src={defaultUserIcon} alt='User Icon' />
           <h2>
@@ -58,17 +69,37 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
           </h2>
         </div>
         {isFromUser && (
-          <button className='c-btn-edit-review' onClick={() => setEditMode(true)}>
-            <img src={pencilIcon} alt='Edit Icon' />
-          </button>
+          editMode ? (
+            <button className='c-btn-exit-edit-review' onClick={() => setEditMode(false)}>X</button>
+          ) : (
+            <button className='c-btn-edit-review' onClick={() => setEditMode(true)}>
+              <img src={pencilIcon} alt='Edit icon' />
+            </button>
+          ))
+        }
+      </div>
+      {editMode && (
+        <div className='c-movie-review-rating'>
+          <CustomRatingSelector rating={reviewData.rating} onChange={handleRatingChange} />
+        </div>
+      )}
+      <div className='c-movie-review-overview'>
+        {editMode ? (
+          <input type='text' name='text' value={reviewData.text} onChange={handleChange} autoFocus />
+        ) : (
+          review.text
         )}
       </div>
-      <div className='c-movie-review-rating'>
-        <h3>Nota:</h3>
+      {editMode && (isNew ? (
+        <button onClick={handleAddClick}>Adicionar</button>
+      ) : (
+        <button onClick={handleUpdateClick}>Salvar</button>
+      ))}
+      {/* <div className='c-movie-review-rating'>
         {editMode ? (
           <>
             <CustomRatingSelector rating={reviewData.rating} onChange={handleRatingChange} />
-            <input type='text' name='text' value={reviewData.text} onChange={handleChange} autoFocus />
+      <input type='text' name='text' value={reviewData.text} onChange={handleChange} autoFocus />
             {isNew ? (
               <button onClick={handleAddClick}>Adicionar</button>
             ) : (
@@ -77,14 +108,17 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
           </>
         ) : (
           <>
-            <span>{review.rating}</span>
+            <span
+              className='c-movie-review-rating-prompt'
+              style={{ backgroundColor: getReviewButtonColor(review.rating) }}
+            >{review.rating}</span>
             <div className='c-movie-review-overview'>
               {review.text}
             </div>
           </>
         )}
-      </div>
-    </div>
+      </div> */}
+    </div >
   );
 };
 
