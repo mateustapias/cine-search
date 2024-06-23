@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, useEffect } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Review } from '../../../../types';
 import { defaultUserIcon, pencilIcon } from '../../../assets/icons';
