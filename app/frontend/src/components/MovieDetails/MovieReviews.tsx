@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Review } from '../../../types';
 import { requestData, setToken } from '../../services/requests';
-import MovieReviewCard from './MovieReviewCard';
+import MovieReviewCard from './MovieReviewCard.tsx/MovieReviewCard';
 import '../../styles/components/MovieReviews.scss';
 import { getUserData } from '../../utils';
 

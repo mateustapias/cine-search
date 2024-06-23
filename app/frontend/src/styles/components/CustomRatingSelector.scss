@@ -1,0 +1,28 @@
+.c-custom-rating-selector {
+  display: flex;
+  gap: 0.5rem;
+
+  .c-rating-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid #000;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
+  }
+
+  .c-rating-circle:hover {
+    background-color: var(--hover-color);
+    color: white;
+  }
+
+  .c-rating-circle.selected {
+    color: white;
+  }
+}

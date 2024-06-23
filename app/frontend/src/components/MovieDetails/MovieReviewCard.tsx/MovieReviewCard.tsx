@@ -1,9 +1,10 @@
-import { useState, ChangeEvent, useEffect } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Review } from '../../../types';
-import { defaultUserIcon, pencilIcon } from '../../assets/icons';
-import '../../styles/components/MovieReviewCard.scss';
-import { requestAddReview, requestUpdateReview } from '../../services/requests';
+import { Review } from '../../../../types';
+import { defaultUserIcon, pencilIcon } from '../../../assets/icons';
+import '../../../styles/components/MovieReviewCard.scss';
+import { requestAddReview, requestUpdateReview } from '../../../services/requests';
+import CustomRatingSelector from './CustomRatingSelector';
 
 type MovieReviewsProps = {
   review: Review;
@@ -26,11 +27,15 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
     if (isNew) {
       setEditMode(true);
     }
-  }, []);
+  }, [isNew]);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setReviewData({ ...reviewData, [name]: value });
+  };
+
+  const handleRatingChange = (value: number) => {
+    setReviewData({ ...reviewData, rating: value });
   };
 
   const handleAddClick = async () => {
@@ -39,7 +44,6 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
   };
 
   const handleUpdateClick = () => {
-    // console.log({ ...reviewData, movieId, id: review.id });
     requestUpdateReview({ ...reviewData, movieId, id: Number(review.id) });
     window.location.reload();
   };
@@ -60,43 +64,26 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
         )}
       </div>
       <div className='c-movie-review-rating'>
-        <h3>Nota:
-          {editMode ? (
-            <select
-              name='rating'
-              value={reviewData.rating}
-              onChange={handleChange}
-            >
-              {[...Array(11).keys()].map((value) => (
-                <option key={value} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          ) : (
+        <h3>Nota:</h3>
+        {editMode ? (
+          <>
+            <CustomRatingSelector rating={reviewData.rating} onChange={handleRatingChange} />
+            <input type='text' name='text' value={reviewData.text} onChange={handleChange} autoFocus />
+            {isNew ? (
+              <button onClick={handleAddClick}>Adicionar</button>
+            ) : (
+              <button onClick={handleUpdateClick}>Salvar</button>
+            )}
+          </>
+        ) : (
+          <>
             <span>{review.rating}</span>
-          )}
-        </h3>
+            <div className='c-movie-review-overview'>
+              {review.text}
+            </div>
+          </>
+        )}
       </div>
-      {editMode ? (
-        <input
-          type='text'
-          name='text'
-          value={reviewData.text}
-          onChange={handleChange}
-          autoFocus
-        />
-      ) : (
-        <div className='c-movie-review-overview'>
-          {review.text}
-        </div>
-      )}
-      {editMode && (isNew ? (
-        <button onClick={handleAddClick}>Adicionar</button>
-      ) : (
-        <button onClick={handleUpdateClick}>Salvar</button>
-      )
-      )}
     </div>
   );
 };
