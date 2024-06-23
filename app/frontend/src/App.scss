@@ -1,5 +1,5 @@
 :root {
-  --primary-container-color: rgb(20 20 20);
+  --primary-container-color: rgb(16 16 16);
 }
 
 body {
@@ -15,8 +15,6 @@ a {
 
 button {
   border: 0;
-
-  // font-weight: bold;
   transition: filter 0.2s ease-out;
   box-shadow: 0 4px 6px rgb(0 0 0 / 10%), 0 2px 4px rgb(0 0 0 / 6%);
 }

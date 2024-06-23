@@ -17,11 +17,7 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const reviewsData = await requestData(`/reviews/movie/${id}`);
-      setReviews(reviewsData);
-
       const user = getUserData();
-
       if (user) {
         setToken(user.token);
         setIsLogged(true);
@@ -32,6 +28,9 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
           console.log('O usuário não possui uma resenha para esse filme.');
         }
       }
+
+      const reviewsData = await requestData(`/reviews/movie/${id}`);
+      setReviews(reviewsData);
     };
 
     fetchData();
@@ -45,19 +44,19 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
     <div className='c-outer-movie-reviews'>
       <div className='c-movie-reviews-header'>
         <h1>Resenhas</h1>
-        {(isLogged)
-          ? !userReview
-          && (
-            <button className='btn-add-review' onClick={handleAddReviewClick}>
-              <div className='c-btn-content'>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <span>Adicionar</span>
-              </div>
-            </button>
-          )
-          : (
+        {isLogged
+          ? (!userReview
+            && (
+              <button className='btn-add-review' onClick={handleAddReviewClick}>
+                <div className='c-btn-content'>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span>Adicionar</span>
+                </div>
+              </button>
+            )
+          ) : (
             <span>Faça login para adicionar uma resenha</span>
           )}
       </div>
@@ -82,7 +81,7 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
         && (
           <div className='c-inner-movie-reviews'>
             {reviews.map((review) => (
-              <MovieReviewCard review={review} key={review.id}/>
+              <MovieReviewCard review={review} key={review.id} />
             ))}
           </div>
         )}
