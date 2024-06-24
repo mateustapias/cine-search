@@ -33,7 +33,7 @@ export const requestSignUp = async (body: SignUp) => {
   return data;
 };
 
-// Todo: talvez criar um argumento do tipo 'add' | 'update' e colocar
+// Todo: talvez criar um argumento do tipo 'add' | 'update' | 'delete' e colocar
 // Todo: requestAddReview e requestUpdateReview em uma única função
 export const requestAddReview = async (body: Review): Promise<Review> => {
   const endpoint = 'reviews/create';
@@ -45,6 +45,13 @@ export const requestAddReview = async (body: Review): Promise<Review> => {
 export const requestUpdateReview = async (body: Review): Promise<Review> => {
   const endpoint = 'reviews/update';
   const { data } = await api.patch(endpoint, body);
+
+  return data;
+};
+
+export const requestDeleteReview = async (id: number): Promise<Review> => {
+  const endpoint = `reviews/delete/${id}`;
+  const { data } = await api.delete(endpoint);
 
   return data;
 };

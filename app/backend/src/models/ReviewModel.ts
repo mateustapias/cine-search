@@ -86,4 +86,12 @@ export default class ReviewModel implements IReviewModel {
       },
     );
   }
+
+  async deleteOne(id: number): Promise<void> {
+    await this.model.destroy({
+      where: {
+        id,
+      },
+    });
+  }
 }

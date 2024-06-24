@@ -6,3 +6,4 @@ export { default as pencilIcon } from './pencilIcon.png';
 export { default as popcornBoxIcon } from './popcornBoxIcon.png';
 export { default as searchIcon } from './searchIcon.png';
 export { default as starIcon } from './starIcon.png';
+export { default as trashCanIcon } from './trashCanIcon.png';

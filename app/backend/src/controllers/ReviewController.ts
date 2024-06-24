@@ -56,4 +56,12 @@ export default class ReviewController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  async deleteReview(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const { status, data } = await this.reviewService.deleteReview(Number(id));
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
 }

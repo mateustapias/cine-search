@@ -13,9 +13,7 @@
       display: inline-block;
       margin-right: auto;
       background-color: transparent;
-
-      // color: rgb(11 77 146);
-      color: rgb(var(--bs-link-color-rgb) var(--bs-link-opacity, 1));
+      color: rgb(7, 90, 180);
       font-weight: bold;
     }
 
@@ -32,7 +30,7 @@
       margin-left: 1rem;
 
       .span-login {
-        color: rgb(var(--bs-link-color-rgb) var(--bs-link-opacity, 1));
+        color: rgb(7, 90, 180);
         cursor: pointer;
       }
     }

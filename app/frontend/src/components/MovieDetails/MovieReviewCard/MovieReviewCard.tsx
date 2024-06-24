@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 import { isAxiosError } from 'axios';
 import { Review } from '../../../../types';
 import { CustomRatingSelector } from '.';
-import { defaultUserIcon, pencilIcon } from '../../../assets/icons';
-import { requestAddReview, requestUpdateReview } from '../../../services/requests';
+import { defaultUserIcon, pencilIcon, trashCanIcon } from '../../../assets/icons';
+import { requestAddReview, requestDeleteReview, requestUpdateReview } from '../../../services/requests';
 import { getReviewButtonColor } from '../../../utils';
 import { useErrorMessages } from '../../../hooks';
 import '../../../styles/components/MovieReviewCard/MovieReviewCard.scss';
@@ -41,6 +41,11 @@ const MovieReviewCard = ({
       setEditMode(true);
     }
   }, [isNew]);
+
+  const handleDelete = async () => {
+    await requestDeleteReview(Number(review.id));
+    window.location.reload();
+  };
 
   const handleExitEditMode = () => {
     if (setIsAddingReview) {
@@ -94,13 +99,21 @@ const MovieReviewCard = ({
           <h2>{review.user?.username}</h2>
         </div>
         {isFromUser && (
-          editMode ? (
-            <button className='c-btn-exit-edit-review' onClick={handleExitEditMode}>X</button>
-          ) : (
-            <button className='c-btn-edit-review' onClick={() => setEditMode(true)}>
-              <img src={pencilIcon} alt='Edit icon' />
-            </button>
-          ))}
+          <>
+            {!isNew && (
+              <button className='btn-delete-review' onClick={handleDelete}>
+                <img src={trashCanIcon} />
+              </button>
+            )}
+            {editMode ? (
+              <button className='btn-exit-edit-review' onClick={handleExitEditMode}>X</button>
+            ) : (
+              <button className='btn-edit-review' onClick={() => setEditMode(true)}>
+                <img src={pencilIcon} alt='Edit icon' />
+              </button>
+            )}
+          </>
+        )}
       </div>
       {editMode ? (<>
         <div className='c-movie-review-rating'>

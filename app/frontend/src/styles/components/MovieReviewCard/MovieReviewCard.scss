@@ -48,7 +48,7 @@
       }
     }
 
-    .c-btn-edit-review {
+    .btn-delete-review {
       height: 2rem;
       background-color: transparent;
 
@@ -58,11 +58,21 @@
       }
     }
 
-    .c-btn-exit-edit-review {
+    .btn-exit-edit-review {
       height: 2rem;
       background-color: transparent;
       color: white;
       font-weight: 900;
+    }
+
+    .btn-edit-review {
+      height: 2rem;
+      background-color: transparent;
+
+      img {
+        height: 70%;
+        filter: invert(95%);
+      }
     }
   }
 

@@ -78,4 +78,11 @@ export default class ReviewService {
 
     return { status: 'NO_CONTENT', data: { message: 'Review updated' } };
   }
+
+  async deleteReview(id: number): Promise<ServiceResponse<ServiceMessage>> {
+    // const review =
+    await this.reviewModel.deleteOne(id);
+
+    return { status: 'NO_CONTENT', data: { message: 'Review updated' } };
+  }
 }
