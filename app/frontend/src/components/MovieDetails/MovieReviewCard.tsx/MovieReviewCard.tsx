@@ -1,4 +1,5 @@
 import { useState, ChangeEvent, useEffect } from 'react';
+import { isAxiosError } from 'axios';
 import { useParams } from 'react-router-dom';
 import { Review } from '../../../../types';
 import { defaultUserIcon, pencilIcon } from '../../../assets/icons';
@@ -6,6 +7,7 @@ import '../../../styles/components/MovieReviewCard.scss';
 import { requestAddReview, requestUpdateReview } from '../../../services/requests';
 import CustomRatingSelector from './CustomRatingSelector';
 import getReviewButtonColor from '../../../utils/getReviewButtonColor';
+import useErrorMessages from '../../../hooks/useErroMessages';
 
 type MovieReviewsProps = {
   review: Review;
@@ -20,9 +22,12 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
     rating: review.rating || 0,
     text: review.text || '',
   };
+  const fieldsError = ['text'];
 
   const [editMode, setEditMode] = useState(false);
   const [reviewData, setReviewData] = useState(FORM_INITIAL_STATE);
+  const [fieldsErrors, setFieldsErrors, INITIAL_FIELDS_ERRORS] = useErrorMessages(fieldsError);
+  const { text } = fieldsErrors;
 
   useEffect(() => {
     if (isNew) {
@@ -33,20 +38,31 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setReviewData({ ...reviewData, [name]: value });
+    setFieldsErrors(INITIAL_FIELDS_ERRORS);
   };
 
   const handleRatingChange = (value: number) => {
     setReviewData({ ...reviewData, rating: value });
   };
 
-  const handleAddClick = async () => {
-    await requestAddReview({ ...reviewData, movieId });
-    window.location.reload();
-  };
+  const handleSubmit = async (type: 'create' | 'update') => {
+    try {
+      if (type === 'create') {
+        await requestAddReview({ ...reviewData, movieId });
+      } else {
+        await requestUpdateReview({ ...reviewData, movieId, id: Number(review.id) });
+      }
+      window.location.reload();
+    } catch (error) {
+      if (isAxiosError(error) && error.response) {
+        const { message } = error.response.data;
 
-  const handleUpdateClick = () => {
-    requestUpdateReview({ ...reviewData, movieId, id: Number(review.id) });
-    window.location.reload();
+        // Erro de validação
+        if (error.response.status === 400) {
+          setFieldsErrors(message);
+        }
+      }
+    }
   };
 
   return (
@@ -83,17 +99,19 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
           <CustomRatingSelector rating={reviewData.rating} onChange={handleRatingChange} />
         </div>
       )}
-      <div className='c-movie-review-overview'>
-        {editMode ? (
+      <div className='c-movie-review-text'>
+        {editMode ? (<>
           <input type='text' name='text' value={reviewData.text} onChange={handleChange} autoFocus />
+          {text && <div className='c-error-msg'>{text}</div>}
+        </>
         ) : (
           review.text
         )}
       </div>
       {editMode && (isNew ? (
-        <button onClick={handleAddClick}>Adicionar</button>
+        <button onClick={() => handleSubmit('create')} type='submit'>Adicionar</button>
       ) : (
-        <button onClick={handleUpdateClick}>Salvar</button>
+        <button onClick={() => handleSubmit('update')} type='submit'>Salvar</button>
       ))}
       {/* <div className='c-movie-review-rating'>
         {editMode ? (

@@ -15,6 +15,7 @@ class Validations {
     next();
   }
 
+  // Feito de forma diferente
   static validateSignUp(req: Request, res: Response, next: NextFunction): Response | void {
     const result = schema.signUpSchema.validate(req.body);
     if (result.error) {
@@ -25,6 +26,34 @@ class Validations {
         }
       });
       return res.status(mapStatusHTTP('UNAUTHORIZED')).json({ message });
+    }
+    next();
+  }
+
+  static validateAddReview(req: Request, res: Response, next: NextFunction): Response | void {
+    const result = schema.addReviewSchema.validate(req.body);
+    if (result.error) {
+      const message: { [key: string]: string; } = {};
+      result.error.details.forEach((error) => {
+        if (error.context?.key) {
+          message[error.context.key] = error.message;
+        }
+      });
+      return res.status(mapStatusHTTP('BAD_REQUEST')).json({ message });
+    }
+    next();
+  }
+
+  static validateUpdateReview(req: Request, res: Response, next: NextFunction): Response | void {
+    const result = schema.updateReviewSchema.validate(req.body);
+    if (result.error) {
+      const message: { [key: string]: string; } = {};
+      result.error.details.forEach((error) => {
+        if (error.context?.key) {
+          message[error.context.key] = error.message;
+        }
+      });
+      return res.status(mapStatusHTTP('BAD_REQUEST')).json({ message });
     }
     next();
   }

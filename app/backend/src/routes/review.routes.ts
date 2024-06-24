@@ -1,6 +1,7 @@
 import { Request, Router, Response } from 'express';
 import ReviewController from '../controllers/ReviewController';
 import AuthMiddleware from '../middlewares/authMiddleware';
+import Validations from '../middlewares/validationMiddleware';
 
 const reviewController = new ReviewController();
 const reviewRouter = Router();
@@ -22,12 +23,14 @@ reviewRouter.get(
 );
 reviewRouter.post(
   '/create',
+  Validations.validateAddReview,
   AuthMiddleware.auth,
   (req: Request, res: Response) => reviewController.createReview(req, res),
 );
 reviewRouter.patch(
   '/update',
   AuthMiddleware.auth,
+  Validations.validateUpdateReview,
   (req: Request, res: Response) => reviewController.updateReview(req, res),
 );
 
