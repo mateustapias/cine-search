@@ -1,6 +1,7 @@
 .c-movie-review-card {
   background-color: var(--primary-container-color);
   padding: 1rem;
+  border-radius: 5px;
 
   .c-movie-review-header {
     display: flex;
@@ -59,14 +60,16 @@
   }
 
   .c-movie-review-text {
-    // margin-top: 1rem;
     width: 100%;
-    height: 3rem;
     margin-bottom: 1rem;
 
-    input {
+    textarea {
       width: inherit;
-      height: 100%;
+      resize: none;
+      outline: none;
+      border: none;
+      border-radius: 3px;
+      vertical-align: top;
     }
   }
 }

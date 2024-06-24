@@ -35,7 +35,8 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
     }
   }, [isNew]);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setReviewData({ ...reviewData, [name]: value });
     setFieldsErrors(INITIAL_FIELDS_ERRORS);
@@ -68,21 +69,13 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
   return (
     <div className='c-movie-review-card'>
       <div className='c-movie-review-header'>
-        {/* {!editMode && (
-          <span
-            className='c-movie-review-rating-prompt'
-            style={{ backgroundColor: getReviewButtonColor(review.rating) }}
-          >{review.rating}</span>
-        )} */}
         <span
           className='c-movie-review-rating-prompt'
           style={{ backgroundColor: getReviewButtonColor(reviewData.rating) }}
         >{reviewData.rating}</span>
         <div className='c-movie-review-author'>
           <img src={defaultUserIcon} alt='User Icon' />
-          <h2>
-            {review.user?.username}
-          </h2>
+          <h2>{review.user?.username}</h2>
         </div>
         {isFromUser && (
           editMode ? (
@@ -94,48 +87,25 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
           ))
         }
       </div>
-      {editMode && (
+      {editMode ? (<>
         <div className='c-movie-review-rating'>
           <CustomRatingSelector rating={reviewData.rating} onChange={handleRatingChange} />
         </div>
-      )}
-      <div className='c-movie-review-text'>
-        {editMode ? (<>
-          <input type='text' name='text' value={reviewData.text} onChange={handleChange} autoFocus />
+        <div className='c-movie-review-text'>
+          <textarea name='text' value={reviewData.text} onChange={handleChange} autoFocus rows={3} />
           {text && <div className='c-error-msg'>{text}</div>}
-        </>
+        </div>
+        {isNew ? (
+          <button onClick={() => handleSubmit('create')} type='submit'>Adicionar</button>
         ) : (
-          review.text
+          <button onClick={() => handleSubmit('update')} type='submit'>Salvar</button>
         )}
-      </div>
-      {editMode && (isNew ? (
-        <button onClick={() => handleSubmit('create')} type='submit'>Adicionar</button>
+      </>
       ) : (
-        <button onClick={() => handleSubmit('update')} type='submit'>Salvar</button>
-      ))}
-      {/* <div className='c-movie-review-rating'>
-        {editMode ? (
-          <>
-            <CustomRatingSelector rating={reviewData.rating} onChange={handleRatingChange} />
-      <input type='text' name='text' value={reviewData.text} onChange={handleChange} autoFocus />
-            {isNew ? (
-              <button onClick={handleAddClick}>Adicionar</button>
-            ) : (
-              <button onClick={handleUpdateClick}>Salvar</button>
-            )}
-          </>
-        ) : (
-          <>
-            <span
-              className='c-movie-review-rating-prompt'
-              style={{ backgroundColor: getReviewButtonColor(review.rating) }}
-            >{review.rating}</span>
-            <div className='c-movie-review-overview'>
-              {review.text}
-            </div>
-          </>
-        )}
-      </div> */}
+        <div className='c-movie-review-text'>
+          <span>{review.text}</span>
+        </div>
+      )}
     </div >
   );
 };
