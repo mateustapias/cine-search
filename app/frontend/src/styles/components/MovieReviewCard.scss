@@ -14,12 +14,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: red;
       width: 5rem;
       height: 5rem;
       border-radius: 50%;
       font-size: 2.5rem;
       font-weight: bold;
+      text-shadow: 1px 1px 0 black, -1px 1px 0 black, 1px -1px 0 black,
+        -1px -1px 0 black;
     }
 
     .c-movie-review-author {
@@ -30,8 +31,8 @@
 
       img {
         height: 100%;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        background-color: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgb(255 255 255 / 30%);
+        background-color: rgb(0 0 0 / 30%);
         border-radius: 50%;
         margin-right: 0.5rem;
       }
@@ -61,7 +62,6 @@
 
   .c-movie-review-text {
     width: 100%;
-    margin-bottom: 1rem;
 
     textarea {
       width: inherit;
@@ -70,6 +70,29 @@
       border: none;
       border-radius: 3px;
       vertical-align: top;
+    }
+
+    .c-textarea-length-counter {
+      color: rgb(255 255 255 / 75%);
+    }
+
+    .text-over-limit {
+      color: var(--error-text-message-color);
+    }
+
+    .c-error-msg {
+      color: var(--error-text-message-color)
+    }
+  }
+
+  .c-btn-submit {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      background-color: white;
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
     }
   }
 }

@@ -106,18 +106,13 @@
       margin-bottom: 1rem;
     }
 
-    // TODO: juntar .c-log-in-failed-message com .c-error-msg
-    .c-log-in-failed-message {
-      margin-top: 10px;
-      color: #eb0036;
-    }
-
     .invalid {
-      border: 1px solid #eb000c;
+      border-radius: 2px;
+      border: 2px solid var(--error-border-color);
     }
 
     .c-error-msg {
-      color: #eb000c;
+      color: var(--error-text-message-color)
     }
 
     .c-submit-btn {

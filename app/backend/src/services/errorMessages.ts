@@ -34,6 +34,7 @@ export const schemaErrorMessages = {
     text: {
       required: 'A resenha do filme deve estar preenchida',
       empty: 'A resenha do filme deve estar preenchida',
+      max: 'A resenha do filme deve ter no máximo {{#limit}} caracteres',
     },
     movieId: {
       required: 'O id do filme está faltando',

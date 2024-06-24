@@ -51,10 +51,11 @@ const addReviewSchema = Joi.object({
       'number.min': schemaErrorMessages.review.rating.min,
       'number.max': schemaErrorMessages.review.rating.max,
     }),
-  text: Joi.string().required()
+  text: Joi.string().required().max(280)
     .messages({
       'any.required': schemaErrorMessages.review.text.required,
       'string.empty': schemaErrorMessages.review.text.empty,
+      'string.max': schemaErrorMessages.review.text.max,
     }),
   movieId: Joi.number().integer().required()
     .messages({
@@ -79,10 +80,11 @@ const updateReviewSchema = Joi.object({
       'number.min': schemaErrorMessages.review.rating.min,
       'number.max': schemaErrorMessages.review.rating.max,
     }),
-  text: Joi.string().required()
+  text: Joi.string().required().max(280)
     .messages({
       'any.required': schemaErrorMessages.review.text.required,
       'string.empty': schemaErrorMessages.review.text.empty,
+      'string.max': schemaErrorMessages.review.text.max,
     }),
   movieId: Joi.number().integer().required()
     .messages({

@@ -18,7 +18,7 @@ const CustomRatingSelector = ({ rating, onChange }: CustomRatingSelectorProps) =
           key={value}
           className={`c-rating-circle ${value === rating ? 'selected' : ''}`}
           onClick={() => handleClick(value)}
-          style={value === rating ? { backgroundColor: getReviewButtonColor(value) } : { '--hover-color': getReviewButtonColor(value) } as React.CSSProperties}
+          style={{ '--color': getReviewButtonColor(value) } as React.CSSProperties}
         >
           {value}
         </button>

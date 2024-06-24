@@ -21,13 +21,19 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
   const FORM_INITIAL_STATE = {
     rating: review.rating || 0,
     text: review.text || '',
+    // text: {
+    //   content: review.text || '',
+    //   length: review.text.length || 0,
+    // },
   };
   const fieldsError = ['text'];
+  const maxCharLength = 280;
 
   const [editMode, setEditMode] = useState(false);
-  const [reviewData, setReviewData] = useState(FORM_INITIAL_STATE);
+  const [reviewFormData, setreviewFormData] = useState(FORM_INITIAL_STATE);
   const [fieldsErrors, setFieldsErrors, INITIAL_FIELDS_ERRORS] = useErrorMessages(fieldsError);
   const { text } = fieldsErrors;
+  const [textAreaLength, setTextAreaLength] = useState<number>(review.text.length);
 
   useEffect(() => {
     if (isNew) {
@@ -36,22 +42,22 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
   }, [isNew]);
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setReviewData({ ...reviewData, [name]: value });
+    setTextAreaLength(value.length);
+    setreviewFormData({ ...reviewFormData, [name]: value });
     setFieldsErrors(INITIAL_FIELDS_ERRORS);
   };
 
   const handleRatingChange = (value: number) => {
-    setReviewData({ ...reviewData, rating: value });
+    setreviewFormData({ ...reviewFormData, rating: value });
   };
 
   const handleSubmit = async (type: 'create' | 'update') => {
     try {
       if (type === 'create') {
-        await requestAddReview({ ...reviewData, movieId });
+        await requestAddReview({ ...reviewFormData, movieId });
       } else {
-        await requestUpdateReview({ ...reviewData, movieId, id: Number(review.id) });
+        await requestUpdateReview({ ...reviewFormData, movieId, id: Number(review.id) });
       }
       window.location.reload();
     } catch (error) {
@@ -71,8 +77,8 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
       <div className='c-movie-review-header'>
         <span
           className='c-movie-review-rating-prompt'
-          style={{ backgroundColor: getReviewButtonColor(reviewData.rating) }}
-        >{reviewData.rating}</span>
+          style={{ backgroundColor: getReviewButtonColor(reviewFormData.rating) }}
+        >{reviewFormData.rating}</span>
         <div className='c-movie-review-author'>
           <img src={defaultUserIcon} alt='User Icon' />
           <h2>{review.user?.username}</h2>
@@ -84,22 +90,26 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
             <button className='c-btn-edit-review' onClick={() => setEditMode(true)}>
               <img src={pencilIcon} alt='Edit icon' />
             </button>
-          ))
-        }
+          ))}
       </div>
       {editMode ? (<>
         <div className='c-movie-review-rating'>
-          <CustomRatingSelector rating={reviewData.rating} onChange={handleRatingChange} />
+          <CustomRatingSelector rating={reviewFormData.rating} onChange={handleRatingChange} />
         </div>
         <div className='c-movie-review-text'>
-          <textarea name='text' value={reviewData.text} onChange={handleChange} autoFocus rows={3} />
+          <textarea name='text' value={reviewFormData.text} onChange={handleChange} autoFocus rows={3} wrap='off'/>
           {text && <div className='c-error-msg'>{text}</div>}
+          <span
+            className={`c-textarea-length-counter ${textAreaLength > maxCharLength ? 'text-over-limit' : ''}`}
+          >{textAreaLength}/{maxCharLength}</span>
         </div>
-        {isNew ? (
-          <button onClick={() => handleSubmit('create')} type='submit'>Adicionar</button>
-        ) : (
-          <button onClick={() => handleSubmit('update')} type='submit'>Salvar</button>
-        )}
+        <div className='c-btn-submit'>
+          {isNew ? (
+            <button onClick={() => handleSubmit('create')} type='submit'>Adicionar</button>
+          ) : (
+            <button onClick={() => handleSubmit('update')} type='submit'>Salvar</button>
+          )}
+        </div>
       </>
       ) : (
         <div className='c-movie-review-text'>
