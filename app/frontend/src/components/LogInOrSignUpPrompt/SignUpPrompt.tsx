@@ -3,7 +3,7 @@ import { isAxiosError } from 'axios';
 import { useAppContext } from '../../utils';
 import { requestSignUp, setToken } from '../../services/requests';
 import { SignUp } from '../../../../backend/src/types/SignUp';
-import useErrorMessages from '../../hooks/useErroMessages';
+import useErrorMessages from '../../hooks/useErrorMessages';
 
 const SignUpPrompt = () => {
   const { showLogInOrSignUp, setShowLogInOrSignUp, setUserRequest } = useAppContext();

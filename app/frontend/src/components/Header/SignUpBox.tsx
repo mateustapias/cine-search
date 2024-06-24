@@ -1,5 +1,5 @@
 import { useAppContext } from '../../utils';
-import '../../styles/components/SignUpBox.scss';
+import '../../styles/components/Header/SignUpBox.scss';
 
 const SignUpBox = () => {
   const { setShowLogInOrSignUp } = useAppContext();

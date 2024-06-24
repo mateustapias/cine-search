@@ -1,13 +1,13 @@
 import { useState, ChangeEvent, useEffect } from 'react';
-import { isAxiosError } from 'axios';
 import { useParams } from 'react-router-dom';
+import { isAxiosError } from 'axios';
 import { Review } from '../../../../types';
+import { CustomRatingSelector } from '.';
 import { defaultUserIcon, pencilIcon } from '../../../assets/icons';
-import '../../../styles/components/MovieReviewCard.scss';
 import { requestAddReview, requestUpdateReview } from '../../../services/requests';
-import CustomRatingSelector from './CustomRatingSelector';
-import getReviewButtonColor from '../../../utils/getReviewButtonColor';
-import useErrorMessages from '../../../hooks/useErroMessages';
+import { getReviewButtonColor } from '../../../utils';
+import { useErrorMessages } from '../../../hooks';
+import '../../../styles/components/MovieReviewCard/MovieReviewCard.scss';
 
 type MovieReviewsProps = {
   review: Review;
@@ -21,10 +21,6 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
   const FORM_INITIAL_STATE = {
     rating: review.rating || 0,
     text: review.text || '',
-    // text: {
-    //   content: review.text || '',
-    //   length: review.text.length || 0,
-    // },
   };
   const fieldsError = ['text'];
   const maxCharLength = 280;
@@ -97,7 +93,7 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
           <CustomRatingSelector rating={reviewFormData.rating} onChange={handleRatingChange} />
         </div>
         <div className='c-movie-review-text'>
-          <textarea name='text' value={reviewFormData.text} onChange={handleChange} autoFocus rows={3} wrap='off'/>
+          <textarea name='text' value={reviewFormData.text} onChange={handleChange} autoFocus rows={3} wrap='off' />
           {text && <div className='c-error-msg'>{text}</div>}
           <span
             className={`c-textarea-length-counter ${textAreaLength > maxCharLength ? 'text-over-limit' : ''}`}

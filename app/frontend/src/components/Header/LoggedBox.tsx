@@ -1,7 +1,7 @@
 import { Dispatch, useState } from 'react';
 import { defaultUserIcon, downIcon } from '../../assets/icons';
 import { UserData } from '../../../types';
-import '../../styles/components/LoggedBox.scss';
+import '../../styles/components/Header/LoggedBox.scss';
 
 type LoggedBoxProps = {
   userData: UserData;

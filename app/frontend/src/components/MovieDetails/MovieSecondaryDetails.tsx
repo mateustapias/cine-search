@@ -1,6 +1,6 @@
 import { Movie } from '../../../types';
 import { calendarIcon, clockIcon, starIcon } from '../../assets/icons';
-import '../../styles/components/MovieSecondaryDetails.scss';
+import '../../styles/components/MovieDetails/MovieSecondaryDetails.scss';
 
 type MovieSecondaryDetailsProps = {
   movieData: Movie;

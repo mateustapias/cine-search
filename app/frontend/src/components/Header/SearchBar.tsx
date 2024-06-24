@@ -1,12 +1,9 @@
-import {
-  ChangeEvent, useState,
-} from 'react';
+import { ChangeEvent, useState } from 'react';
 import axios from 'axios';
-// import { SearchSuggestionCard } from '.';
 import { searchIcon } from '../../assets/icons';
 import { Movie } from '../../../types';
-import '../../styles/components/SearchBar.scss';
 import SearchSuggestion from './SearchSuggestion';
+import '../../styles/components/Header/SearchBar.scss';
 
 const SearchBar = () => {
   const FORM_INITIAL_STATE = {

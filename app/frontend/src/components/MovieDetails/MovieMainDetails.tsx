@@ -1,5 +1,5 @@
 import { Movie } from '../../../types';
-import '../../styles/components/MovieMainDetails.scss';
+import '../../styles/components/MovieDetails/MovieMainDetails.scss';
 
 type MovieMainDetailsProps = {
   movieData: Movie;

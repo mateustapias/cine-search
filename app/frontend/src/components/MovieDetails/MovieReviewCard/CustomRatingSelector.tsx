@@ -1,5 +1,5 @@
-import '../../../styles/components/CustomRatingSelector.scss';
 import getReviewButtonColor from '../../../utils/getReviewButtonColor';
+import '../../../styles/components/MovieReviewCard/CustomRatingSelector.scss';
 
 type CustomRatingSelectorProps = {
   rating: number;

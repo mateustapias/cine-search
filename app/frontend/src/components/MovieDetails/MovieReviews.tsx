@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Review } from '../../../types';
 import { requestData, setToken } from '../../services/requests';
-import MovieReviewCard from './MovieReviewCard.tsx/MovieReviewCard';
-import '../../styles/components/MovieReviews.scss';
+import { MovieReviewCard } from './MovieReviewCard';
 import { getUserData } from '../../utils';
+import '../../styles/components/MovieDetails/MovieReviews.scss';
 
 type MovieReviewsProps = {
   id: number;

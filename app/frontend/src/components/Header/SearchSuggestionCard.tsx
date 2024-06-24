@@ -1,5 +1,5 @@
 import { Movie } from '../../../types';
-import '../../styles/components/SearchSuggestionCard.scss';
+import '../../styles/components/Header/SearchSuggestionCard.scss';
 
 type SearchSuggestionCardProps = {
   movie: Movie

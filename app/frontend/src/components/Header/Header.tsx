@@ -6,7 +6,7 @@ import {
 } from '.';
 import { getUserData, useAppContext } from '../../utils';
 import { UserData } from '../../../types';
-import '../../styles/components/Header.scss';
+import '../../styles/layout/Header.scss';
 
 const Header = () => {
   const { userRequest, setUserRequest } = useAppContext();
