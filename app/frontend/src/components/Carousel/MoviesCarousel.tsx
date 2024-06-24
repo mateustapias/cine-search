@@ -19,19 +19,17 @@ const MoviesCarousel = ({ moviesData, chunkSize = 4, maxGroups = 5 }: MoviesCaro
       <Carousel.Item key={index}>
         <div className='c-movie-group'>
           {/* Verifica se é um movie */}
-          {
-            (typeof group[0] === 'object')
-              ? (
-                group.map((movie, movieIndex) => (
-                  <MoviesCarouselCard key={movieIndex} movie={movie as Movie} />
-                )))
-              : (
-                group.map((_movie, movieIndex) => (
-                  <div key={movieIndex} className='c-movie-card'>
-                    <Skeleton height={'100%'} />
-                  </div>
-                )))
-          }
+          {(typeof group[0] === 'object') ? (
+            group.map((movie, movieIndex) => (
+              <MoviesCarouselCard key={movieIndex} movie={movie as Movie} />
+            ))
+          ) : (
+            group.map((_movie, movieIndex) => (
+              <div key={movieIndex} className='c-movie-card'>
+                <Skeleton height={'100%'} />
+              </div>
+            ))
+          )}
         </div>
       </Carousel.Item>
     )))}

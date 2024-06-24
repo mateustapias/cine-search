@@ -3,7 +3,6 @@ import useMovies from '../../hooks/useMovies';
 
 const PopularMovies = () => {
   const { moviesData } = useMovies('popular');
-  // const { moviesData, isLoading } = useMovies('popular');
 
   return (
     <div className='c-movies c-popular-movies'>

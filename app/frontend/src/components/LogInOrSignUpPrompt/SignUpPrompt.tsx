@@ -67,8 +67,9 @@ const SignUpPrompt = () => {
             className={`input-email${email ? ' invalid' : ''}`}
             onChange={handleChange}
           />
-          {email
-            && <div className='c-error-msg'>{email}</div>}
+          {email && (
+            <div className='c-error-msg'>{email}</div>
+          )}
         </div>
         <div className='c-username'>
           <label htmlFor='username' className='label-username'>Usuário</label>
@@ -79,8 +80,9 @@ const SignUpPrompt = () => {
             className={`input-username${username ? ' invalid' : ''}`}
             onChange={handleChange}
           />
-          {username
-            && <div className='c-error-msg'>{username}</div>}
+          {username && (
+            <div className='c-error-msg'>{username}</div>
+          )}
         </div>
         <div className='c-password'>
           <label htmlFor='password' className='label-password'>Senha</label>
@@ -91,11 +93,13 @@ const SignUpPrompt = () => {
             className={`input-password${password ? ' invalid' : ''}`}
             onChange={handleChange}
           />
-          {password
-            && <div className='c-error-msg'>{password}</div>}
+          {password && (
+            <div className='c-error-msg'>{password}</div>
+          )}
         </div>
-        {userExists
-          && <div className='c-error-msg'>{userExists}</div>}
+        {userExists && (
+          <div className='c-error-msg'>{userExists}</div>
+        )}
         <div className='c-submit-btn'>
           <button type='submit'>Entrar</button>
         </div>

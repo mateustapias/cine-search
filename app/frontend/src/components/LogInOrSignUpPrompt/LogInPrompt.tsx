@@ -64,9 +64,9 @@ const LogInPrompt = () => {
             onChange={handleChange}
           />
         </div>
-        {failedLogInTry
-          && <div className='c-error-msg'>Email e/ou senha inválidos</div>
-        }
+        {failedLogInTry && (
+          <div className='c-error-msg'>Email e/ou senha inválidos</div>
+        )}
         <div className='c-submit-btn'>
           <button type='submit'>Entrar</button>
         </div>

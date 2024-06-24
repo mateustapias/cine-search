@@ -63,7 +63,9 @@ const SearchBar = () => {
           <img id='search-icon' src={searchIcon} />
         </button>
       </div>
-      {showSuggestions && <SearchSuggestion movies={searchResults} />}
+      {showSuggestions && (
+        <SearchSuggestion movies={searchResults} />
+      )}
     </div>
   );
 };

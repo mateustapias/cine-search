@@ -24,16 +24,21 @@ const GeneralPrompt = () => {
             <button
               className={`btn-log-in${(userSelection === 'logIn') ? ' active' : ''}`}
               onClick={() => setUserSelection('logIn')}
-            >Log in</button>
+            >
+              Log in
+            </button>
             <button
               className={`btn-sign-up${(userSelection === 'signUp') ? ' active' : ''}`}
               onClick={() => setUserSelection('signUp')}
-            >Sign up</button>
+            >
+              Sign up
+            </button>
           </div>
-          {(userSelection === 'logIn')
-            ? <LogInPrompt />
-            : <SignUpPrompt />
-          }
+          {userSelection === 'logIn' ? (
+            <LogInPrompt />
+          ) : (
+            <SignUpPrompt />
+          )}
         </div>
       </div>
     </div>

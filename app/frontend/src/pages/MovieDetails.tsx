@@ -27,16 +27,16 @@ const MovieDetails = () => {
   return (
     <>
       <div className='c-movie-details-a'>
-        {
-          (movieData && (<>
+        {movieData ? (
+          <>
             <MovieMainDetails movieData={movieData} />
             <MovieSecondaryDetails movieData={movieData} />
-          </>)
-          ) || (
-            <div style={{ flex: 1 }}>
-              <Skeleton width={'100%'} height={'100%'} />
-            </div>
-          )}
+          </>
+        ) : (
+          <div style={{ flex: 1 }}>
+            <Skeleton width={'100%'} height={'100%'} />
+          </div>
+        )}
       </div >
       <MovieReviews id={Number(id)} />
     </>

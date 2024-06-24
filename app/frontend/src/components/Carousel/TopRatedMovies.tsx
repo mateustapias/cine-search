@@ -3,7 +3,6 @@ import useMovies from '../../hooks/useMovies';
 
 const TopRatedMovies = () => {
   const { moviesData } = useMovies('top-rated');
-  // const { moviesData, isLoading } = useMovies('top-rated');
 
   return (
     <div className='c-movies c-top-rated-movies'>

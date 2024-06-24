@@ -2,7 +2,7 @@ import { Movie } from '../../../types';
 import '../../styles/components/Header/SearchSuggestionCard.scss';
 
 type SearchSuggestionCardProps = {
-  movie: Movie
+  movie: Movie;
 };
 
 const SearchSuggestionCard = ({ movie }: SearchSuggestionCardProps) => (
@@ -11,7 +11,7 @@ const SearchSuggestionCard = ({ movie }: SearchSuggestionCardProps) => (
       <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
     </div>
     <div className='c-search-suggestion-title'>
-      {movie.title}
+      <span>{movie.title}</span>
     </div>
   </a>
 );

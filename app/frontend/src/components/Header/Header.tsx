@@ -30,13 +30,14 @@ const Header = () => {
         </div>
       </Link>
       <SearchBar />
-      {userData
-        ? <LoggedBox userData={userData} setUserData={setUserData} />
-        : <>
+      {userData ? (
+        <LoggedBox userData={userData} setUserData={setUserData} />
+      ) : (
+        <>
           <LogInBox />
           <SignUpBox />
         </>
-      }
+      )}
     </div>
   );
 };

@@ -28,19 +28,19 @@ const LoggedBox = ({ userData, setUserData }: LoggedBoxProps) => {
           <img src={defaultUserIcon} />
         </div>
         <div className='c-username'>
-          {userData.username}
+          <span>{userData.username}</span>
         </div>
         <div className={`c-img-down${menu ? ' with-menu' : ''}`}>
-          <img src={downIcon}/>
+          <img src={downIcon} />
         </div>
       </button>
-      {menu
-        && <div className='c-user-options'>
+      {menu && (
+        <div className='c-user-options'>
           <button className='aa btn-log-off' onClick={logOff}>
             LogOff
           </button>
         </div>
-      }
+      )}
     </div>
   );
 };

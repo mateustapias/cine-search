@@ -15,20 +15,14 @@ const MovieSecondaryDetails = ({ movieData }: MovieSecondaryDetailsProps) => (
       </div>
       <div className='c-movie-runtime'>
         <img className='icon-clock' src={clockIcon} />
-        <span>
-          {`${movieData.runtime} min`}
-        </span>
+        <span>{`${movieData.runtime} min`}</span>
       </div>
       <div className='c-movie-release-date'>
         <img className='icon-clock' src={calendarIcon} />
-        <span>
-          {movieData.release_date}
-        </span>
+        <span>{movieData.release_date}</span>
       </div>
       <div className='c-movie-overview'>
-        <p>
-          {movieData.overview}
-        </p>
+        <p>{movieData.overview}</p>
       </div>
     </div>
   </div>
