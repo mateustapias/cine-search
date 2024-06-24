@@ -1,4 +1,6 @@
-import { useState, ChangeEvent, useEffect } from 'react';
+import {
+  useState, ChangeEvent, useEffect, Dispatch, SetStateAction,
+} from 'react';
 import { useParams } from 'react-router-dom';
 import { isAxiosError } from 'axios';
 import { Review } from '../../../../types';
@@ -13,9 +15,12 @@ type MovieReviewsProps = {
   review: Review;
   isFromUser?: boolean;
   isNew?: boolean;
+  setIsAddingReview?: Dispatch<SetStateAction<boolean>>;
 };
 
-const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
+const MovieReviewCard = ({
+  review, isFromUser, isNew, setIsAddingReview,
+}: MovieReviewsProps) => {
   const { id } = useParams();
   const movieId = Number(id);
   const FORM_INITIAL_STATE = {
@@ -36,6 +41,13 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
       setEditMode(true);
     }
   }, [isNew]);
+
+  const handleExitEditMode = () => {
+    if (setIsAddingReview) {
+      setIsAddingReview(false);
+    }
+    setEditMode(false);
+  };
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = event.target;
@@ -76,12 +88,14 @@ const MovieReviewCard = ({ review, isFromUser, isNew }: MovieReviewsProps) => {
           style={{ backgroundColor: getReviewButtonColor(reviewFormData.rating) }}
         >{reviewFormData.rating}</span>
         <div className='c-movie-review-author'>
-          <img src={defaultUserIcon} alt='User Icon' />
+          <div className='c-img-user'>
+            <img src={defaultUserIcon} alt='User Icon' />
+          </div>
           <h2>{review.user?.username}</h2>
         </div>
         {isFromUser && (
           editMode ? (
-            <button className='c-btn-exit-edit-review' onClick={() => setEditMode(false)}>X</button>
+            <button className='c-btn-exit-edit-review' onClick={handleExitEditMode}>X</button>
           ) : (
             <button className='c-btn-edit-review' onClick={() => setEditMode(true)}>
               <img src={pencilIcon} alt='Edit icon' />

@@ -29,12 +29,18 @@
       align-items: center;
       height: 3rem;
 
-      img {
+      .c-img-user {
         height: 100%;
         border: 1px solid rgb(255 255 255 / 30%);
         background-color: rgb(0 0 0 / 30%);
         border-radius: 50%;
         margin-right: 0.5rem;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          filter: invert(80%);
+        }
       }
 
       h2 {
@@ -81,7 +87,7 @@
     }
 
     .c-error-msg {
-      color: var(--error-text-message-color)
+      color: var(--error-text-message-color);
     }
   }
 

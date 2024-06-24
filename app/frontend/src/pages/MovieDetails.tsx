@@ -26,18 +26,18 @@ const MovieDetails = () => {
 
   return (
     <>
-      <div className='c-movie-details-a'>
-        {movieData ? (
-          <>
-            <MovieMainDetails movieData={movieData} />
-            <MovieSecondaryDetails movieData={movieData} />
-          </>
-        ) : (
-          <div style={{ flex: 1 }}>
-            <Skeleton width={'100%'} height={'100%'} />
-          </div>
-        )}
-      </div >
+      {/* <div className='c-movie-details-a'> */}
+      {movieData ? (
+        <div className='c-movie-details-a'>
+          <MovieMainDetails movieData={movieData} />
+          <MovieSecondaryDetails movieData={movieData} />
+        </div>
+      ) : (
+        // <div style={{ flex: 1, height: '50vh' }}>
+        <Skeleton width={'100%'} height={'50vh'} />
+        // </div>
+      )}
+      {/* </div > */}
       <MovieReviews id={Number(id)} />
     </>
   );
