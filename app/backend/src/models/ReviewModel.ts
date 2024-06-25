@@ -76,8 +76,8 @@ export default class ReviewModel implements IReviewModel {
     return dbData;
   }
 
-  async updateOne(review: IReview): Promise<void> {
-    await this.model.update(
+  async updateOne(review: IReview): Promise<boolean> {
+    const [affectedCount] = await this.model.update(
       review,
       {
         where: {
@@ -85,13 +85,15 @@ export default class ReviewModel implements IReviewModel {
         },
       },
     );
+    return affectedCount === 1;
   }
 
-  async deleteOne(id: number): Promise<void> {
-    await this.model.destroy({
+  async deleteOne(id: number): Promise<boolean> {
+    const deletedCount = await this.model.destroy({
       where: {
         id,
       },
     });
+    return deletedCount === 1;
   }
 }

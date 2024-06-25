@@ -70,7 +70,7 @@ const MovieReviewCard = ({
       if (type === 'create') {
         await requestAddReview({ ...reviewFormData, movieId });
       } else {
-        await requestUpdateReview({ ...reviewFormData, movieId, id: Number(review.id) });
+        await requestUpdateReview({ ...reviewFormData, movieId }, Number(review.id));
       }
       window.location.reload();
     } catch (error) {
@@ -102,14 +102,14 @@ const MovieReviewCard = ({
           <>
             {!isNew && (
               <button className='btn-delete-review' onClick={handleDelete}>
-                <img src={trashCanIcon} />
+                <img src={trashCanIcon} className='img-trash-can-icon'/>
               </button>
             )}
             {editMode ? (
               <button className='btn-exit-edit-review' onClick={handleExitEditMode}>X</button>
             ) : (
               <button className='btn-edit-review' onClick={() => setEditMode(true)}>
-                <img src={pencilIcon} alt='Edit icon' />
+                <img className='img-pencil-icon' src={pencilIcon} alt='Edit icon' />
               </button>
             )}
           </>

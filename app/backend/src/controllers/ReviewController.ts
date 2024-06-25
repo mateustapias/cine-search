@@ -49,10 +49,12 @@ export default class ReviewController {
 
   async updateReview(req: Request, res: Response) {
     const reviewData = req.body;
-
+    const { id: reviewId } = req.params;
     const { id: userId } = res.locals.user as IUser;
 
-    const { status, data } = await this.reviewService.updateReview({ ...reviewData, userId });
+    const { status, data } = await this.reviewService.updateReview(
+      { ...reviewData, userId, id: Number(reviewId) },
+    );
 
     return res.status(mapStatusHTTP(status)).json(data);
   }

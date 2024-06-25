@@ -74,15 +74,29 @@ export default class ReviewService {
 
   async updateReview(review: IReview): Promise<ServiceResponse<ServiceMessage>> {
     // const review =
-    await this.reviewModel.updateOne(review);
+    const updated = await this.reviewModel.updateOne(review);
 
-    return { status: 'NO_CONTENT', data: { message: 'Review updated' } };
+    return updated ? (
+      { status: 'NO_CONTENT', data: { message: 'Review updated' } }
+    ) : (
+      { status: 'BAD_REQUEST', data: { message: dataBaseErrorMessage } }
+    );
   }
 
   async deleteReview(id: number): Promise<ServiceResponse<ServiceMessage>> {
     // const review =
-    await this.reviewModel.deleteOne(id);
+    const deleted = await this.reviewModel.deleteOne(id);
 
-    return { status: 'NO_CONTENT', data: { message: 'Review updated' } };
+    // if (!deleted) {
+    //   return { status: 'BAD_REQUEST', data: { message: dataBaseErrorMessage } };
+    // }
+
+    // return { status: 'NO_CONTENT', data: { message: 'Review updated' } };
+
+    return deleted ? (
+      { status: 'NO_CONTENT', data: { message: 'Review deleted' } }
+    ) : (
+      { status: 'BAD_REQUEST', data: { message: dataBaseErrorMessage } }
+    );
   }
 }

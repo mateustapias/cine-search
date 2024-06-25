@@ -65,11 +65,11 @@ const addReviewSchema = Joi.object({
 }).options({ abortEarly: false });
 
 const updateReviewSchema = Joi.object({
-  id: Joi.number().integer().required()
-    .messages({
-      'any.required': schemaErrorMessages.review.id.required,
-      'number.base': schemaErrorMessages.review.id.number,
-    }),
+  // id: Joi.number().integer().required()
+  //   .messages({
+  //     'any.required': schemaErrorMessages.review.id.required,
+  //     'number.base': schemaErrorMessages.review.id.number,
+  //   }),
   rating: Joi.number().integer().required().min(0)
     .max(10)
     .messages({

@@ -32,11 +32,17 @@ reviewRouter.post(
 );
 
 reviewRouter.patch(
-  '/update',
+  '/update/:id',
   AuthMiddleware.auth,
   Validations.validateUpdateReview,
   (req: Request, res: Response) => reviewController.updateReview(req, res),
 );
+// reviewRouter.patch(
+//   '/update',
+//   AuthMiddleware.auth,
+//   Validations.validateUpdateReview,
+//   (req: Request, res: Response) => reviewController.updateReview(req, res),
+// );
 
 reviewRouter.delete(
   '/delete/:id',

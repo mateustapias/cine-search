@@ -11,6 +11,6 @@ export interface IReviewModel {
   findOneByUserAndMovie(userId: number, movieId: number): Promise<IReview | null>;
   findAllByMovie(movieId: number): Promise<IReview[] | null>;
   createOne(review: IReview): Promise<IReview | null>;
-  updateOne(review: IReview): Promise<void>;
-  deleteOne(id: number): Promise<void>;
+  updateOne(review: IReview): Promise<boolean>;
+  deleteOne(id: number): Promise<boolean>;
 }
