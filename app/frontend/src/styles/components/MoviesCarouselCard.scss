@@ -2,13 +2,12 @@
   width: 15%;
   height: 23rem;
   background-color: var(--primary-container-color);
-
-  // background-color: rgb(26 26 26);
   border-radius: 3px;
   text-decoration: none;
   color: #ebeed5;
   padding-bottom: 6px;
   box-shadow: 2px 2px 2px rgb(0 0 0 / 100%);
+  transition: scale 0.2s ease-out;
 
   .c-movie-poster {
     box-shadow: 0 2px 2px rgb(12 12 12 / 20%);
@@ -57,4 +56,8 @@
       }
     }
   }
+}
+
+.c-movie-card:hover {
+  scale: 1.05;
 }

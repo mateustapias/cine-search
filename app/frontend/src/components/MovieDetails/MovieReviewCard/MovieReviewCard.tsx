@@ -90,7 +90,8 @@ const MovieReviewCard = ({
       <div className='c-movie-review-header'>
         <span
           className='c-movie-review-rating-prompt'
-          style={{ backgroundColor: getReviewButtonColor(reviewFormData.rating) }}
+          // style={{ backgroundColor: getReviewButtonColor(reviewFormData.rating) }}
+          style={{ '--color': getReviewButtonColor(reviewFormData.rating) } as React.CSSProperties}
         >{reviewFormData.rating}</span>
         <div className='c-movie-review-author'>
           <div className='c-img-user'>

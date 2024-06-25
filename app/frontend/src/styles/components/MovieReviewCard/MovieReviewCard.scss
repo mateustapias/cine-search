@@ -17,6 +17,8 @@
       width: 5rem;
       height: 5rem;
       border-radius: 50%;
+      background-color: var(--color);
+      box-shadow: 0 0 2px var(--color);
       font-size: 2.5rem;
       font-weight: bold;
       text-shadow: 1px 1px 0 black, -1px 1px 0 black, 1px -1px 0 black,

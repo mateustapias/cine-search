@@ -11,19 +11,21 @@
     height: 2.25rem;
     border-radius: 50%;
     border: 1px solid var(--color);
+    box-shadow: 0 0 2px var(--color);
     cursor: pointer;
     background-color: rgb(0 0 0 / 50%);
     color: white;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s;
     position: relative;
   }
 
   .c-rating-circle:hover {
     background-color: var(--color);
-    color: white;
+    box-shadow: 0 0 4px var(--color);
   }
 
   .c-rating-circle.selected {
     background-color: var(--color);
+    box-shadow: 0 0 8px var(--color) ;
   }
 }
