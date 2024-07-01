@@ -6,6 +6,7 @@ type UseMoviesType = 'popular' | 'top-rated';
 
 const useMovies = (type: UseMoviesType) => {
   const [moviesData, setMoviesData] = useState<Movie[] | undefined>();
+  // isLoading não está sendo utilizado por enquanto
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,6 +24,8 @@ const useMovies = (type: UseMoviesType) => {
         setIsLoading(false);
       } catch (err) {
         console.error('Error fetching movie data:', err);
+      } finally {
+        setIsLoading(false);
       }
     };
 
