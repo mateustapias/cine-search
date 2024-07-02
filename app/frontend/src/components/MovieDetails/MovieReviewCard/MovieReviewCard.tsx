@@ -6,7 +6,9 @@ import { isAxiosError } from 'axios';
 import { Review } from '../../../../types';
 import { CustomRatingSelector } from '.';
 import { defaultUserIcon, pencilIcon, trashCanIcon } from '../../../assets/icons';
-import { requestAddReview, requestDeleteReview, requestUpdateReview } from '../../../services/requests';
+import {
+  requestAddReview, requestDeleteReview, requestUpdateReview, setToken,
+} from '../../../services/requests';
 import { getReviewButtonColor } from '../../../utils';
 import { useErrorMessages } from '../../../hooks';
 import '../../../styles/components/MovieReviewCard/MovieReviewCard.scss';
@@ -66,6 +68,8 @@ const MovieReviewCard = ({
   };
 
   const handleSubmit = async (type: 'create' | 'update') => {
+    // const user = getUserData();
+    // if (user) setToken(user.token);
     try {
       if (type === 'create') {
         await requestAddReview({ ...reviewFormData, movieId });

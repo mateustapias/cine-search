@@ -8,13 +8,12 @@ const config: Options = {
   database: process.env.DB_NAME || 'cine-search',
   host: process.env.DB_HOST || 'localhost',
   // host: process.env.DB_HOST || 'db',
-  port: Number(process.env.DB_PORT) || 3307,
+  port: Number(process.env.DB_PORT) || 3306,
+  // port: Number(process.env.DB_PORT) || 3307,
   dialect: 'mysql',
   dialectOptions: {
     timezone: 'Z',
   },
-  // logging: false,
-  // logging: console.log
 }
 
 const dBName = process.env.DB_NAME;

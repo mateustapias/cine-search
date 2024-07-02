@@ -27,14 +27,17 @@ const MovieDetails = () => {
   return (
     <>
       {movieData ? (
-        <div className='c-movie-details-a'>
-          <MovieMainDetails movieData={movieData} />
-          <MovieSecondaryDetails movieData={movieData} />
-        </div>
+        <>
+          <div className='c-movie-details-a'>
+            <MovieMainDetails movieData={movieData} />
+            <MovieSecondaryDetails movieData={movieData} />
+          </div>
+          <MovieReviews id={Number(id)} />
+        </>
       ) : (
         <Skeleton width={'100%'} height={'50vh'} />
       )}
-      <MovieReviews id={Number(id)} />
+      {/* <MovieReviews id={Number(id)} /> */}
     </>
   );
 };
