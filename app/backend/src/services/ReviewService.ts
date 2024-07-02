@@ -2,6 +2,7 @@ import { ServiceMessage, ServiceResponse } from '../types/ServiceResponse';
 import { dataBaseErrorMessage } from './errorMessages';
 import { IReview, IReviewModel } from '../interfaces/review';
 import ReviewModel from '../models/ReviewModel';
+import getSeederReviews from '../scripts/getSeederReviews';
 
 export default class ReviewService {
   constructor(
@@ -50,9 +51,32 @@ export default class ReviewService {
         status: 'NOT_FOUND', data: { message: dataBaseErrorMessage },
       };
       return serviceResponse;
+      // const seederReviews = await this.createSeederReviews(movieId);
+      // serviceResponse = { status: 'SUCCESSFUL', data: seederReviews };
+      // return seederReviews as ServiceResponse<IReview[]>;
     }
 
     serviceResponse = { status: 'SUCCESSFUL', data: reviews };
+    return serviceResponse;
+  }
+
+  async createSeederReviews(movieId: number) {
+    let serviceResponse: ServiceResponse<IReview[]>;
+
+    const reviewsAmount = Math.floor(Math.random() * 10) + 1;
+
+    const reviews = getSeederReviews(reviewsAmount, movieId);
+
+    const newReviews = await this.reviewModel.createMany(reviews);
+
+    if (!newReviews) {
+      serviceResponse = {
+        status: 'BAD_REQUEST', data: { message: dataBaseErrorMessage },
+      };
+      return serviceResponse;
+    }
+
+    serviceResponse = { status: 'CREATED', data: newReviews };
     return serviceResponse;
   }
 
@@ -73,7 +97,6 @@ export default class ReviewService {
   }
 
   async updateReview(review: IReview): Promise<ServiceResponse<ServiceMessage>> {
-    // const review =
     const updated = await this.reviewModel.updateOne(review);
 
     return updated ? (
@@ -84,14 +107,7 @@ export default class ReviewService {
   }
 
   async deleteReview(id: number): Promise<ServiceResponse<ServiceMessage>> {
-    // const review =
     const deleted = await this.reviewModel.deleteOne(id);
-
-    // if (!deleted) {
-    //   return { status: 'BAD_REQUEST', data: { message: dataBaseErrorMessage } };
-    // }
-
-    // return { status: 'NO_CONTENT', data: { message: 'Review updated' } };
 
     return deleted ? (
       { status: 'NO_CONTENT', data: { message: 'Review deleted' } }

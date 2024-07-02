@@ -42,6 +42,13 @@ export const requestAddReview = async (body: Review): Promise<Review> => {
   return data;
 };
 
+export const requestAddSeederReviews = async (movieId: number): Promise<Review[]> => {
+  const endpoint = `reviews/createSeeders/${movieId}`;
+  const { data } = await api.post(endpoint);
+
+  return data;
+};
+
 export const requestUpdateReview = async (body: Review, id:number): Promise<Review> => {
   const endpoint = `reviews/update/${id}`;
   const { data } = await api.patch(endpoint, body);

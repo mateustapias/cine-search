@@ -14,7 +14,9 @@
     "start": "node ./build/server.js",
     "predev": "npm run db:reset",
     "dev": "tsnd --watch \"./src/**\" --transpile-only ./src/server.ts",
-    "lint": "eslint ./src --ext .ts"
+    "lint": "eslint ./src --ext .ts",
+    "compose:up": "cd .. && cd .. && npm run compose:up",
+    "compose:down": "cd .. && cd .. && npm run compose:down"
   },
   "keywords": [],
   "author": "",

@@ -3,12 +3,14 @@ import {
   Model,
   InferAttributes,
   InferCreationAttributes,
+  CreationOptional,
 } from 'sequelize';
 import db from '.';
 
 class SequelizeReview extends Model<InferAttributes<SequelizeReview>,
 InferCreationAttributes<SequelizeReview>> {
-  declare id: number;
+  declare id: CreationOptional<number>;
+  // declare id: number;
 
   declare rating: number;
 

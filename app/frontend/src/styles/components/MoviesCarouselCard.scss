@@ -7,8 +7,10 @@
   color: #ebeed5;
   padding-bottom: 6px;
   box-shadow: 2px 2px 2px rgb(0 0 0 / 100%);
+
   // transition: scale 0.2s ease-out;
   transition: scale 0.3s ease-out;
+
   // transition: scale 0.4s ease-out;
 
   .c-movie-poster {
@@ -62,5 +64,6 @@
 
 .c-movie-card:hover {
   scale: 1.05;
+
   // scale: 1.1;
 }

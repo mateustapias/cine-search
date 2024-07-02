@@ -1,6 +1,6 @@
 import { ServiceResponseSuccessType, ServiceResponseErrorType } from '../types/ServiceResponse';
 
-type HTTPStatus = ServiceResponseErrorType | ServiceResponseSuccessType;
+export type HTTPStatus = ServiceResponseErrorType | ServiceResponseSuccessType;
 
 export default function mapStatusHTTP(status: HTTPStatus): number {
   switch (status) {

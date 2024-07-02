@@ -24,11 +24,17 @@ reviewRouter.get(
   (req: Request, res: Response) => reviewController.getAllByMovie(req, res),
 );
 
+// TODO: alterar para criar pela rota!
 reviewRouter.post(
   '/create',
   Validations.validateAddReview,
   AuthMiddleware.auth,
   (req: Request, res: Response) => reviewController.createReview(req, res),
+);
+
+reviewRouter.post(
+  '/createSeeders/:movieId',
+  (req: Request, res: Response) => reviewController.createManyReviews(req, res),
 );
 
 reviewRouter.patch(

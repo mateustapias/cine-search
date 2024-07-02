@@ -2,7 +2,7 @@ import { QueryInterface } from 'sequelize';
 
 export default {
   up: async (queryInterface: QueryInterface) => {
-    // 55 usuários
+    // 50 usuários funcionais (52 no total)
     await queryInterface.bulkInsert('users', [
       {
         username: 'Admin',
@@ -19,20 +19,20 @@ export default {
         // senha: secret_user
       },
       // os logins abaixo são intencionalmente inválidos, pois serão usados nos testes
-      {
-        username: 'User',
-        role: 'user',
-        email: '@user.com',
-        password: '$2a$08$Y8Abi8jXvsXyqm.rmp0B.uQBA5qUz7T6Ghlg/CvVr/gLxYj5UAZVO',
-        // senha: secret_user
-      },
-      {
-        username: 'User',
-        role: 'user',
-        email: 'invalid.user@user.com',
-        password: '$2a$10$HDkFwOMKOI6PTza0F7.YRu1Bqsqb9hx7XkuV7QeYB5dRL4z9DI1Mu',
-        // senha: 12345
-      },
+      // {
+      //   username: 'User',
+      //   role: 'user',
+      //   email: '@user.com',
+      //   password: '$2a$08$Y8Abi8jXvsXyqm.rmp0B.uQBA5qUz7T6Ghlg/CvVr/gLxYj5UAZVO',
+      //   // senha: secret_user
+      // },
+      // {
+      //   username: 'User',
+      //   role: 'user',
+      //   email: 'invalid.user@user.com',
+      //   password: '$2a$10$HDkFwOMKOI6PTza0F7.YRu1Bqsqb9hx7XkuV7QeYB5dRL4z9DI1Mu',
+      //   // senha: 12345
+      // },
       {
         username: 'Bags',
         role: 'user',
@@ -341,6 +341,34 @@ export default {
         email: 'mighty.wolf@user.com',
         password: '$2a$08$K.4gWA8CIOh3eg53hyDkrOaNzNgTSdlf.0QbYT/MXyxknAPPEF56',
         // senha: mighty_wolf
+      },
+      {
+        username: 'BoldEagle',
+        role: 'user',
+        email: 'bold.eagle@user.com',
+        password: '$2a$08$OrQ2/Tz64c4Xy0yF9flDgeRBzRegS9fp.bu4LSBgRJfuoVSlBRCqi',
+        // senha: bold_eagle
+      },
+      {
+        username: 'ShyDeer',
+        role: 'user',
+        email: 'shy.deer@user.com',
+        password: '$2a$08$QHSQ8PBUFd9/AfJlVG3.reIkor8ZWtDiMDKVjgnDH8OABS2p25mc2',
+        // senha: shy_deer
+      },
+      {
+        username: 'CalmTurtle',
+        role: 'user',
+        email: 'calm.turtle@user.com',
+        password: '$2a$08$A5uFTEVryoGa9IerQBYfhOwW6A56KRTIzxPbOqtXSSSQngXQGnBqq',
+        // senha: calm_turtle
+      },
+      {
+        username: 'BraveEagle',
+        role: 'user',
+        email: 'brave.eagle@user.com',
+        password: '$2a$08$xdDnJtWPlRD/KIpF40b14eAV9KtgBsJUzhdhjroobwtf3LWG3/jiS',
+        // senha: brave_eagle
       }
     ], {});
   },

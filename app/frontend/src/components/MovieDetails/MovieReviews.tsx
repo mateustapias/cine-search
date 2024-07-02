@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Review } from '../../../types';
-import { requestData, setToken } from '../../services/requests';
+import { requestAddSeederReviews, requestData, setToken } from '../../services/requests';
 import { MovieReviewCard } from './MovieReviewCard';
 import { getUserData, useAppContext } from '../../utils';
 import '../../styles/components/MovieDetails/MovieReviews.scss';
@@ -31,13 +31,24 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
         }
       }
 
-      const reviewsData = await requestData(`/reviews/movie/${id}`) as Review[];
-      if (userReviewData) {
-        const filteredReviewsData = reviewsData.filter(
-          (review) => (review.userId !== userReviewData.userId),
-        );
-        setReviews(filteredReviewsData);
-      } else {
+      try {
+        const reviewsData = await requestData(`/reviews/movie/${id}`) as Review[];
+        // console.log('ain');
+        if (userReviewData) {
+          const filteredReviewsData = reviewsData.filter(
+            (review) => (review.userId !== userReviewData.userId),
+          );
+          setReviews(filteredReviewsData);
+        } else {
+          setReviews(reviewsData);
+        }
+      } catch (error) {
+        // console.log('oie');
+        await requestAddSeederReviews(id);
+        // const seederReviewsData = await requestAddSeederReviews(id);
+        // setReviews(seederReviewsData);
+        const reviewsData = await requestData(`/reviews/movie/${id}`) as Review[];
+
         setReviews(reviewsData);
       }
     };
@@ -45,9 +56,9 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
     fetchData();
   }, [id]);
 
-  const handleAddReviewClick = () => {
-    setIsAddingReview(true);
-  };
+  // const handleAddReviewClick = () => {
+  //   setIsAddingReview(true);
+  // };
 
   return (
     <div className='c-outer-movie-reviews'>
@@ -56,7 +67,7 @@ const MovieReviews = ({ id }: MovieReviewsProps) => {
         {isLogged ? (
           !userReview && (
             !isAddingReview && (
-              <button className='btn-add-review' onClick={handleAddReviewClick}>
+              <button className='btn-add-review' onClick={() => setIsAddingReview(true)}>
                 <div className='c-btn-content'>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

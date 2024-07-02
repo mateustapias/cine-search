@@ -65,6 +65,18 @@ export default class ReviewModel implements IReviewModel {
     return dbData;
   }
 
+  async createMany(reviews: IReview[]): Promise<IReview[] | null> {
+    const newReviews = await this.model.bulkCreate(reviews, {
+      include: [{
+        model: SequelizeUser,
+        attributes: ['username'],
+        as: 'user',
+      }],
+    });
+
+    return newReviews;
+  }
+
   async createOne(review: IReview): Promise<IReview | null> {
     const [dbData, error] = await handleAsyncError(this.model.create(review));
 

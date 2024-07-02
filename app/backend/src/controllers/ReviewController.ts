@@ -47,6 +47,14 @@ export default class ReviewController {
     return res.status(mapStatusHTTP(status)).json(data);
   }
 
+  async createManyReviews(req: Request, res: Response) {
+    const { movieId } = req.params;
+
+    const { status, data } = await this.reviewService.createSeederReviews(Number(movieId));
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
+
   async updateReview(req: Request, res: Response) {
     const reviewData = req.body;
     const { id: reviewId } = req.params;

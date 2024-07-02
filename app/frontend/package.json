@@ -7,7 +7,9 @@
     "build": "tsc && vite build",
     "lint": "eslint ./src --fix && npm run lint:styles",
     "lint:styles": "stylelint '**/*.scss' --fix",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "compose:up": "cd .. && cd .. && npm run compose:up",
+    "compose:down": "cd .. && cd .. && npm run compose:down"
   },
   "keywords": [],
   "author": "",
