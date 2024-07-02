@@ -51,7 +51,7 @@ SequelizeMoviesList.init({
   modelName: 'moviesList',
   // tableName: 'moviesLists',
   timestamps: false,
-  underscored: true,
+  // underscored: true,
 });
 
 export default SequelizeMoviesList;

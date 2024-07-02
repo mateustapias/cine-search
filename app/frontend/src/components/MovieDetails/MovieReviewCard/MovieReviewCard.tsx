@@ -7,7 +7,7 @@ import { Review } from '../../../../types';
 import { CustomRatingSelector } from '.';
 import { defaultUserIcon, pencilIcon, trashCanIcon } from '../../../assets/icons';
 import {
-  requestAddReview, requestDeleteReview, requestUpdateReview, setToken,
+  requestAddReview, requestDeleteReview, requestUpdateReview,
 } from '../../../services/requests';
 import { getReviewButtonColor } from '../../../utils';
 import { useErrorMessages } from '../../../hooks';
@@ -107,7 +107,7 @@ const MovieReviewCard = ({
           <>
             {!isNew && (
               <button className='btn-delete-review' onClick={handleDelete}>
-                <img src={trashCanIcon} className='img-trash-can-icon'/>
+                <img src={trashCanIcon} className='img-trash-can-icon' />
               </button>
             )}
             {editMode ? (

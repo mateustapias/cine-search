@@ -12,5 +12,5 @@ export interface IMoviesInList {
 }
 
 export interface IMoviesListModel {
-  findOne(id: number): Promise<IMoviesList | null>
+  findAllByUser(userId: number): Promise<IMoviesList[] | null>
 }
