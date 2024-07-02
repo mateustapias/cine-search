@@ -83,7 +83,12 @@ SequelizeMovie.init({
 // movieId na tabela SequelizeReview é a chave estrangeira que referencia SequelizeMovie
 // O alias reviews permite utilizar movie.getReviews() para obter todas as avaliações de um filme
 SequelizeMovie.hasMany(SequelizeReview, { foreignKey: 'movieId', as: 'reviews' });
-
+// SequelizeMovie.belongsToMany(SequelizeMoviesList, {
+//   through: SequelizeMoviesInList,
+//   foreignKey: 'movieId',
+//   otherKey: 'moviesListId',
+//   as: 'lists',
+// });
 // O alias movie permite utilizar review.getMovie() para obter o filme associado a uma avaliação
 SequelizeReview.belongsTo(SequelizeMovie, { foreignKey: 'movieId', as: 'movie' });
 
